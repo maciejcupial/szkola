@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!--
+  Lesson 6 (3TI, Pracownia aplikacji internetowych): tables in HTML.
+  Companion page for the deck tematy/80_pracownia_tabele/slajdy.html, slide 9 (step 5):
+  the first image on the site goes into the „O mnie” section of this page.
+  How to run: open index.html in a browser, or serve the folder: php -S localhost:8000
+-->
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>O mnie</title>
+  <meta name="description" content="O mnie: akapit i obraz.">
+  <link rel="icon" href="favicon.svg">
+</head>
+<body>
+  <header>
+    <h1>O mnie</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Start</a></li>
+      <li><a href="about.html">O mnie</a></li>
+      <li><a href="plan.html">Plan</a></li>
+      <li><a href="grades.html">Oceny</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section id="about">
+      <h2>O mnie</h2>
+      <p>Twój akapit z lekcji 4.</p>
+
+      <!-- src="photo.svg" with no address in front is a relative path: the browser looks for the
+           file next to this page. A file inside a subfolder would be src="obrazy/photo.svg".
+           alt describes the image in words, for anyone who will not see it. The name in src must
+           match the file name character by character, otherwise the browser shows the alt text. -->
+      <img src="photo.svg" alt="Zarys postaci na granatowym tle" width="480" height="320">
+    </section>
+  </main>
+
+  <footer>
+    <p>Autor: Imię Nazwisko, klasa 3TI</p>
+  </footer>
+</body>
+</html>

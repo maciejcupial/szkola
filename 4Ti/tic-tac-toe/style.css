@@ -1,0 +1,117 @@
+/*
+  Styles for the tic-tac-toe board from index.html.
+  The colors live in one place at the top, so changing the look means changing a few lines here.
+  The classes "x" and "o" are added to a cell by script.js to color the sign inside it.
+*/
+
+/* Custom properties: named values reused below. Written once here, used as var(--name) everywhere. */
+:root {
+  --background: #f1f5f9;
+  --text: #0f172a;
+  --muted: #64748b;
+  --accent: #2563eb;
+  --border: #cbd5e1;
+  --card: #ffffff;
+}
+
+/* box-sizing: border-box makes padding and border count inside the declared width,
+   so a 100px cell stays 100px wide instead of growing by its border. */
+* {
+  box-sizing: border-box;
+}
+
+/* Page basics: font, colors and a narrow centered column. */
+body {
+  margin: 0;
+  padding: 24px 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  background: var(--background);
+  text-align: center;
+}
+
+/* Heading: a little smaller than the browser default and closer to the board. */
+h1 {
+  margin: 0 0 8px;
+  font-size: 28px;
+}
+
+/* Status line: whose turn it is, or the result. Grey so the board stays the main thing. */
+#status {
+  margin: 0 0 20px;
+  font-size: 18px;
+  color: var(--muted);
+}
+
+/* The board: display grid places children in rows and columns.
+   repeat(3, 100px) means three columns, each exactly 100 pixels wide. */
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  /* gap is the space between grid cells, no margins needed. */
+  gap: 8px;
+  /* justify-content centers the whole grid inside the page column. */
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+/* One square of the board: a big square button with a large sign in the middle. */
+.cell {
+  width: 100px;
+  height: 100px;
+  font-family: inherit;
+  font-size: 48px;
+  font-weight: bold;
+  line-height: 1;
+  color: var(--text);
+  background: var(--card);
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  /* cursor: pointer shows the hand pointer, a hint that the square can be clicked. */
+  cursor: pointer;
+}
+
+/* :hover applies while the mouse is over the square, so the player sees where they are. */
+.cell:hover {
+  background: var(--background);
+}
+
+/* Color of the X sign. script.js adds the class "x" to the clicked cell. */
+.cell.x {
+  color: #dc2626;
+}
+
+/* Color of the O sign. script.js adds the class "o" to the clicked cell. */
+.cell.o {
+  color: var(--accent);
+}
+
+/* The restart button under the board. */
+.button {
+  padding: 10px 18px;
+  font-family: inherit;
+  font-size: 16px;
+  color: var(--card);
+  background: var(--accent);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: #1d4ed8;
+}
+
+/* @media applies these rules only on narrow screens, here below 380 pixels of width.
+   The squares shrink so the whole board still fits on a phone. */
+@media (max-width: 380px) {
+  .board {
+    grid-template-columns: repeat(3, 88px);
+  }
+
+  .cell {
+    width: 88px;
+    height: 88px;
+    font-size: 40px;
+  }
+}

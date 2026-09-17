@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!--
+  ==========================================================================================
+  BROKEN ON PURPOSE. THIS IS NOT A MODEL. DO NOT COPY THIS FILE.
+  ==========================================================================================
+  Lesson 4 (2TI, Informatyka), topic „Tworzenie stron internetowych 3/3”, deck 04, slides 8 and 8a
+  („Znajdź trzy błędy”). The listing from the textbook is reproduced here with the three publisher
+  mistakes left in, so the class can see on the projector that the browser shows the page anyway.
+  The correct version of the same page is website/index.html.
+
+  The three mistakes, in the order the deck shows them:
+    ERROR 1, deck line 8:  the file closes </body> before it ever opened <body>.
+    ERROR 2, deck line 9:  the heading opens as <h1> and closes as </h2>.
+    ERROR 3, in the stylesheet: the heading carries class="tytul" while the rule is named .title,
+                               so the rule never reaches the heading and it stays black and left.
+  The deck counts the lines from <!DOCTYPE html>; here the header comment sits above them,
+  so the numbers on screen are higher. The order of the lines is the same.
+
+  Why nothing breaks visibly: the browser parses HTML permissively. It quietly adds the missing
+  opening <body>, closes the <h1> where the </h2> stands, and says nothing about a class name that
+  matches no rule. That is the point of the lesson: the browser is silent, so the code is checked
+  in the validator at https://validator.w3.org/ (the address printed in the textbook has a typo).
+  How to run: open find-the-errors.html in a browser, next to the website folder.
+-->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The textbook writes type="text/css" here. HTML5 does not need it, so it is left out.
+       The path points into the website folder, because that is where the real stylesheet lives.
+       The textbook listing has plain href="style.css", with both files in one folder. -->
+  <link rel="stylesheet" href="website/style.css">
+  <title>Siedem cudów świata</title>
+  <!-- This block exists only to paint the warning box below. It is not part of the listing. -->
+  <style>
+    .warning {
+      border: 3px solid #b00020;
+      color: #b00020;
+      padding: 12px;
+      text-align: left;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<!-- ERROR 1 (deck line 8): a closing tag for a part of the document that was never opened.
+     Written as </body> instead of <body>. The browser opens the body itself and moves on. -->
+</body>
+  <p class="warning">
+    Uwaga: ten plik ma trzy błędy, celowo. To nie jest wzór do przepisywania.
+    Poprawna wersja tej strony leży w folderze website (pliki index.html i style.css).
+  </p>
+
+  <!-- ERROR 2 (deck line 9): opened as <h1>, closed as </h2>. The tags have to be a pair.
+       ERROR 3 (deck slide 8a): class="tytul" in Polish, while style.css defines .title in English.
+       The names differ, so the heading is not centred and keeps the default black colour,
+       even though the rule that was meant to style it sits in the stylesheet. -->
+  <h1 class="tytul">Zwiedzamy świat</h2>
+
+  <hr>
+  <h2>Piramidy w Gizie</h2>
+  <p>
+    Piramidy w Gizie to zespół historycznych budowli obejmujący dwie największe piramidy Egiptu.
+    Ten akapit jest wyjustowany, bo reguła dla znacznika p trafia w niego bez żadnej klasy.
+  </p>
+
+  <!-- What to do on the projector: open website/index.html next to this file and compare the two
+       headings. There the class is title, so the heading is centred and brown. -->
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--
+  Home page of a three page website (index.html, about.html, contact.html).
+  Every page repeats the same header, nav and footer, because plain HTML has no way to include
+  a shared file. All three pages load the same style.css, so one colour change repaints the site.
+  In the nav below, the link pointing at THIS page carries class="active".
+-->
+<html lang="pl">
+<head>
+  <!-- charset tells the browser the file is saved as UTF-8, so Polish letters render correctly -->
+  <meta charset="UTF-8">
+  <!-- viewport makes the page scale to the width of a phone instead of showing a zoomed out desktop -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- TU ZMIEŃ: tytuł widoczny na karcie przeglądarki -->
+  <title>Start</title>
+  <!-- link rel="stylesheet" loads the shared CSS file; the same line sits in all three pages -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- header: site name plus the menu, identical in every page -->
+  <header>
+    <!-- TU ZMIEŃ: nazwa strony (ta sama na każdej podstronie) -->
+    <p class="logo">Nazwa strony</p>
+    <!-- nav marks the block of links that moves the visitor between pages -->
+    <nav>
+      <!-- class="active" goes on the link to the page you are on, here index.html -->
+      <a href="index.html" class="active">Start</a>
+      <!-- the other links are plain; the file names must match the real files in this folder -->
+      <a href="about.html">O nas</a>
+      <a href="contact.html">Kontakt</a>
+    </nav>
+  </header>
+
+  <!-- main holds what is unique to this page; a page has exactly one main -->
+  <main>
+    <h1>Witaj na stronie</h1>
+    <!-- TU ZMIEŃ: treść strony głównej -->
+    <p>Krótki wstęp: o czym jest strona i dla kogo.</p>
+    <!-- class="button" turns a normal link into something that looks like a button -->
+    <a class="button" href="about.html">Dowiedz się więcej</a>
+  </main>
+
+  <!-- footer: closing line of the page, identical in every page -->
+  <footer>
+    <!-- TU ZMIEŃ: autor -->
+    <p>Autor: Imię Nazwisko, klasa 3TI</p>
+  </footer>
+</body>
+</html>

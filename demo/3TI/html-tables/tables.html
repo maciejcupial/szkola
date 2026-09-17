@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<!--
+  Lesson 7 (3TI): tables in HTML. Model solution of exercise 1 (slide 10 of the deck "Tabele w HTML").
+  Two tables: the timetable with rowspan and colspan, and the grades table with a tfoot summary.
+  Students build this file themselves under the same name: tables.html in their own folder in htdocs.
+  Run it the way the students do: copy the folder to htdocs and open http://localhost/<folder>/tables.html
+  (double clicking the file works too, there is no PHP here).
+-->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tabele</title>
+  <style>
+    /* Borders and padding come from CSS. The old attributes border, cellpadding and cellspacing
+       are removed from HTML, so we never write them in the table tag. */
+    table { border-collapse: collapse; margin-bottom: 2rem; }
+    caption { font-weight: bold; text-align: left; padding-bottom: .4rem; }
+    th, td { border: 1px solid #555; padding: .4rem .8rem; text-align: left; }
+  </style>
+</head>
+<body>
+  <h1>Tabele</h1>
+
+  <!-- Table 1: the timetable. Four columns, so every row must add up to four cells.
+       A cell with rowspan or colspan counts for more than one place in that total. -->
+  <table>
+    <!-- caption is the table title and must be the FIRST tag inside table. -->
+    <caption>Mój plan lekcji</caption>
+
+    <!-- thead holds the header row. scope="col" tells a screen reader that the header
+         describes the cells standing below it. -->
+    <thead>
+      <tr>
+        <th scope="col">Godzina</th>
+        <th scope="col">Poniedziałek</th>
+        <th scope="col">Wtorek</th>
+        <th scope="col">Środa</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <!-- The hour number is a header for its whole row, so it is a th with scope="row". -->
+      <!-- rowspan="2": one cell fills hour 1 and hour 2 in the Monday column. -->
+      <tr>
+        <th scope="row">1</th>
+        <td rowspan="2">Pracownia aplikacji</td>
+        <td>Matematyka</td>
+        <td>Polski</td>
+      </tr>
+
+      <!-- Only three cells here, not four: the Monday place is already taken by the cell above. -->
+      <tr>
+        <th scope="row">2</th>
+        <td>Angielski</td>
+        <td>Sieci komputerowe</td>
+      </tr>
+
+      <!-- colspan="3": one cell fills the three day columns, so the row has two cells, not four. -->
+      <tr>
+        <th scope="row">Przerwa</th>
+        <td colspan="3">Przerwa obiadowa</td>
+      </tr>
+
+      <!-- Hours 3 and 4 are ordinary rows: one th and three td, no merging. -->
+      <tr>
+        <th scope="row">3</th>
+        <td>Strony i aplikacje internetowe</td>
+        <td>Wychowanie fizyczne</td>
+        <td>Historia</td>
+      </tr>
+      <tr>
+        <th scope="row">4</th>
+        <td>Sieci komputerowe</td>
+        <td>Polski</td>
+        <td>Matematyka</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Table 2: grades. Same pattern, no merged cells, plus a summary row in tfoot. -->
+  <table>
+    <caption>Moje oceny</caption>
+
+    <thead>
+      <tr>
+        <th scope="col">Przedmiot</th>
+        <th scope="col">Ocena 1</th>
+        <th scope="col">Ocena 2</th>
+        <th scope="col">Ocena 3</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <th scope="row">Sieci komputerowe</th>
+        <td>5</td>
+        <td>4</td>
+        <td>4</td>
+      </tr>
+      <tr>
+        <th scope="row">Strony i aplikacje internetowe</th>
+        <td>4</td>
+        <td>5</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <th scope="row">Matematyka</th>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+    </tbody>
+
+    <!-- tfoot is the summary row. It is written after tbody and the browser keeps it at the bottom.
+         Each average is the column counted down, rounded to one decimal: 4,0 then 4,3 then 4,7. -->
+    <tfoot>
+      <tr>
+        <th scope="row">Średnia</th>
+        <td>4,0</td>
+        <td>4,3</td>
+        <td>4,7</td>
+      </tr>
+    </tfoot>
+  </table>
+</body>
+</html>

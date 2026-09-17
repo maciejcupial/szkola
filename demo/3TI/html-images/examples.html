@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!--
+  Lesson 6 (3TI): images in HTML. The code from the teaching slides, one h2 per slide, in slide order:
+  slide 3 (img), slide 4 (alt), slide 5 (width and height), slide 9 (figure), slide 10 (image as a link).
+  This is the file shown on the projector while explaining; the exercise solution is gallery.html.
+  How to run: open examples.html in the browser, or copy the folder to htdocs and open
+  http://localhost/<folder>/examples.html
+
+  The slides name photos such as img/kot.jpg and img/tatra.jpg. Here the same code points at the SVG
+  placeholders in img/, drawn for this demo so it works with no internet. Everything else is the slide.
+-->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Obrazy w HTML, kod ze slajdów</title>
+</head>
+<body>
+  <h1>Obrazy w HTML: kod ze slajdów</h1>
+
+  <h2>Slajd 3: znacznik img i jego cztery atrybuty</h2>
+  <!-- img has no closing tag, there is no </img>: the tag has nothing inside it, just like br. -->
+  <!-- src = where to take the file from, the same kind of address as in a link. -->
+  <!-- alt = what is in the picture. width and height = the real size in pixels, bare numbers. -->
+  <img src="img/cat.svg" alt="Rudy kot" width="600" height="400">
+
+  <h2>Slajd 4: alt, czyli obraz opisany słowami</h2>
+  <!-- The picture is the content, so alt describes it. Never alt="zdjęcie" or alt="obrazek1". -->
+  <img src="img/lake.svg" alt="Jezioro o zachodzie słońca" width="640" height="360">
+  <!-- Decoration only, nothing to tell: alt="" and the screen reader skips it. -->
+  <!-- Missing alt is a mistake, empty alt is a decision. -->
+  <img src="img/divider.svg" alt="" width="600" height="24">
+  <!--
+    On the projector: uncomment the line below and the page shows the alt text with a broken image icon,
+    because there is no such file. That is what a visitor sees when the path has a typo.
+    Comment it back afterwards.
+  -->
+  <!-- <img src="img/lakee.svg" alt="Jezioro o zachodzie słońca" width="640" height="360"> -->
+
+  <h2>Slajd 5: width i height, czyli zarezerwowane miejsce</h2>
+  <!-- With the dimensions the browser reserves the space before the file arrives, so the text stays put. -->
+  <img src="img/city.svg" alt="Panorama miasta" width="480" height="320">
+  <p>Ten tekst stoi w miejscu, bo obraz nad nim ma <code>width</code> i <code>height</code>.</p>
+  <!-- The same file with no dimensions: the browser learns the size only when the file arrives, and the -->
+  <!-- text below it jumps down. On a fast local disk the jump is invisible, on a phone it is not. -->
+  <img src="img/city.svg" alt="Panorama miasta">
+  <p>Ten tekst skacze w dół, bo obraz nad nim nie ma wymiarów.</p>
+
+  <h2>Slajd 9: figure i figcaption</h2>
+  <!-- figure ties the picture and its caption into one whole, like a photo with a caption in a newspaper. -->
+  <!-- figcaption is the caption everybody sees; alt replaces the picture when it is not there. Both stay. -->
+  <figure>
+    <img src="img/mountains.svg"
+         alt="Giewont nad Zakopanem"
+         width="600" height="400">
+    <figcaption>
+      Giewont, wycieczka klasowa.
+    </figcaption>
+  </figure>
+
+  <h2>Slajd 10: obraz jako łącze</h2>
+  <!-- The img goes inside the a, so the whole picture is clickable and the cursor turns into a hand. -->
+  <!-- When a picture is a link, alt says where the click leads, here: a bigger version of the file. -->
+  <a href="img/mountains-large.svg">
+    <img src="img/mountains.svg" alt="Giewont, powiększ" width="600" height="400">
+  </a>
+</body>
+</html>

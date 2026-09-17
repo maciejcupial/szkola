@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!--
+  Lesson 6 (3TI): images in HTML. Model solution of exercise 1 (slide 11): a gallery of three pictures,
+  each one in a figure with a caption, one of them turned into a link.
+  Deck slides used here: 3 (img), 4 (alt), 5 (width and height), 9 (figure), 10 (image as a link).
+  How to run: open gallery.html in the browser, or copy the whole folder to htdocs and open
+  http://localhost/<folder>/gallery.html
+
+  The pictures in img/ are SVG placeholders drawn for this demo, so nothing is downloaded.
+  On the lesson every student uses real photos: three files from commons.wikimedia.org (a smaller size
+  from "Inne rozdzielczości", never the original) or their own, each one first put through squoosh.app,
+  which shrinks the file inside the browser without sending it anywhere.
+-->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Moja galeria</title>
+</head>
+<body>
+  <h1>Moja galeria</h1>
+
+  <!-- Picture 1. src is the path to the file: folder img, slash, file name. No Polish letters, no spaces. -->
+  <!-- alt says what is in the picture, so it works for a screen reader and when the file fails to load. -->
+  <!-- width and height are the real pixel size of the file (Windows: right click, Właściwości, -->
+  <!-- Szczegóły), bare numbers, no "px". They reserve the space, so the text below does not jump. -->
+  <figure>
+    <img src="img/mountains.svg" alt="Szczyt górski o wschodzie słońca" width="600" height="400">
+    <!-- figcaption is the caption everybody sees. It does not replace alt, both are here on purpose. -->
+    <!-- With a photo from Commons the author's name goes here, it is on the file page. -->
+    <figcaption>Widok ze szczytu, fot. Imię Nazwisko, licencja CC BY-SA 4.0.</figcaption>
+  </figure>
+
+  <!-- Picture 2. A different file, so different dimensions: every img carries its own numbers. -->
+  <figure>
+    <img src="img/lake.svg" alt="Jezioro o zachodzie słońca" width="640" height="360">
+    <figcaption>Jezioro wieczorem, fot. Imię Nazwisko.</figcaption>
+  </figure>
+
+  <!-- Picture 3 is a link (slide 10): the img sits inside the a, so the whole picture is clickable. -->
+  <!-- The cursor turns into a hand. alt also says where the click leads, otherwise a screen reader -->
+  <!-- announces only "łącze". Here it opens the bigger version of the file lying next to it in img/. -->
+  <!-- On the lesson this href is the address of the page the photo came from, for example the file -->
+  <!-- page on commons.wikimedia.org, and then it needs target="_blank" rel="noopener". -->
+  <figure>
+    <a href="img/mountains-large.svg">
+      <img src="img/city.svg" alt="Panorama miasta, powiększ" width="480" height="320">
+    </a>
+    <figcaption>Miasto z lotu ptaka, kliknij, aby powiększyć.</figcaption>
+  </figure>
+
+  <!--
+    Dla szybkich, część 1: the test from the slide. Uncomment the line below and the browser shows the
+    alt text with a broken image icon instead of a picture, because no such file exists.
+    Comment it back afterwards, so the gallery has no broken image in it.
+  -->
+  <!-- <img src="img/mountainz.svg" alt="Szczyt górski o wschodzie słońca" width="600" height="400"> -->
+
+  <!--
+    Dla szybkich, część 2: add loading="lazy" to the second and the third picture. The browser then
+    fetches them only when the reader scrolls down to them. This works only with width and height,
+    because without them the browser does not know where those pictures are on the page.
+  -->
+
+  <!-- Finish like on the slide: check it in the browser, then GitHub Desktop, commit „Galeria”, push. -->
+</body>
+</html>

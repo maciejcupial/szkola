@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Stand-in for the photo from step 5 (480x320), drawn locally so the demo needs no network. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320" width="480" height="320" role="img">
+  <rect width="480" height="320" fill="#16324f"/>
+  <circle cx="240" cy="130" r="52" fill="#4fc3f7"/>
+  <path d="M150 260a90 90 0 0 1 180 0z" fill="#4fc3f7"/>
+  <text x="240" y="300" text-anchor="middle" fill="#f2f5f9" font-size="22"
+        font-family="Arial, sans-serif">Zdjęcie zastępcze 480x320</text>
+</svg>

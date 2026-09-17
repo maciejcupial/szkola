@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<!--
+  Lesson 5 (3TI, Pracownia aplikacji internetowych): lists. Deck "Listy w HTML", slides 5 to 9.
+  Model solution of the exercise: the file the slides tell students to create, plan.html.
+  Four steps: menu (slide 5), week plan (slide 6), glossary (slide 7), ranking and footer (slide 8);
+  the checkbox list at the bottom is the "dla szybkich" extension (slide 9).
+  How to run: open this file in a browser, or copy the folder to htdocs and open
+  http://localhost/<folder>/plan.html
+-->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Step 1: this head is copied from about.html, only the title and the description change. -->
+  <title>Mój plan tygodnia</title>
+  <meta name="description" content="Mój plan tygodnia: zajęcia, słowniczek HTML i ranking gier.">
+</head>
+<body>
+  <!-- Step 1: the page heading sits in header, the menu right under it. -->
+  <header>
+    <h1>Mój plan tygodnia</h1>
+  </header>
+
+  <!-- A menu is a ul: swap the links around and nothing changes, so the order carries no meaning. -->
+  <!-- href="about.html" means "open the file with this name from this same folder". -->
+  <!-- The name in href must match the name on disk letter for letter, uppercase included. -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Start</a></li>
+      <li><a href="about.html">O mnie</a></li>
+      <li><a href="plan.html">Plan</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <!-- Step 2: the days are an ol, because their order carries meaning; the browser numbers them 1 to 5. -->
+    <section>
+      <h2>Plan tygodnia</h2>
+      <ol>
+        <li>Poniedziałek
+          <!-- The sub-list lives INSIDE the li of the day, before its </li>. -->
+          <!-- Classes within one day have no order, so they are a ul: dots, not numbers. -->
+          <ul>
+            <li>fizyka</li>
+            <li>trening</li>
+          </ul>
+        </li>
+        <li>Wtorek
+          <ul>
+            <li>pracownia</li>
+            <li>gitara</li>
+          </ul>
+        </li>
+        <li>Środa
+          <ul>
+            <li>sieci</li>
+            <li>basen</li>
+          </ul>
+        </li>
+        <li>Czwartek
+          <ul>
+            <li>polski</li>
+            <li>kino</li>
+          </ul>
+        </li>
+        <li>Piątek
+          <ul>
+            <li>WF</li>
+            <li>granie</li>
+          </ul>
+        </li>
+      </ol>
+    </section>
+
+    <!-- Step 3: a glossary is a dl, a pair of dt (the term) and dd (the description) per entry. -->
+    <!-- The browser indents every dd, so no dots and no numbers are needed here. -->
+    <section>
+      <h2>Słowniczek</h2>
+      <dl>
+        <dt>html</dt>
+        <dd>Obejmuje całą stronę.</dd>
+        <dt>head</dt>
+        <dd>Informacje o stronie, niewidoczne.</dd>
+        <dt>body</dt>
+        <dd>Wszystko, co widać na stronie.</dd>
+        <dt>nav</dt>
+        <dd>Menu z łączami.</dd>
+        <dt>section</dt>
+        <dd>Temat z własnym nagłówkiem.</dd>
+      </dl>
+    </section>
+
+    <!-- Step 4: reversed counts down, so the FIRST li gets the highest number, 3, 2, 1. -->
+    <!-- The favourite game therefore goes last in the code, to end up as number 1 on screen. -->
+    <!-- reversed takes no value: the bare name is the whole attribute, the same as checked below. -->
+    <section>
+      <h2>Moje ulubione gry</h2>
+      <ol reversed>
+        <li>Rocket League</li>
+        <li>Counter-Strike 2</li>
+        <li>Minecraft</li>
+      </ol>
+    </section>
+
+    <!-- Extension for fast finishers (slide 9), a second commit named "lista zadan". -->
+    <!-- input type="checkbox" is an empty tag: no closing tag, nothing inside it. -->
+    <!-- checked means ticked as soon as the page loads. Clicking saves nothing: Ctrl+F5 restores it. -->
+    <!-- Every checkbox gets a label bound by for and id, so clicking the word ticks the box too. -->
+    <section>
+      <h2>Do zrobienia</h2>
+      <ul>
+        <li><input type="checkbox" id="task-plan" checked> <label for="task-plan">plan</label></li>
+        <li><input type="checkbox" id="task-photo"> <label for="task-photo">zdjęcie</label></li>
+        <li><input type="checkbox" id="task-grades"> <label for="task-grades">tabela ocen</label></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>Autor: Imię Nazwisko, klasa 3TI</p>
+  </footer>
+</body>
+</html>

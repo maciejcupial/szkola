@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<!--
+  Single page of the JavaScript exercise: one number field, one button, one result line.
+  The styling lives in the <style> block below, the behaviour lives in script.js.
+  script.js finds the three elements by their ids: "input", "button" and "result".
+-->
+<html lang="pl">
+<head>
+  <!-- Character set first, so Polish letters (ą, ę, ś, ż) render correctly. -->
+  <meta charset="UTF-8">
+  <!-- Viewport meta: the page adapts to the phone screen width instead of being zoomed out. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- TU ZMIEŃ: nazwa ćwiczenia widoczna na karcie przeglądarki -->
+  <title>Ćwiczenie: JavaScript</title>
+  <style>
+    /* Custom properties (variables) defined on :root, the whole document.
+       Change a colour here once and every rule below follows. */
+    :root {
+      --background: #ffffff;
+      --text: #1f2933;
+      --muted: #6b7280;
+      --accent: #2563eb;
+      --border: #d1d5db;
+      --card: #f1f5f9;
+    }
+
+    /* border-box makes padding and border count inside the declared width,
+       so a 100% wide field never sticks out of its container. */
+    * {
+      box-sizing: border-box;
+    }
+
+    /* Page frame: readable column in the middle of the window. */
+    body {
+      /* Font stack: if the first font is missing, the browser tries the next one. */
+      font-family: Arial, Helvetica, sans-serif;
+      /* max-width keeps a long line of text short enough to read comfortably. */
+      max-width: 600px;
+      /* "auto" on the left and right margin centres the column. */
+      margin: 40px auto;
+      padding: 0 20px;
+      /* Line height 1.6 means the gap between lines is 1.6x the font size. */
+      line-height: 1.6;
+      background: var(--background);
+      color: var(--text);
+    }
+
+    /* Short explanation under the heading, dimmer than the rest of the text. */
+    .meta {
+      color: var(--muted);
+    }
+
+    /* Label above the field: own line, bold, so the field is easy to find. */
+    label {
+      display: block;
+      font-weight: bold;
+      margin-top: 12px;
+    }
+
+    /* Number field. */
+    input {
+      padding: 8px;
+      /* font: inherit takes the body font, otherwise the browser uses its own. */
+      font: inherit;
+      width: 100%;
+      max-width: 280px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+    }
+
+    /* Button that runs the calculation. */
+    .button {
+      margin-top: 12px;
+      padding: 8px 16px;
+      font: inherit;
+      /* The hand cursor tells the user this element is clickable. */
+      cursor: pointer;
+      border: none;
+      border-radius: 6px;
+      background: var(--accent);
+      color: var(--background);
+    }
+
+    /* Result box: stays visible even when empty thanks to min-height. */
+    .card {
+      margin-top: 16px;
+      padding: 12px;
+      background: var(--card);
+      border-radius: 6px;
+      min-height: 24px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Page header: the task the student is solving. -->
+  <header>
+    <!-- TU ZMIEŃ: treść zadania -->
+    <h1>Podwój liczbę</h1>
+    <p class="meta">Wpisz liczbę i kliknij przycisk. Wynik pojawi się niżej.</p>
+  </header>
+
+  <main>
+    <!-- Input group: a label joined to the field by for="input" (the field id).
+         Clicking the label focuses the field. -->
+    <label for="input">Liczba</label>
+    <input id="input" type="number" value="21">
+
+    <!-- type="button" stops the browser from treating a click as sending a form. -->
+    <button id="button" type="button" class="button">Policz</button>
+
+    <!-- Empty result line. script.js writes the text here after a click. -->
+    <p id="result" class="card"></p>
+  </main>
+
+  <!-- The script sits at the end of body: by now the elements above exist,
+       so document.getElementById finds them. -->
+  <script src="script.js"></script>
+</body>
+</html>

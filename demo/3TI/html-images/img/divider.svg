@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Decorative line: it carries no information, so in the HTML it gets alt="" (see slide 4).
+-->
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="24" viewBox="0 0 600 24" role="img">
+  <rect width="600" height="24" fill="#ffffff"/>
+  <rect x="0" y="10" width="600" height="4" rx="2" fill="#4fc3f7"/>
+  <circle cx="300" cy="12" r="8" fill="#ffd54f"/>
+</svg>

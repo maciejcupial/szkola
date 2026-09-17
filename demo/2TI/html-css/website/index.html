@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<!--
+  Lesson 4 (2TI, Informatyka), topic „Tworzenie stron internetowych 3/3”, deck 04, slides 5 to 11.
+  This is the page the class built on the two earlier lessons, shown on the projector:
+  lesson 2 (deck 02, slides 6 to 9) gave the skeleton, the h1, the hr, the h2 and the paragraph,
+  lesson 3 (deck 03, slides 3 to 10) added the list, the external link, the image and the table.
+  Lesson 4 adds exactly one line to this file: the <link> to style.css in the HEAD part.
+  How to run: open index.html in a browser (double click the file). No server needed.
+-->
+<html lang="pl">
+<head>
+  <!-- Character encoding. Without UTF-8 Polish letters like ą, ę, ż turn into broken symbols. -->
+  <meta charset="UTF-8">
+  <!-- Viewport: the phone uses its real width instead of pretending to be a wide desktop.
+       Without this line the responsive image rule in style.css looks right only on a laptop. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The only text from HEAD that a visitor sees: it stands on the browser tab. -->
+  <title>Zwiedzamy świat</title>
+  <!-- Lesson 4, deck 04 slide 5: the stylesheet is a separate file linked from HEAD.
+       The path is relative, so style.css must sit in the same folder as index.html.
+       In HTML5 the attribute type="text/css" is not needed any more, so it is not written here. -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- class="title" is what the rule .title in style.css matches. The name is written the same way
+       in both files, letter for letter, otherwise the rule would never reach this heading. -->
+  <h1 class="title">Zwiedzamy świat</h1>
+
+  <!-- <hr> draws a line between parts of the page, <br> breaks a line. Both are empty elements,
+       so neither has a closing tag. -->
+  <hr>
+
+  <h2>Piramidy w Gizie</h2>
+
+  <!-- The paragraph is long on purpose: the rule p { text-align: justify } is visible only
+       when the text takes several lines. The browser wraps the lines itself. -->
+  <p>
+    Piramidy w Gizie to zespół historycznych budowli obejmujący dwie największe piramidy Egiptu.
+    Najwyższa z nich, piramida Cheopsa, ma 147 metrów, piramida Chefrena 137 metrów,
+    a piramida Mykerinosa 65 metrów. Wszystkie trzy stoją obok siebie, na skraju pustyni,
+    niedaleko Kairu.
+  </p>
+
+  <!-- Lesson 3, deck 03 slide 10: an ordered list. Order matters here, so <ol>, not <ul>.
+       Every item sits in its own <li> (list item). -->
+  <h2>Trzy miejsca, które warto zobaczyć</h2>
+  <ol>
+    <li>Wieża Eiffla w Paryżu</li>
+    <li>Koloseum w Rzymie</li>
+    <li>Machu Picchu w Peru</li>
+  </ol>
+
+  <!-- Lesson 3, deck 03 slide 5: a link to another site. href holds the full address with https://,
+       target="_blank" opens it in a new tab so our page stays open, and rel="noopener" goes with it. -->
+  <p>
+    <a href="https://www.oi.edu.pl/" target="_blank" rel="noopener">
+      Strona organizatora Olimpiady Informatycznej (nowa karta)
+    </a>
+  </p>
+
+  <!-- Lesson 3, deck 03 slides 3 and 4: the image. src is the relative path, counted from this file,
+       so „pyramids/” means the folder next to index.html. The separator is always „/”, never „\”.
+       alt is the text that replaces the image: it shows when the file is missing and a screen reader
+       reads it out loud. width and height take the plain number of pixels, without px. -->
+  <img src="pyramids/pyramid-1.svg" alt="Piramida Cheopsa na tle pustyni" width="320" height="200">
+
+  <!-- Lesson 3, deck 03 slides 8 and 9: the table. <tr> is a row (table row), <th> a heading cell
+       (table heading), <td> a data cell (table data). colspan="2" merges one cell across two columns.
+       Read the code from <table> down: first the rows, then the cells inside them.
+       <thead> and <tbody> only group the rows, and scope="col" tells a screen reader that the
+       heading describes the whole column. Neither was needed on lesson 3, the table works without them.
+       The lines around the cells come from style.css, not from the old attribute border="1". -->
+  <table>
+    <thead>
+      <tr>
+        <th colspan="2">Piramidy w Gizie</th>
+      </tr>
+      <tr>
+        <th scope="col">Nazwa piramidy</th>
+        <th scope="col">Wysokość</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Cheopsa</td>
+        <td>147 metrów</td>
+      </tr>
+      <tr>
+        <td>Chefrena</td>
+        <td>137 metrów</td>
+      </tr>
+      <tr>
+        <td>Mykerinosa</td>
+        <td>65 metrów</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Deck 04, slide 10: type these four lines live on the projector, save, refresh and click the
+       summary text, so the class sees the content open and close without loading the page again.
+       Comment the block back when the demo is over, so the file matches lessons 2 and 3 again.
+  <details>
+    <summary>Jak dojechać na miejsce?</summary>
+    <p>Autobus 138, przystanek Muzeum, potem pięć minut pieszo.</p>
+  </details>
+  -->
+</body>
+</html>

@@ -1,0 +1,111 @@
+/*
+  style.css decides how the page LOOKS: colors, fonts, spacing, borders.
+  index.html attaches this file with <link rel="stylesheet" href="style.css">.
+  Nothing here changes the text of the page; the text lives in index.html.
+  A CSS rule is: selector { property: value; } and it applies to every matching element.
+*/
+
+/*
+  Custom properties (also called CSS variables) are colors written down once under a name.
+  :root means the whole document, so every rule below can read these names with var(...).
+  Change a color here and the whole page changes.
+*/
+/* TU ZMIEŃ: kolory całej strony */
+:root {
+  /* page background */
+  --background: #f6f7fb;
+  /* main text color */
+  --text: #1d2433;
+  /* less important text, for example the footer */
+  --muted: #5b6472;
+  /* the one strong color of the page: headings, button, lines */
+  --accent: #1f6feb;
+  /* color of thin lines and frames */
+  --border: #d8dce4;
+  /* background of a boxed block */
+  --card: #ffffff;
+}
+
+/*
+  The * selector matches every element.
+  box-sizing: border-box makes padding and border count INSIDE the declared width,
+  so a box never grows wider than you asked for.
+*/
+* {
+  box-sizing: border-box;
+}
+
+/* The whole page: font, readability and the base colors taken from the variables above. */
+body {
+  /* browsers add their own margin around the page, 0 removes it */
+  margin: 0;
+  /* TU ZMIEŃ: czcionka całej strony */
+  font-family: Arial, Helvetica, sans-serif;
+  /* line-height 1.6 means the gap between lines is 1.6 times the font size, easier to read */
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--background);
+}
+
+/*
+  The three main blocks of the page share one width and one inner padding.
+  max-width keeps the text column narrow on a big screen, margin: 0 auto centers it.
+*/
+header,
+main,
+footer {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 16px 24px;
+}
+
+/* A line under the header separates it from the content. */
+header {
+  border-bottom: 2px solid var(--accent);
+}
+
+/* The page title: no space above it, a small space below it. */
+h1 {
+  margin: 0 0 8px;
+}
+
+/* Section headings use the accent color so they stand out. */
+h2 {
+  color: var(--accent);
+}
+
+/* .card is a boxed block: own background, thin frame, rounded corners. */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  /* border-radius rounds the corners, 8px is a gentle rounding */
+  border-radius: 8px;
+  padding: 16px 24px;
+  /* space above the box so it does not touch the text before it */
+  margin-top: 24px;
+}
+
+/* .button is the look of a clickable button. */
+.button {
+  background: var(--accent);
+  color: #ffffff;
+  /* a button has a gray frame by default, none removes it */
+  border: none;
+  border-radius: 6px;
+  padding: 10px 18px;
+  font-size: 16px;
+  /* cursor: pointer shows the hand icon, so the user sees it is clickable */
+  cursor: pointer;
+}
+
+/* :hover is the state when the mouse is over the element. */
+.button:hover {
+  /* filter: brightness(0.9) makes the same color 10 percent darker */
+  filter: brightness(0.9);
+}
+
+/* .meta is small, quieter text: the footer line and the greeting under the button. */
+.meta {
+  color: var(--muted);
+  font-size: 14px;
+}

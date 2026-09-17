@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--
+  Tic-tac-toe board: the page markup only.
+  The look comes from style.css, the game rules come from script.js.
+  The nine buttons below are the board; script.js finds them by the class "cell"
+  and tells which square was clicked by reading the data-cell number.
+-->
+<html lang="pl">
+<head>
+  <!-- Character encoding: without UTF-8 Polish letters like ą, ę, ż show up as broken symbols. -->
+  <meta charset="UTF-8">
+  <!-- Viewport: tells a phone to use its real width instead of pretending to be a wide desktop. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- TU ZMIEŃ: tytuł widoczny na karcie przeglądarki -->
+  <title>Kółko i krzyżyk</title>
+  <!-- The stylesheet is linked in the head so the page is already styled when it first appears. -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Page header: one main heading per page, so a screen reader knows what the page is about. -->
+  <header>
+    <h1>Kółko i krzyżyk</h1>
+  </header>
+
+  <!-- Main content: the status line, the board and the restart button. -->
+  <main>
+    <!-- Status line. script.js writes here whose turn it is and who won. -->
+    <p id="status">Ruch gracza: X</p>
+
+    <!-- The board: nine buttons laid out by CSS as a 3x3 grid. -->
+    <!-- data-cell is the square number, from 0 in the top left corner to 8 in the bottom right one. -->
+    <!-- type="button" stops a button from trying to send a form, which would reload the page. -->
+    <div class="board" id="board">
+      <button type="button" class="cell" data-cell="0"></button>
+      <button type="button" class="cell" data-cell="1"></button>
+      <button type="button" class="cell" data-cell="2"></button>
+      <button type="button" class="cell" data-cell="3"></button>
+      <button type="button" class="cell" data-cell="4"></button>
+      <button type="button" class="cell" data-cell="5"></button>
+      <button type="button" class="cell" data-cell="6"></button>
+      <button type="button" class="cell" data-cell="7"></button>
+      <button type="button" class="cell" data-cell="8"></button>
+    </div>
+
+    <!-- Restart button: clears the board and starts a new game. -->
+    <button type="button" id="new-game" class="button">Nowa gra</button>
+  </main>
+
+  <!-- The script tag sits at the end of the body so every element above already exists in the page
+       when the code runs. Placed in the head it would look for the board before the browser made it. -->
+  <script src="script.js"></script>
+</body>
+</html>

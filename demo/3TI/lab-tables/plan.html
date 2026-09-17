@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--
+  Lesson 6 (3TI, Pracownia aplikacji internetowych): tables in HTML.
+  Companion page from the previous lesson (lists), so the menu on slide 5 has all four links.
+  How to run: open index.html in a browser, or serve the folder: php -S localhost:8000
+-->
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Plan</title>
+  <meta name="description" content="Plan dnia: lista dni z zajęciami.">
+  <link rel="icon" href="favicon.svg">
+</head>
+<body>
+  <header>
+    <h1>Mój plan</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Start</a></li>
+      <li><a href="about.html">O mnie</a></li>
+      <li><a href="plan.html">Plan</a></li>
+      <li><a href="grades.html">Oceny</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <!-- From the previous lesson: a day is one li of the ol, a class is one li of the ul inside it. -->
+    <ol>
+      <li>Poniedziałek
+        <ul>
+          <li>Matematyka</li>
+          <li>Pracownia aplikacji internetowych</li>
+        </ul>
+      </li>
+      <li>Wtorek
+        <ul>
+          <li>Angielski</li>
+          <li>Fizyka</li>
+        </ul>
+      </li>
+    </ol>
+  </main>
+
+  <footer>
+    <p>Autor: Imię Nazwisko, klasa 3TI</p>
+  </footer>
+</body>
+</html>

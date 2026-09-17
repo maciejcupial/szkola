@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!--
+  index.html holds the CONTENT of the page: headings, paragraphs, lists, buttons.
+  It is the only file the browser opens directly; it pulls in the other two files itself.
+  style.css (linked in <head>) decides how the content LOOKS.
+  script.js (loaded at the end of <body>) decides how the page BEHAVES when the user clicks.
+  The <!DOCTYPE html> line above tells the browser to use the modern HTML5 rules.
+-->
+<!-- lang="pl" tells the browser and screen readers that the page text is Polish. -->
+<html lang="pl">
+<head>
+  <!-- <head> is not shown on the page; it holds settings and links for the browser. -->
+
+  <!-- charset says how letters are encoded; UTF-8 is what makes ą, ć, ę, ł, ś, ż show up right. -->
+  <meta charset="UTF-8">
+
+  <!-- viewport makes the page use the real width of a phone screen instead of a fake desktop width. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- title is the text on the browser tab and in the bookmark. -->
+  <!-- TU ZMIEŃ: tytuł widoczny na karcie przeglądarki -->
+  <title>Moja pierwsza strona</title>
+
+  <!-- link rel="stylesheet" attaches the CSS file; href is the path to it, next to this file. -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- header: the top of the page, the title and one sentence about it. -->
+  <header>
+    <!-- TU ZMIEŃ: nagłówek strony -->
+    <h1>Moja pierwsza strona</h1>
+    <p>Krótkie zdanie o tym, czego dotyczy strona.</p>
+  </header>
+
+  <!-- main: the real content of the page, everything that is not the header or the footer. -->
+  <main>
+    <!-- section groups one topic together, here the introduction. -->
+    <section>
+      <h2>O czym jest ta strona?</h2>
+      <!-- TU ZMIEŃ: własna treść, akapity, listy, obrazy -->
+      <p>Tu wpisz pierwszy akapit. Możesz dodać <strong>pogrubienie</strong> i <em>kursywę</em>.</p>
+      <ul>
+        <li>pierwszy punkt listy</li>
+        <li>drugi punkt listy</li>
+      </ul>
+    </section>
+
+    <!-- section with the button that script.js reacts to; class="card" is styled in style.css. -->
+    <section class="card">
+      <h2>Przycisk i JavaScript</h2>
+      <!-- type="button" means: just a button, do not send any form. -->
+      <!-- The id is the name script.js uses to find this button. -->
+      <button type="button" class="button" id="greet-button">Przywitaj się</button>
+      <!-- This paragraph starts empty; script.js writes the greeting into it after the click. -->
+      <p id="greeting" class="meta"></p>
+    </section>
+  </main>
+
+  <!-- footer: the bottom of the page, who made it. -->
+  <footer>
+    <!-- TU ZMIEŃ: imię i nazwisko, klasa -->
+    <p class="meta">Autor: Imię Nazwisko, klasa 3TI</p>
+  </footer>
+
+  <!-- The script tag sits at the END of body on purpose: the browser reads the page from top to -->
+  <!-- bottom, so by now the button above already exists and the script can find it. -->
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!-- Practice page for the DOM: every element here has an id so JavaScript can find it. -->
+<!-- style.css gives the page its look, script.js reacts to the buttons at the bottom. -->
+<!-- lang="pl" tells the browser and the screen reader that the text is Polish. -->
+<html lang="pl">
+<head>
+  <!-- charset must be the first thing in the head so Polish letters are decoded correctly. -->
+  <meta charset="UTF-8">
+  <!-- viewport makes the page use the real width of a phone screen instead of a fake desktop width. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- TU ZMIEŃ: tytuł widoczny na karcie przeglądarki -->
+  <title>Ćwiczenia z DOM</title>
+  <!-- The stylesheet is linked in the head so the page is already styled when it first appears. -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- header holds the title of the page: one <h1> per page is enough. -->
+  <header>
+    <!-- TU ZMIEŃ: nagłówek strony, ale zostaw id="heading" (skrypt szuka elementu po tym id) -->
+    <h1 id="heading">Ćwiczenia z DOM</h1>
+  </header>
+
+  <!-- main is the part of the page that JavaScript changes. -->
+  <main>
+    <!-- TU ZMIEŃ: treść akapitu, id="description" zostaw bez zmian -->
+    <p id="description">Ten akapit zmienia się po kliknięciu przycisku.</p>
+
+    <!-- width and height are set in the HTML so the browser reserves the space before the file loads
+         and the page does not jump. The file is local, so the page also works without internet. -->
+    <img id="picture" src="image-a.svg" alt="Obrazek A" width="240" height="120">
+
+    <!-- The list starts with two items, the buttons add and remove more. -->
+    <ul id="list">
+      <li>pierwszy element</li>
+      <li>drugi element</li>
+    </ul>
+
+    <!-- One row of buttons. type="button" stops a button from submitting a form, which is what a
+         button does by default inside a form. -->
+    <div class="buttons">
+      <button type="button" id="change-text">Zmień tekst</button>
+      <button type="button" id="change-style">Zmień wygląd</button>
+      <button type="button" id="swap-image">Podmień obrazek</button>
+      <button type="button" id="add-item">Dodaj element listy</button>
+      <button type="button" id="remove-item">Usuń ostatni element</button>
+    </div>
+  </main>
+
+  <!-- The script tag sits at the end of the body: the elements above already exist in the document,
+       so document.getElementById finds them instead of returning null. -->
+  <script src="script.js"></script>
+</body>
+</html>

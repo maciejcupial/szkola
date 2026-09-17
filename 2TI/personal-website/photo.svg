@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="200" viewBox="0 0 320 200">
+  <!--
+    Placeholder picture shown by <img src="photo.svg"> in index.html.
+    SVG is a drawing described by text, so it stays sharp at any size.
+    Replace this file with your own picture, keeping the same file name.
+  -->
+  <rect width="320" height="200" fill="#e7e5e4"/>
+  <text x="160" y="105" text-anchor="middle" font-family="Arial" font-size="18" fill="#57534e">
+    tu wstaw własne zdjęcie
+  </text>
+</svg>

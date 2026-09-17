@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!-- Home page of the blog. Shares style.css and script.js with posts.html, post.html and contact.html. -->
+<!-- It shows a short welcome and a teaser of the newest post that links to post.html. -->
+<html lang="pl">
+<head>
+  <!-- Character encoding: without UTF-8 Polish letters show up as broken symbols. -->
+  <meta charset="UTF-8">
+  <!-- Viewport: tells a phone to use its real width instead of pretending to be a desktop screen. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- TU ZMIEŃ: tytuł widoczny na karcie przeglądarki -->
+  <title>Start · Mój blog</title>
+  <!-- One stylesheet for all four pages, so a color changed here changes the whole blog. -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header: the same block on every page. Copy it whenever you add a new page. -->
+  <header class="top">
+    <!-- TU ZMIEŃ: nazwa bloga -->
+    <a class="logo" href="index.html">Mój blog</a>
+    <!-- Navigation. The .active class marks the page you are on right now. -->
+    <nav>
+      <a href="index.html" class="active">Start</a>
+      <a href="posts.html">Wpisy</a>
+      <a href="contact.html">Kontakt</a>
+    </nav>
+    <!-- type="button" stops the browser from treating this as a form submit button. -->
+    <!-- aria-label describes the button for screen readers, because the icon alone says nothing. -->
+    <button type="button" id="theme-toggle" aria-label="Przełącz tryb ciemny">◐</button>
+  </header>
+
+  <!-- main holds the content that is unique to this page. -->
+  <main>
+    <!-- Hero: the first screen a visitor sees, so keep it short. -->
+    <section class="hero">
+      <!-- TU ZMIEŃ: powitanie -->
+      <h1>Cześć, tu mój blog</h1>
+      <p>Piszę o tym, czego uczę się na informatyce: strony, JavaScript, PHP.</p>
+      <a class="button" href="posts.html">Zobacz wpisy</a>
+    </section>
+
+    <!-- Teaser of one post. The full list lives in posts.html. -->
+    <section>
+      <h2>Najnowszy wpis</h2>
+      <!-- article = a piece of content that makes sense on its own. -->
+      <article class="card">
+        <!-- TU ZMIEŃ: tytuł i zajawka najnowszego wpisu -->
+        <h3><a href="post.html">Tytuł najnowszego wpisu</a></h3>
+        <!-- .meta is the small gray line with the date and reading time. -->
+        <p class="meta">Data wpisu</p>
+        <p>Dwa zdania zajawki, które zachęcają do kliknięcia.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <!-- TU ZMIEŃ: autor -->
+    <!-- script.js fills the empty span with the current year. -->
+    <p>© <span id="year"></span> Imię Nazwisko · klasa 4Ti</p>
+  </footer>
+
+  <!-- The script sits at the end of body so the HTML above already exists when the code runs. -->
+  <script src="script.js"></script>
+</body>
+</html>

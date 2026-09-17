@@ -1,0 +1,147 @@
+/*
+  Shared stylesheet for index.html, about.html and contact.html.
+  All three pages link this one file, so a change here shows up on the whole site at once.
+  The colours live in one place at the top, as custom properties, and every rule below reads them.
+*/
+
+/*
+  :root is the whole document. Names that start with two dashes are custom properties
+  (colour variables): you set them once here and use them anywhere with var(--name).
+*/
+/* TU ZMIEŃ: kolory całej witryny */
+:root {
+  --background: #ffffff;
+  --text: #1d2433;
+  --muted: #666666;
+  --accent: #0b7a75;
+  --border: #d9dee7;
+}
+
+/*
+  The star selects every element on the page. box-sizing: border-box makes padding and border
+  count inside the declared width, so a field with width 100% and padding still fits its container.
+*/
+* {
+  box-sizing: border-box;
+}
+
+/* Page basics: no default margin around the page, one readable font, base colours */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--background);
+}
+
+/*
+  Header bar: the site name on the left, the menu on the right.
+  display: flex lays the children out in a row.
+  justify-content: space-between pushes the first child left and the last one right.
+  flex-wrap: wrap lets the menu drop to a second line when the screen is too narrow for one row,
+  instead of squeezing the links or spilling them off the edge. Remove it and test on a phone
+  width to see the difference.
+*/
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 14px 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Site name in the header */
+.logo {
+  margin: 0;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+/* Menu links: no underline, a transparent bottom border reserved for the highlight below */
+nav a {
+  margin-left: 16px;
+  color: var(--text);
+  text-decoration: none;
+  padding: 6px 0;
+  border-bottom: 2px solid transparent;
+}
+
+/*
+  Two states share one look: the link under the mouse pointer, and the link marked class="active"
+  in the HTML, which is the page currently open. The border was already there, only transparent,
+  so turning it visible does not move anything on the page.
+*/
+nav a:hover,
+nav a.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* Content column: capped width so lines of text stay readable, centred by the automatic margins */
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+h1 {
+  color: var(--accent);
+}
+
+/*
+  A link that should look like a button. display: inline-block is what allows padding to grow it,
+  because a plain link ignores vertical padding.
+*/
+.button {
+  display: inline-block;
+  padding: 10px 18px;
+  background: var(--accent);
+  color: #ffffff;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+/* Contact form: display: grid stacks the fields in one column, gap sets the space between them */
+form {
+  display: grid;
+  gap: 6px;
+  max-width: 480px;
+}
+
+label {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* All three field types get the same frame, so the form looks like one whole */
+input,
+select,
+textarea {
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  /* font: inherit copies the page font; form fields would otherwise use the system default */
+  font: inherit;
+}
+
+/* Send button: border 0 removes the grey system frame, cursor: pointer shows the hand pointer */
+button {
+  margin-top: 14px;
+  padding: 10px 18px;
+  background: var(--accent);
+  color: #ffffff;
+  border: 0;
+  border-radius: 6px;
+  font: inherit;
+  cursor: pointer;
+}
+
+/* Footer: secondary information, so smaller text in the muted colour */
+footer {
+  padding: 16px 24px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 14px;
+}

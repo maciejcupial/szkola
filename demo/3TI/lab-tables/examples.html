@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<!--
+  Lesson 6 (3TI, Pracownia aplikacji internetowych): tables in HTML.
+  Code from the deck tematy/80_pracownia_tabele/slajdy.html, slides 3-10, one section per slide,
+  in slide order. This is the file shown on the projector while explaining; the exercise solution
+  is in grades.html.
+  Every block is the slide's markup, live, so the screen shows what the slide shows.
+  How to run: open examples.html in a browser, or serve the folder: php -S localhost:8000
+-->
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tabele w HTML: kod ze slajdów</title>
+  <meta name="description" content="Kod ze slajdów lekcji o tabelach w HTML, slajd po slajdzie.">
+  <link rel="icon" href="favicon.svg">
+</head>
+<body>
+  <h1>Tabele w HTML: kod ze slajdów</h1>
+
+  <h2>Slajd 3: budowa tabeli, table, tr, th/td</h2>
+  <!-- The smallest complete table: table holds only tr, a tr holds th (header cell) or td (data cell).
+       th comes out bold without any CSS, td does not. -->
+  <table>
+    <tr>
+      <th>Przedmiot</th>
+      <th>Ocena</th>
+      <th>Uwagi</th>
+    </tr>
+    <tr>
+      <td>Matematyka</td>
+      <td>5</td>
+      <td>-</td>
+    </tr>
+  </table>
+
+  <h2>Slajd 4: scope, nagłówek kolumny czy wiersza?</h2>
+  <!-- scope tells a screen reader which cells a header describes.
+       scope="col": the whole column below it. This is what the exercise uses. -->
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">Przedmiot</th>
+        <th scope="col">Ocena</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Matematyka</td><td>5</td></tr>
+    </tbody>
+  </table>
+  <!-- scope="row": the header sits in the first column and describes the row next to it.
+       Shown for comparison only, the exercise has column headers. -->
+  <table>
+    <tbody>
+      <tr>
+        <th scope="row">Matematyka</th>
+        <td>5</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Slajd 5: krok 1, grades.html i nav</h2>
+  <!-- The fourth link is added to the menu of all four pages, not only to the new one. -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Start</a></li>
+      <li><a href="about.html">O mnie</a></li>
+      <li><a href="plan.html">Plan</a></li>
+      <li><a href="grades.html">Oceny</a></li>
+    </ul>
+  </nav>
+
+  <h2>Slajd 6: krok 2, table, caption, thead</h2>
+  <!-- The table after step 2: a caption and a header row, no data yet. -->
+  <main>
+    <section>
+      <h3>Moje przedmioty</h3>
+      <table>
+        <caption>Moje przedmioty</caption>
+        <thead>
+          <tr>
+            <th scope="col">Przedmiot</th>
+            <th scope="col">Ocena</th>
+            <th scope="col">Uwagi</th>
+          </tr>
+        </thead>
+      </table>
+    </section>
+  </main>
+
+  <h2>Slajd 7: krok 3, tbody z przedmiotami</h2>
+  <table>
+    <!-- caption and thead as in step 2 -->
+    <tbody>
+      <tr>
+        <td>Matematyka</td>
+        <td>5</td>
+        <td>-</td>
+      </tr>
+      <!-- four more subjects, the slide shows the first row only -->
+    </tbody>
+  </table>
+
+  <h2>Slajd 8: krok 4, tfoot i colspan</h2>
+  <!-- The summary row has two td, not three: colspan="2" makes the first one span two columns.
+       tfoot may be written after tbody and still shows at the bottom. -->
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">Przedmiot</th>
+        <th scope="col">Ocena</th>
+        <th scope="col">Uwagi</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Matematyka</td><td>5</td><td>-</td></tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="2">Średnia</td>
+        <td>5.0</td>
+      </tr>
+    </tfoot>
+  </table>
+
+  <h2>Slajd 9: krok 5, obraz w sekcji „O mnie”</h2>
+  <!-- src without any address is a relative path: the browser looks for the file next to this page.
+       alt describes the image in words, for anyone who will not see it.
+       In class the file is photo.jpg; here it is a local SVG so the demo needs no network. -->
+  <section id="about">
+    <h3>O mnie</h3>
+    <p>Twój akapit z lekcji 4.</p>
+    <img src="photo.svg" alt="Zarys postaci na granatowym tle" width="480" height="320">
+  </section>
+  <!-- alt test: change src to zdjeciee.svg, refresh, the alt text shows instead of the image,
+       then change it back. -->
+
+  <h2>Slajd 10: tabela z pytania egzaminacyjnego</h2>
+  <!-- The first row is headers only, so it is th, with no i and no center. That is answer D. -->
+  <table>
+    <tr>
+      <th>Artykuł</th>
+      <th>Rozmiar</th>
+      <th>Cena</th>
+    </tr>
+    <tr>
+      <td>Spódnica niebieska</td>
+      <td>M</td>
+      <td>34,99 zł</td>
+    </tr>
+    <tr>
+      <td>Spodnie dżinsowe</td>
+      <td>S</td>
+      <td>79,99 zł</td>
+    </tr>
+  </table>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<!--
+  Lessons 8 and 9 (3TI): forms. Every piece of code shown on the slides, in slide order, so the
+  projector matches the deck: slajdy_1.html slides 4, 6, 7 and 8, then slajdy_2.html slides 3 to 8.
+  Each example is a working form, so the class sees the field, not only the code.
+  How to run: open this file in a browser, or copy the folder into htdocs and open
+  http://localhost/html-forms/examples.html
+-->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Formularze: przykłady ze slajdów</title>
+</head>
+<body>
+  <h1>Formularze: przykłady ze slajdów</h1>
+
+  <nav>
+    <ul>
+      <li><a href="contact.html">Formularz kontaktowy z lekcji</a></li>
+      <li><a href="form.html">Ćwiczenie 1, godzina 1</a></li>
+      <li><a href="survey.html">Ćwiczenie 1, godzina 2</a></li>
+      <li><a href="sent.html">Strona po wysłaniu</a></li>
+    </ul>
+  </nav>
+
+  <h2>Godzina 1, slajd 4: znacznik form, gdzie i jak wysłać</h2>
+
+  <!-- The envelope: action is the address on it, method is how it travels, the submit button -->
+  <!-- is the only thing that starts the journey. -->
+  <form action="sent.html" method="get">
+    <p><label for="demoName">Imię:</label> <input type="text" id="demoName" name="demoName"></p>
+    <p><button type="submit">Wyślij</button></p>
+  </form>
+
+  <h2>Godzina 1, slajd 6: pola input i textarea</h2>
+
+  <!-- One field = one input tag with no closing tag. type decides what can be typed in. -->
+  <form action="sent.html" method="get">
+    <p><label for="tText">Tekst (text):</label> <input type="text" id="tText" name="tText"></p>
+    <p><label for="tMail">E-mail (email):</label> <input type="email" id="tMail" name="tMail"></p>
+    <!-- password hides the characters behind dots, number gives digits and arrows. -->
+    <p><label for="tPass">Hasło (password):</label> <input type="password" id="tPass" name="tPass"></p>
+    <p><label for="tNum">Wiek (number):</label> <input type="number" id="tNum" name="tNum"></p>
+    <!-- textarea is the only field here with a closing tag, and it must be closed. -->
+    <p>
+      <label for="tArea">Wiadomość (textarea):</label><br>
+      <textarea id="tArea" name="tArea" rows="3" cols="40"></textarea>
+    </p>
+  </form>
+
+  <h2>Godzina 1, slajd 7: etykieta label</h2>
+
+  <!-- for and id carry the same word. Click the caption and the cursor jumps into the field. -->
+  <form action="sent.html" method="get">
+    <p><label for="firstName">Imię:</label> <input type="text" id="firstName" name="firstName"></p>
+  </form>
+
+  <h2>Godzina 1, slajd 8: name, placeholder, required</h2>
+
+  <!-- name is the key the value travels under, placeholder is the grey hint that disappears -->
+  <!-- while typing, required refuses to send an empty field. -->
+  <form action="sent.html" method="get">
+    <p>
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" name="email" placeholder="jan@szkola.pl" required>
+    </p>
+    <p><button type="submit">Wyślij</button></p>
+  </form>
+
+  <h2>Godzina 2, slajd 3: radio i checkbox</h2>
+
+  <!-- Radio buttons sharing one name form one group: only one of them can stay checked. -->
+  <!-- A checkbox is on its own, and checked marks it from the start. -->
+  <!-- Here the label wraps the field, so it needs neither for nor id. -->
+  <form action="sent.html" method="get">
+    <p>
+      <label><input type="radio" name="frequency" value="daily"> codziennie</label>
+      <label><input type="radio" name="frequency" value="rare"> rzadko</label>
+    </p>
+    <p><label><input type="checkbox" name="genre" value="rpg" checked> RPG</label></p>
+  </form>
+
+  <h2>Godzina 2, slajd 4: lista rozwijana select</h2>
+
+  <!-- optgroup is a heading inside the list and cannot be picked. selected opens the list on -->
+  <!-- that option. The server receives value, not the text on screen. -->
+  <form action="sent.html" method="get">
+    <p>
+      <label for="className">Klasa:</label>
+      <select name="className" id="className">
+        <optgroup label="Klasy trzecie">
+          <option value="3ti" selected>3TI</option>
+          <option value="3te">3TE</option>
+        </optgroup>
+      </select>
+    </p>
+  </form>
+
+  <h2>Godzina 2, slajd 5: date, range, color i file</h2>
+
+  <!-- Changing type alone gives a calendar, a slider or a colour picker, drawn by the browser. -->
+  <form action="sent.html" method="get">
+    <p><label for="day">Data (date):</label> <input type="date" id="day" name="day"></p>
+    <!-- A slider shows no number, so the scale goes into the caption. -->
+    <p>
+      <label for="level">Poziom od 1 do 10 (range):</label>
+      <input type="range" id="level" name="level" min="1" max="10" step="1" value="5">
+    </p>
+    <p><label for="tint">Kolor (color):</label> <input type="color" id="tint" name="tint"></p>
+  </form>
+
+  <!-- A file needs two changes in the form: post, because a file will not fit in the address, -->
+  <!-- and enctype, because the data then travels as a parcel made of parts. This one has no -->
+  <!-- action on purpose: there is no PHP here to receive the file. -->
+  <form method="post" enctype="multipart/form-data">
+    <p>
+      <label for="photo">Zdjęcie (file):</label>
+      <input type="file" id="photo" name="photo" accept="image/*">
+    </p>
+  </form>
+
+  <h2>Godzina 2, slajd 6: fieldset i legend</h2>
+
+  <!-- Every radio group sits in its own fieldset and the question goes in the legend, so a -->
+  <!-- screen reader reads it before each option. -->
+  <form action="sent.html" method="get">
+    <fieldset>
+      <legend>Jak często grasz?</legend>
+      <label><input type="radio" name="frequency" value="daily"> codziennie</label>
+      <label><input type="radio" name="frequency" value="rare"> rzadko</label>
+    </fieldset>
+  </form>
+
+  <h2>Godzina 2, slajd 7: walidacja atrybutami</h2>
+
+  <!-- These attributes are a convenience for the user, never a safeguard: the server checks -->
+  <!-- everything again. pattern describes the allowed characters, here two digits, a dash, three. -->
+  <form action="sent.html" method="get">
+    <p><label for="city">Miasto (required):</label> <input type="text" id="city" name="city" required></p>
+    <p>
+      <label for="tickets">Bilety od 1 do 10 (min, max, step):</label>
+      <input type="number" id="tickets" name="tickets" min="1" max="10" step="1">
+    </p>
+    <p>
+      <label for="nick">Pseudonim (maxlength):</label>
+      <input type="text" id="nick" name="nick" maxlength="30">
+    </p>
+    <p>
+      <label for="zip">Kod pocztowy (pattern):</label>
+      <input type="text" id="zip" name="zip" pattern="[0-9]{2}-[0-9]{3}" placeholder="00-001">
+    </p>
+    <p><button type="submit">Sprawdź walidację</button></p>
+  </form>
+
+  <h2>Godzina 2, slajd 8: przyciski</h2>
+
+  <!-- submit sends the form, reset puts the fields back to their starting values, and a button -->
+  <!-- with type="button" does nothing at all without JavaScript. -->
+  <form action="sent.html" method="get">
+    <p><label for="note">Notatka:</label> <input type="text" id="note" name="note" value="start"></p>
+    <p>
+      <button type="submit">Wyślij ankietę</button>
+      <button type="reset">Wyczyść</button>
+      <button type="button">Pokaż</button>
+    </p>
+  </form>
+</body>
+</html>

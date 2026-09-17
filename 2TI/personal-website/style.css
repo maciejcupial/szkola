@@ -1,0 +1,131 @@
+/*
+  Stylesheet for index.html: colors, layout and the phone version of the page.
+  index.html loads this file with <link rel="stylesheet" href="style.css">, so both files
+  must stay in the same folder. Change the colors in :root and the whole page follows.
+*/
+
+/* Custom properties (CSS variables). They are declared once on :root, which is the <html>
+   element, and used everywhere with var(--name). One place to change, one change everywhere. */
+/* TU ZMIEŃ: kolory strony */
+:root {
+  --background: #fafafa;
+  --text: #222222;
+  --muted: #666666;
+  --accent: #c2410c;
+  --border: #cccccc;
+  --card: #eeeeee;
+}
+
+/* Base rule for the whole page. Everything inside <body> inherits the font and the text color. */
+body {
+  /* Browsers add their own margin around the body, this removes it. */
+  margin: 0;
+  /* TU ZMIEŃ: czcionka strony */
+  font-family: Verdana, Geneva, sans-serif;
+  color: var(--text);
+  background: var(--background);
+  /* Line height without a unit means 1.6 times the font size, which keeps text readable. */
+  line-height: 1.6;
+}
+
+/* Header with the site name and the menu. */
+header {
+  background: var(--accent);
+  color: #ffffff;
+  /* Two values: 16px top and bottom, 24px left and right. */
+  padding: 16px 24px;
+}
+
+header h1 {
+  /* Three values: no space on top, no space on the sides, 8px below the heading. */
+  margin: 0 0 8px;
+}
+
+/* Navigation. display: flex puts the links in one row, gap is the space between them. */
+nav {
+  display: flex;
+  gap: 16px;
+}
+
+nav a {
+  color: #ffffff;
+  /* Links are underlined by default, this removes the underline. */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* :hover applies only while the mouse pointer is over the link. */
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Content column. max-width stops the text from stretching across a wide monitor,
+   and margin: 0 auto centers the column horizontally. */
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 16px 24px;
+}
+
+section {
+  margin-bottom: 32px;
+}
+
+h2 {
+  color: var(--accent);
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 4px;
+}
+
+/* Images never get wider than the column, and height: auto keeps the original proportions. */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Table with the weekly plan. border-collapse merges the double borders between cells into one. */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  border: 1px solid var(--border);
+  padding: 8px;
+  text-align: left;
+}
+
+/* Column headings sit in <thead> and get their own background. */
+th {
+  background: var(--card);
+}
+
+footer {
+  text-align: center;
+  padding: 16px;
+}
+
+/* Small print: the author line in the footer. */
+.meta {
+  color: var(--muted);
+  font-size: 14px;
+  margin: 0;
+}
+
+/* @media is a rule that only applies when the condition in brackets is true. Here the condition
+   is a browser window no wider than 600px, which is a phone or a narrowed desktop window.
+   On such a screen the menu stops being a row and becomes a column, and the page gets less padding
+   so the text keeps as much space as possible. */
+@media (max-width: 600px) {
+  nav {
+    /* flex-direction: column stacks the links one under another instead of side by side. */
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  main {
+    padding: 12px 16px;
+  }
+}

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<!--
+  Static form page: it only collects data, it never processes it.
+  The browser packs the fields and sends them to receive.php, which is the PHP script that reads them.
+  This file can stay .html because there is no PHP code here, only the form itself.
+-->
+<html lang="pl">
+<head>
+  <!-- charset tells the browser the file uses UTF-8, so Polish letters show up instead of question marks -->
+  <meta charset="UTF-8">
+  <!-- viewport makes the page use the real phone width instead of pretending to be a desktop screen -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- TU ZMIEŃ: tytuł widoczny na karcie przeglądarki -->
+  <title>Formularz zgłoszeniowy</title>
+  <!-- Styles live in this file because the template is small; bigger projects use a separate .css file -->
+  <style>
+    /* Custom properties: colors written once here and reused below through var(...) */
+    :root {
+      --background: #f5f6f8;
+      --text: #1f2430;
+      --muted: #5b6472;
+      --accent: #2563eb;
+      --border: #d3d8e0;
+      --card: #ffffff;
+    }
+
+    /* border-box means padding and border count inside the declared width, so nothing overflows */
+    * {
+      box-sizing: border-box;
+    }
+
+    /* Page basics: font, colors and a comfortable reading width centred with margin auto */
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      max-width: 540px;
+      margin: 40px auto;
+      padding: 0 16px;
+      line-height: 1.5;
+    }
+
+    /* Short explanation under the heading, quieter than normal text */
+    .meta {
+      color: var(--muted);
+      margin-top: 0;
+    }
+
+    /* The white box that holds the form */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    /* Grid layout stacks the fields in one column with an even gap between them */
+    form {
+      display: grid;
+      gap: 6px;
+    }
+
+    label {
+      font-weight: bold;
+      margin-top: 12px;
+    }
+
+    /* font: inherit copies the page font, otherwise inputs use the browser default font */
+    input,
+    textarea {
+      font: inherit;
+      padding: 9px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--card);
+      color: var(--text);
+    }
+
+    /* resize: vertical lets the user make the text area taller but not wider than the card */
+    textarea {
+      resize: vertical;
+    }
+
+    /* Visible outline when a field is focused, useful for keyboard users */
+    input:focus,
+    textarea:focus {
+      outline: 2px solid var(--accent);
+      outline-offset: 1px;
+    }
+
+    .button {
+      margin-top: 18px;
+      padding: 10px 18px;
+      font: inherit;
+      color: var(--card);
+      background: var(--accent);
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+  <!-- Page header: one heading plus a sentence telling the user what happens after sending -->
+  <header>
+    <!-- TU ZMIEŃ: nagłówek formularza -->
+    <h1>Zgłoszenie</h1>
+    <p class="meta">Wypełnij pola i naciśnij „Wyślij”. Odpowiedź pokaże się na następnej stronie.</p>
+  </header>
+
+  <main class="card">
+    <!--
+      action says which file receives the data; it is a path relative to this page.
+      method="post" puts the data in the body of the request, so it is not visible in the address bar
+      and there is no length limit; method="get" would glue everything onto the URL instead.
+    -->
+    <form action="receive.php" method="post">
+      <!--
+        Field group: every input needs a name attribute, because PHP reads the values by that name
+        ($_POST["name"]). Without name the browser simply does not send the field at all.
+        The id is what <label for="..."> points at, so clicking the label focuses the field.
+      -->
+      <label for="name">Imię</label>
+      <input id="name" name="name" type="text" autocomplete="given-name">
+
+      <!-- type="email" makes the phone show the @ keyboard and lets the browser check the format -->
+      <label for="email">E-mail</label>
+      <input id="email" name="email" type="email" autocomplete="email">
+
+      <!-- textarea is a multi line field; rows sets how many lines are visible at the start -->
+      <label for="message">Wiadomość</label>
+      <textarea id="message" name="message" rows="5"></textarea>
+
+      <!-- TU ZMIEŃ: kolejne pola. Każde potrzebuje label for, id oraz name (ten sam tekst co id) -->
+
+      <!-- type="submit" is what actually sends the form; a plain button would do nothing here -->
+      <button class="button" type="submit">Wyślij</button>
+    </form>
+  </main>
+</body>
+</html>

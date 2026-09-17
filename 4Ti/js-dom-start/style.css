@@ -1,0 +1,81 @@
+/* Look of the DOM practice page from index.html. */
+/* It also holds the .highlight class, which script.js turns on and off with classList.toggle. */
+
+/* Custom properties are variables for CSS: set the colour once here, use it many times below. */
+/* :root is the whole document, so every rule in this file can read these values. */
+:root {
+  --background: #ffffff;
+  --text: #111827;
+  --accent: #1f6feb;
+  --border: #d1d5db;
+  --card: #f9fafb;
+}
+
+/* Page basics: readable font, a column that does not stretch across a wide monitor. */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  /* max-width caps the column, margin: 40px auto centres it (auto splits the free space evenly). */
+  max-width: 640px;
+  margin: 40px auto;
+  padding: 0 20px;
+  /* line-height without a unit means 1.6 times the font size, which is comfortable to read. */
+  line-height: 1.6;
+  background: var(--background);
+  color: var(--text);
+}
+
+/* The heading uses the accent colour, so the inline style set by script.js is easy to spot. */
+h1 {
+  color: var(--accent);
+  font-size: 28px;
+}
+
+/* The picture keeps its proportions and never grows wider than the column. */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+/* The list gets a light card background so added and removed items are easy to see. */
+ul {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 12px 12px 32px;
+}
+
+/* TU ZMIEŃ: kolory i wygląd wyróżnienia; klasa .highlight jest włączana przez script.js */
+.highlight {
+  background: #fef08a;
+  padding: 8px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+/* The button row: flex puts the buttons in one line, gap is the space between them, */
+/* flex-wrap lets them move to the next line on a narrow screen. */
+.buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+/* One look for every button on the page. */
+button {
+  padding: 8px 14px;
+  /* font: inherit takes the font from the body, because buttons ignore it by default. */
+  font: inherit;
+  color: var(--text);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* :hover is the state when the mouse is over the element. */
+button:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}

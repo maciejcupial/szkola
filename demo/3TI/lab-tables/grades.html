@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!--
+  Lesson 6 (3TI, Pracownia aplikacji internetowych): tables in HTML.
+  Model solution of the computer exercise from tematy/80_pracownia_tabele/slajdy.html, slides 5-8
+  (steps 1-4), full file as shown in the "Cały plik" box on slide 8.
+  Students create this file themselves and name it grades.html, next to their other pages.
+  How to run: open index.html in a browser, or serve the folder: php -S localhost:8000
+-->
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Moje oceny</title>
+  <meta name="description" content="Moje oceny: tabela przedmiotów z podsumowaniem.">
+  <link rel="icon" href="favicon.svg">
+</head>
+<body>
+  <header>
+    <h1>Moje oceny</h1>
+  </header>
+
+  <!-- Step 1: the fourth link. The same list goes into the nav of index.html, about.html and plan.html,
+       so every page can reach every other page. -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Start</a></li>
+      <li><a href="about.html">O mnie</a></li>
+      <li><a href="plan.html">Plan</a></li>
+      <li><a href="grades.html">Oceny</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section>
+      <h2>Moje przedmioty</h2>
+
+      <table>
+        <!-- Step 2: caption is the table's own title and comes first, before thead. -->
+        <caption>Moje przedmioty</caption>
+
+        <!-- thead holds the header row, tbody the data rows. They change nothing without CSS,
+             but they tell screen readers and search engines which row is the header. -->
+        <thead>
+          <tr>
+            <!-- th is a header cell, the browser makes it bold on its own.
+                 scope="col" says the header describes the whole column under it. -->
+            <th scope="col">Przedmiot</th>
+            <th scope="col">Ocena</th>
+            <th scope="col">Uwagi</th>
+          </tr>
+        </thead>
+
+        <!-- Step 3: five data rows, three td each, in the same order as the headers.
+             The number of td in a row must match the number of th, or the data lands in a wrong column. -->
+        <tbody>
+          <tr><td>Matematyka</td><td>5</td><td>-</td></tr>
+          <tr><td>Informatyka</td><td>6</td><td>-</td></tr>
+          <tr><td>Fizyka</td><td>4</td><td>-</td></tr>
+          <tr><td>Angielski</td><td>5</td><td>-</td></tr>
+          <tr><td>WF</td><td>5</td><td>-</td></tr>
+        </tbody>
+
+        <!-- Step 4: tfoot is the summary row at the bottom of the table.
+             colspan="2" makes ONE cell as wide as two columns, so this row has two td, not three.
+             Average of 5, 6, 4, 5, 5 is 25 / 5 = 5.0. -->
+        <tfoot>
+          <tr><td colspan="2">Średnia</td><td>5.0</td></tr>
+        </tfoot>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <p>Autor: Imię Nazwisko, klasa 3TI</p>
+  </footer>
+</body>
+</html>

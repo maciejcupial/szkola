@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<!--
+  Lesson 7 (3TI): tables in HTML. The code of the teaching slides 3 to 8 of the deck "Tabele w HTML",
+  in slide order, plus the answer to exercise 2 (slide 11). Open on the projector next to the deck.
+  Run: open this file in the browser (no server needed), or copy the folder to htdocs and open
+  http://localhost/<folder>/examples.html
+-->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tabele: przykłady ze slajdów</title>
+  <style>
+    /* Borders come from CSS, never from the removed border attribute. The dotted frame below
+       marks the grid demos of slide 8, where the point is the shape, not the content. */
+    table { border-collapse: collapse; margin-bottom: 1.5rem; }
+    caption { font-weight: bold; text-align: left; padding-bottom: .4rem; }
+    th, td { border: 1px solid #555; padding: .4rem .8rem; text-align: left; }
+    .grid td, .grid th { min-width: 7rem; text-align: center; }
+  </style>
+</head>
+<body>
+
+<h2>Slajd 3: tabela jest do danych, nie do układu strony</h2>
+<!-- A comparison table: two columns, the header row says what each column is about. -->
+<table>
+  <thead>
+    <tr>
+      <th scope="col">Tabela: tak</th>
+      <th scope="col">Tabela: nie</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>plan lekcji, cennik, wyniki meczów, oceny</td>
+      <td>ustawianie menu z lewej, a treści z prawej</td>
+    </tr>
+    <tr>
+      <td>każdy wiersz to jedna rzecz, każda kolumna to jedna cecha</td>
+      <td>„bo tak łatwiej coś wyrównać”</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Slajd 4 i 5: cztery znaczniki, table, tr, th, td</h2>
+<!-- The timetable from the drawing on slide 4, written out on slide 5. Plain version on purpose:
+     caption and thead come on slide 6, scope on slide 7. Three columns times three rows = 9 cells. -->
+<table>
+  <tr>
+    <th>Godzina</th><th>Poniedziałek</th><th>Wtorek</th>
+  </tr>
+  <tr>
+    <td>8:00</td><td>Sieci</td><td>Strony</td>
+  </tr>
+  <tr>
+    <td>8:50</td><td>Matematyka</td><td>Angielski</td>
+  </tr>
+</table>
+
+<h2>Slajd 6: podpis i trzy części, caption, thead, tbody, tfoot</h2>
+<!-- The three parts change nothing on screen by themselves. They tidy the code and let CSS
+     style each part separately later. caption is always the first tag inside table. -->
+<table>
+  <caption>Oceny z informatyki</caption>
+  <thead>
+    <tr>
+      <th>Uczeń</th><th>Sprawdzian</th><th>Projekt</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Ala</td><td>5</td><td>4</td></tr>
+    <tr><td>Bartek</td><td>3</td><td>5</td></tr>
+    <tr><td>Celina</td><td>4</td><td>4</td></tr>
+  </tbody>
+  <tfoot>
+    <tr><td>Średnia</td><td>4,0</td><td>4,3</td></tr>
+  </tfoot>
+</table>
+
+<h2>Slajd 7: scope, dla kogo ten nagłówek?</h2>
+<!-- scope="col" describes the cells below, scope="row" the cells beside. A screen reader then
+     reads „Poniedziałek, 8:00: Sieci komputerowe” instead of a bare „Sieci komputerowe”. -->
+<table>
+  <thead>
+    <tr>
+      <th scope="col">Godzina</th>
+      <th scope="col">Poniedziałek</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">8:00</th>
+      <td>Sieci komputerowe</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Slajd 8: colspan, jedna komórka na dwie kolumny</h2>
+<!-- The number says how many columns the cell takes. Row 1 has two cells written, not three. -->
+<table class="grid">
+  <tr>
+    <td colspan="2">Pracownia aplikacji</td>
+    <td>td</td>
+  </tr>
+  <tr><td>td</td><td>td</td><td>td</td></tr>
+  <tr><td>td</td><td>td</td><td>td</td></tr>
+</table>
+
+<h2>Slajd 8: rowspan, jedna komórka na dwa wiersze</h2>
+<!-- The number says how many rows the cell takes. Row 2 has two cells written, not three:
+     the first place is already taken by the tall cell from row 1. -->
+<table class="grid">
+  <tr>
+    <td rowspan="2">Pracownia aplikacji</td>
+    <td>td</td><td>td</td>
+  </tr>
+  <tr><td>td</td><td>td</td></tr>
+  <tr><td>td</td><td>td</td><td>td</td></tr>
+</table>
+
+<h2>Ćwiczenie 2 (slajd 11): układ A do F w kodzie</h2>
+<!-- Answer to the paper exercise. A takes all three columns, B takes rows 2 and 3.
+     Cells written per row: 1, then 3, then 2. -->
+<table class="grid">
+  <tr><td colspan="3">A</td></tr>
+  <tr><td rowspan="2">B</td><td>C</td><td>D</td></tr>
+  <tr><td>E</td><td>F</td></tr>
+</table>
+
+</body>
+</html>

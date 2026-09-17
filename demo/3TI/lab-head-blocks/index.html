@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!--
+  Lesson 4 (3TI, Pracownia aplikacji internetowych): sekcja head i bloki strony.
+  Deck slajdy.html, cheat sheets on slides 2, 3 and 4.
+  The start page of the site, rebuilt with the same head lines as about.html and with the
+  three blocks that about.html has no use for: article, aside and div.
+  How to run: copy the folder to htdocs and open http://localhost/<folder>/,
+  or just open index.html in the browser.
+-->
+<html lang="pl">
+<head>
+  <!-- The same six lines from the slide 2 cheat sheet. Every page gets its own title -->
+  <!-- and its own description: they describe this page, not the whole site. -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Start</title>
+  <meta name="description" content="Strona startowa: krótko o mnie i o tym, co tu znajdziesz.">
+  <link rel="icon" href="favicon.svg">
+</head>
+<body>
+  <header>
+    <h1>Moja strona</h1>
+  </header>
+
+  <!-- The menu of the whole site: links to files, so they work from any page. -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Start</a></li>
+      <li><a href="about.html">O mnie</a></li>
+      <li><a href="examples.html">Przykłady z lekcji</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section id="welcome">
+      <h2>Witaj</h2>
+      <p>To moja strona ćwiczeniowa z pracowni aplikacji internetowych.</p>
+    </section>
+
+    <section id="notes">
+      <h2>Notatki</h2>
+
+      <!-- article: a piece of content that makes sense on its own, taken out of the page: -->
+      <!-- a blog entry, a news item, a comment. Each one gets its own heading. -->
+      <article>
+        <h3>Pierwsza strona na localhost</h3>
+        <p>Apache zamienia folder htdocs w adres localhost, więc stronę widać tak jak w internecie.</p>
+      </article>
+
+      <article>
+        <h3>Ikona na karcie</h3>
+        <p>Ikona to zwykły plik svg obok strony, wskazany jedną linijką w sekcji head.</p>
+      </article>
+    </section>
+  </main>
+
+  <!-- aside: treść obok tematu, a side note. It stands next to the content, not inside it. -->
+  <aside>
+    <h2>Na marginesie</h2>
+    <p>Wszystkie nazwy plików piszę małymi literami, bez spacji i bez polskich znaków.</p>
+  </aside>
+
+  <footer>
+    <!-- div: a box with no meaning at all, used only when none of the named blocks fits. -->
+    <!-- Here it groups two lines of the footer so that CSS can move them together later. -->
+    <div class="footer-info">
+      <p>Autor: Imię Nazwisko, klasa 3TI</p>
+      <p>Strona powstała na lekcji, dane są przykładowe.</p>
+    </div>
+  </footer>
+</body>
+</html>

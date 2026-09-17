@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!--
+  Lesson 8 (3TI): forms, part 1 of 2. Model solution of exercise 1, deck slajdy_1.html, slide 10.
+  The slide asks for a file called form.html next to sent.html: one form sent with get, four fields,
+  every field with its own label and name, „Imię” and „E-mail” obligatory, each field in its own
+  paragraph, a submit button at the end.
+  How to run: open this file in a browser, or copy the folder into htdocs and open
+  http://localhost/html-forms/form.html
+-->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Napisz do nas</title>
+</head>
+<body>
+  <h1>Napisz do nas</h1>
+
+  <!-- action points at sent.html in the same folder, method="get" shows the data in the address. -->
+  <form action="sent.html" method="get">
+
+    <!-- for in the label and id in the field carry the same word, so the browser knows which -->
+    <!-- caption belongs to which field. name is what the server reads the value by. -->
+    <p>
+      <label for="firstName">Imię:</label>
+      <input type="text" id="firstName" name="firstName" required>
+    </p>
+
+    <p>
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" name="email" placeholder="jan@szkola.pl" required>
+    </p>
+
+    <!-- Age is a number, so the browser gives digits only and the up and down arrows. -->
+    <p>
+      <label for="age">Wiek:</label>
+      <input type="number" id="age" name="age">
+    </p>
+
+    <!-- The message needs several lines, so textarea, and textarea always has a closing tag. -->
+    <p>
+      <label for="message">Wiadomość:</label><br>
+      <textarea id="message" name="message" rows="4" cols="40"></textarea>
+    </p>
+
+    <p><button type="submit">Wyślij</button></p>
+  </form>
+
+  <!--
+    Check after sending: the page says „Dziękujemy za wiadomość” and the address ends with
+    sent.html?firstName=Jan&email=jan%40szkola.pl&age=17&message=Dzien+dobry
+    Clicking a caption puts the cursor in its field, and an empty e-mail blocks the submit.
+  -->
+</body>
+</html>

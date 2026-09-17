@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!--
+  Lesson 9 (3TI): forms, part 2 of 2. Model solution of exercise 1, deck slajdy_2.html, slide 9.
+  The slide asks for a file called survey.html: one form sent with get to sent.html, two fieldset
+  frames („O Tobie” and „Gry”), a radio group with a shared name, a select with two optgroup,
+  four checkboxes with a shared name, a date field, a slider, a label on every field.
+  How to run: open this file in a browser, or copy the folder into htdocs and open
+  http://localhost/html-forms/survey.html
+-->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ankieta o grach</title>
+</head>
+<body>
+  <h1>Ankieta o grach</h1>
+
+  <form action="sent.html" method="get">
+
+    <!-- A fieldset frames fields that belong together, and its question goes in the legend, -->
+    <!-- not in a normal paragraph: a screen reader reads the legend before every field inside. -->
+    <fieldset>
+      <legend>O Tobie</legend>
+
+      <!-- One radio group = one shared name. Clicking one option unchecks the others, and only -->
+      <!-- the value of the checked one is sent. required on a single member covers the whole group. -->
+      <p>Rocznik:</p>
+      <p>
+        <label><input type="radio" name="birthYear" value="2008" required> 2008</label>
+        <label><input type="radio" name="birthYear" value="2009"> 2009</label>
+        <label><input type="radio" name="birthYear" value="2010"> 2010</label>
+      </p>
+
+      <!-- A long list with one answer is a select. optgroup is only a heading inside the list, -->
+      <!-- it cannot be chosen. The server gets value, not the text the user sees. -->
+      <p>
+        <label for="className">Klasa:</label>
+        <select name="className" id="className">
+          <optgroup label="Klasy trzecie">
+            <option value="3ti" selected>3TI</option>
+            <option value="3te">3TE</option>
+          </optgroup>
+          <optgroup label="Klasy czwarte">
+            <option value="4ti">4TI</option>
+            <option value="4te">4TE</option>
+          </optgroup>
+        </select>
+      </p>
+    </fieldset>
+
+    <fieldset>
+      <legend>Gry</legend>
+
+      <!-- Checkboxes with a shared name let several answers through at once: the address then -->
+      <!-- holds genre twice or more. An unchecked box is not sent at all. -->
+      <p>W co grasz? (możesz zaznaczyć kilka)</p>
+      <p>
+        <label><input type="checkbox" name="genre" value="rpg"> RPG</label>
+        <label><input type="checkbox" name="genre" value="strategy"> strategiczne</label>
+        <label><input type="checkbox" name="genre" value="sport"> sportowe</label>
+        <label><input type="checkbox" name="genre" value="shooter"> strzelanki</label>
+      </p>
+
+      <!-- type="date" draws a calendar by itself, and max stops dates from the future. -->
+      <p>
+        <label for="lastPlayed">Kiedy ostatnio grałeś?</label>
+        <input type="date" id="lastPlayed" name="lastPlayed" max="2030-12-31">
+      </p>
+
+      <!-- A slider shows no number, so the scale belongs in the label. -->
+      <p>
+        <label for="rating">Jak oceniasz tę grę? (1 do 10)</label>
+        <input type="range" id="rating" name="rating" min="1" max="10" step="1" value="5">
+      </p>
+    </fieldset>
+
+    <p><button type="submit">Wyślij ankietę</button></p>
+  </form>
+
+  <!--
+    Check after sending: the address ends with something like
+    sent.html?birthYear=2009&className=3ti&genre=rpg&genre=strategy&lastPlayed=2026-09-14&rating=5
+    Pressing „Wyślij ankietę” without a year shows the browser's message and sends nothing.
+  -->
+</body>
+</html>

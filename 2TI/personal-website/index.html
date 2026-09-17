@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!--
+  Personal one-page website: header with navigation, three content sections and a footer.
+  It loads style.css for all colors and layout, and shows the local image file photo.svg.
+  The navigation links point to section ids inside this same page, so nothing else is needed.
+-->
+<html lang="pl">
+<head>
+  <!-- Character encoding. Without UTF-8 Polish letters like ą, ę, ż show up as broken symbols. -->
+  <meta charset="UTF-8">
+  <!-- Viewport: tells the phone to use its real width instead of pretending to be a wide desktop.
+       The @media rule in style.css only works correctly when this line is present. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- TU ZMIEŃ: tytuł widoczny na karcie przeglądarki -->
+  <title>Moja strona</title>
+  <!-- Link to the stylesheet. The path is relative, so style.css must sit in the same folder. -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Page header: site name plus the menu. <header> is a semantic element, it says what the
+       block is for instead of being a plain <div>. -->
+  <header>
+    <!-- TU ZMIEŃ: nazwa strony -->
+    <h1>Moja strona</h1>
+    <!-- Navigation. Each href starts with # and matches a section id below, so the browser
+         scrolls to that section instead of loading a new page. -->
+    <nav>
+      <a href="#about">O mnie</a>
+      <a href="#interests">Zainteresowania</a>
+      <a href="#schedule">Plan tygodnia</a>
+    </nav>
+  </header>
+
+  <!-- <main> holds the content that is unique to this page. There is only one <main> per page. -->
+  <main>
+    <!-- Section 1: introduction with a picture. The id is what the menu link #about points to. -->
+    <section id="about">
+      <h2>O mnie</h2>
+      <!-- TU ZMIEŃ: własne zdjęcie (plik w tym folderze) i opis -->
+      <!-- The alt text is read out loud by screen readers and shows up when the file is missing,
+           so it describes the picture instead of repeating the file name. -->
+      <img src="photo.svg" alt="Zdjęcie autora strony" width="320">
+      <p>Kilka zdań o sobie.</p>
+    </section>
+
+    <!-- Section 2: a plain list of interests, with one link leaving the site. -->
+    <section id="interests">
+      <h2>Zainteresowania</h2>
+      <ul>
+        <!-- TU ZMIEŃ: własne zainteresowania, dopisz albo usuń pozycje listy -->
+        <li>pierwsze zainteresowanie</li>
+        <li>drugie zainteresowanie</li>
+        <!-- target="_blank" opens the page in a new tab, and rel="noopener" stops that new tab
+             from getting access to this page. Always use them together. -->
+        <li>
+          <a href="https://pl.wikipedia.org" target="_blank" rel="noopener">łącze do strony zewnętrznej</a>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Section 3: weekly plan as a table. -->
+    <section id="schedule">
+      <h2>Plan tygodnia</h2>
+      <!-- A table has two parts: <thead> with the column names and <tbody> with the data rows.
+           scope="col" tells a screen reader that the heading describes the whole column. -->
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Dzień</th>
+            <th scope="col">Zajęcia</th>
+            <th scope="col">Godzina</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- TU ZMIEŃ: własny plan, każdy wiersz tabeli to jedno <tr> -->
+          <tr>
+            <td>Wtorek</td>
+            <td>Informatyka</td>
+            <td>11:45</td>
+          </tr>
+          <tr>
+            <td>Czwartek</td>
+            <td>Trening</td>
+            <td>17:00</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <!-- Footer: the same small print on every page of a bigger site. -->
+  <footer>
+    <!-- TU ZMIEŃ: autor -->
+    <p class="meta">Imię Nazwisko, klasa 2TI</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,162 @@
+/*
+  Styles for the signup form in index.html.
+  Three class names carry the logic from script.js onto the screen: .invalid marks a field that broke
+  a rule, .error is the red message under that field, .ok is the green message after a correct submit.
+  Changing a colour here changes it everywhere, because every colour is a custom property in :root.
+*/
+
+/* Custom properties. Named values stored on the root element and reused with var() below. */
+:root {
+  /* TU ZMIEŃ: kolory całej strony. Wystarczy podmienić wartość tutaj, reszta pliku ją podłapie. */
+  --background: #f8fafc;
+  --text: #0f172a;
+  --muted: #64748b;
+  --accent: #2563eb;
+  --border: #cbd5e1;
+  --card: #ffffff;
+  --danger: #dc2626;
+  --success: #16a34a;
+}
+
+/* border-box makes padding and border count inside the declared width, so an input with width 100%
+   never sticks out of the box it sits in. The * selector applies it to every element on the page. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Page frame. max-width keeps the text column narrow enough to read, margin auto centres it. */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  max-width: 560px;
+  margin: 40px auto;
+  padding: 0 20px;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--background);
+}
+
+/* Heading and the grey instruction under it. */
+h1 {
+  margin-bottom: 4px;
+  font-size: 28px;
+}
+
+.meta {
+  margin-top: 0;
+  color: var(--muted);
+}
+
+/* The form drawn as a white card lifted off the page background. */
+.card {
+  padding: 20px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+/* One field group: label, input and the message, each on its own line. */
+.field {
+  margin-bottom: 14px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+/* Text inputs. font: inherit copies the page font, otherwise inputs use a small system font. */
+input[type="text"],
+input[type="email"],
+input[type="number"] {
+  width: 100%;
+  padding: 8px;
+  font: inherit;
+  color: var(--text);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+/* :focus is the state of the field the user is typing in right now. */
+input:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+/* .invalid is added and removed by showError() in script.js. */
+input.invalid {
+  border-color: var(--danger);
+  background: #fef2f2;
+}
+
+/* A checkbox has no border to colour, so the wrong state is drawn as a ring around the box. */
+input[type="checkbox"].invalid {
+  outline: 2px solid var(--danger);
+  outline-offset: 2px;
+}
+
+/* The error message under a field. min-height reserves the line, so the form does not jump
+   up and down when a message appears or disappears. */
+.error {
+  display: block;
+  min-height: 20px;
+  font-size: 14px;
+  color: var(--danger);
+}
+
+/* The success message, filled in only when every rule passed. */
+.ok {
+  margin-bottom: 0;
+  font-weight: bold;
+  color: var(--success);
+}
+
+/* Checkbox row. flex puts the box and its text side by side instead of stacking them. */
+.field-checkbox {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Inside that row the label must not take the whole width, otherwise it pushes the box up. */
+.field-checkbox label {
+  margin-bottom: 0;
+  font-weight: normal;
+}
+
+/* The error span is the third item in the row and gets a line of its own. */
+.field-checkbox .error {
+  flex-basis: 100%;
+}
+
+/* The submit button. */
+.button {
+  padding: 10px 18px;
+  font: inherit;
+  color: var(--card);
+  background: var(--accent);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* :hover is the state while the mouse pointer sits on the button. */
+.button:hover {
+  background: var(--text);
+}
+
+/* @media applies the rules inside it only when the condition is true, here on screens up to 480px. */
+@media (max-width: 480px) {
+  body {
+    margin: 20px auto;
+  }
+
+  /* On a narrow screen the button spans the full width, so it is easy to hit with a thumb. */
+  .button {
+    width: 100%;
+  }
+}

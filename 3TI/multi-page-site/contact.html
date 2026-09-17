@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!--
+  Third page of the site, with a contact form. Header, nav and footer repeat the other two pages,
+  and class="active" sits on the link to contact.html. Styling comes from the shared style.css.
+  The form has no receiver yet: action is empty, so pressing the button only reloads this page.
+-->
+<html lang="pl">
+<head>
+  <!-- charset tells the browser the file is saved as UTF-8, so Polish letters render correctly -->
+  <meta charset="UTF-8">
+  <!-- viewport makes the page scale to the width of a phone instead of showing a zoomed out desktop -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- TU ZMIEŃ: tytuł widoczny na karcie przeglądarki -->
+  <title>Kontakt</title>
+  <!-- the same stylesheet as the other pages, so the menu looks the same everywhere -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- header: site name plus the menu, identical in every page -->
+  <header>
+    <!-- TU ZMIEŃ: nazwa strony (ta sama na każdej podstronie) -->
+    <p class="logo">Nazwa strony</p>
+    <!-- nav marks the block of links that moves the visitor between pages -->
+    <nav>
+      <a href="index.html">Start</a>
+      <a href="about.html">O nas</a>
+      <!-- class="active" moved here, because this is the page being displayed -->
+      <a href="contact.html" class="active">Kontakt</a>
+    </nav>
+  </header>
+
+  <!-- main holds what is unique to this page -->
+  <main>
+    <h1>Kontakt</h1>
+    <!--
+      action says where the browser sends the filled in form. It is empty on purpose: the form will
+      point at a PHP script later, and until then the data goes nowhere.
+      method="post" sends the fields in the body of the request instead of pasting them into the URL.
+    -->
+    <form action="" method="post">
+      <!--
+        Field group: one label plus one input. label for="name" must repeat the id of the input,
+        so clicking the label focuses the field and a screen reader announces the right name.
+        The name attribute is the key the server will read the value under, so it stays in English.
+        required tells the browser to block sending while the field is empty.
+      -->
+      <label for="name">Imię</label>
+      <input id="name" name="name" type="text" required>
+
+      <!-- type="email" makes the browser check the address contains an @ before it lets the form go -->
+      <label for="email">E-mail</label>
+      <input id="email" name="email" type="email" required>
+
+      <!--
+        select is a drop down list. Each option is one choice; the value attribute is what the server
+        receives, the text between the tags is what the visitor reads. The first option is preselected.
+      -->
+      <label for="subject">Temat</label>
+      <select id="subject" name="subject">
+        <!-- TU ZMIEŃ: tematy do wyboru -->
+        <option value="question">Pytanie</option>
+        <option value="cooperation">Współpraca</option>
+      </select>
+
+      <!--
+        textarea is a multi line field, so it has no value attribute and no self closing tag.
+        rows="5" sets how many lines of text are visible before a scrollbar appears; it is the
+        starting height only, the visitor can type more.
+      -->
+      <label for="message">Wiadomość</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
+      <!-- type="submit" is the button that sends the form; a button with any other job gets type="button" -->
+      <button type="submit">Wyślij</button>
+    </form>
+  </main>
+
+  <!-- footer: closing line of the page, identical in every page -->
+  <footer>
+    <!-- TU ZMIEŃ: autor -->
+    <p>Autor: Imię Nazwisko, klasa 3TI</p>
+  </footer>
+</body>
+</html>

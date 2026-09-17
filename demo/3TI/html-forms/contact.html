@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!--
+  Lesson 8 (3TI): forms, part 1 of 2. The teacher's live-coding file, deck slajdy_1.html, slides 4 to 8.
+  It is the contact form the class builds on the projector: form and action and method (slide 4),
+  get instead of post (slide 5), input and textarea (slide 6), label (slide 7), name and
+  placeholder and required (slide 8). Submitting it opens sent.html with the data after "?".
+  How to run: open this file in a browser, or copy the folder into htdocs and open
+  http://localhost/html-forms/contact.html
+-->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Napisz do nas</title>
+</head>
+<body>
+  <h1>Napisz do nas</h1>
+
+  <!-- The envelope. Everything inside is sent together when the submit button is pressed. -->
+  <!-- action = where the data goes, a file in this same folder. method = how it travels. -->
+  <!-- method="get" puts the data in the address bar, which is the whole point of this demo. -->
+  <form action="sent.html" method="get">
+
+    <!-- label and input are joined by for = id.
+         Clicking the word „Imię:” puts the cursor in the field. -->
+    <!-- name is the key the server reads: firstName=Jan. A field without name is not sent at all. -->
+    <!-- required stops an empty submit and shows the browser's own message next to the field. -->
+    <p>
+      <label for="firstName">Imię:</label>
+      <input type="text" id="firstName" name="firstName" required>
+    </p>
+
+    <!-- type="email" makes the browser check that the text looks like an address. -->
+    <!-- placeholder is the grey hint inside the field. It disappears while typing, so it never -->
+    <!-- replaces the label. -->
+    <p>
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" name="email" placeholder="jan@szkola.pl" required>
+    </p>
+
+    <!-- type="number" accepts digits only and draws the up and down arrows. -->
+    <p>
+      <label for="age">Wiek:</label>
+      <input type="number" id="age" name="age">
+    </p>
+
+    <!-- textarea is the multi-line field and it HAS a closing tag. Without it the rest of the -->
+    <!-- page falls inside the field. -->
+    <p>
+      <label for="message">Wiadomość:</label><br>
+      <textarea id="message" name="message" rows="4" cols="40"></textarea>
+    </p>
+
+    <!-- Without a submit button the form has no way to go anywhere. -->
+    <p><button type="submit">Wyślij</button></p>
+  </form>
+
+  <!--
+    On the projector, after filling in Jan, jan@szkola.pl, 17 and a message, the address reads:
+    sent.html?firstName=Jan&email=jan%40szkola.pl&age=17&message=Dzien+dobry
+    Spaces become "+" and Polish letters become codes such as %C5%82. That is normal.
+
+    Three things worth breaking live, one at a time, then putting back:
+    1. Delete name="age" and send again: age is gone from the address, the other fields stay.
+    2. Change method="get" to method="post" and send: the address stays clean, no "?" at all.
+    3. Leave Imię empty and press „Wyślij”: required blocks the submit and the browser
+       shows „Wypełnij to pole” next to the field.
+  -->
+
+  <p><a href="examples.html">Przykłady ze slajdów</a></p>
+</body>
+</html>

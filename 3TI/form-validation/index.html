@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <!-- Character encoding. Without UTF-8 the Polish letters ą, ć, ę, ł, ż turn into broken symbols. -->
+  <meta charset="UTF-8">
+  <!-- Viewport. Tells a phone to use its real width instead of pretending to be a wide desktop. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- TU ZMIEŃ: tytuł widoczny na karcie przeglądarki -->
+  <title>Formularz ze sprawdzaniem</title>
+  <!-- Stylesheet. All colours, spacing and the look of an invalid field live in style.css. -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Page header. One heading that says what the form is for, plus a short instruction. -->
+  <header>
+    <!-- TU ZMIEŃ: nagłówek strony -->
+    <h1>Zapisy na warsztaty</h1>
+    <p class="meta">Wypełnij pola i kliknij „Wyślij”. Komunikaty o błędach pojawią się pod polami.</p>
+  </header>
+
+  <main>
+    <!--
+      The form itself. The id signup-form is the handle script.js uses to catch the submit.
+      novalidate switches off the browser's own validation bubbles, so our code in script.js is the
+      only thing that checks the fields. Without it the browser blocks the submit before our code runs.
+    -->
+    <form class="card" id="signup-form" action="" method="post" novalidate>
+      <!--
+        One field group: a label, the input and an empty span for the message.
+        The label has for="name", which points at the input id, so clicking the text focuses the field.
+        The span id follows the pattern error-<id of the field>, and script.js builds that name itself.
+      -->
+      <div class="field">
+        <label for="name">Imię i nazwisko</label>
+        <input id="name" name="name" type="text" placeholder="Imię Nazwisko">
+        <span class="error" id="error-name"></span>
+      </div>
+
+      <!-- type="email" gives phones the keyboard with @, the real checking still happens in script.js. -->
+      <div class="field">
+        <label for="email">E-mail</label>
+        <input id="email" name="email" type="email" placeholder="adres@example.com">
+        <span class="error" id="error-email"></span>
+      </div>
+
+      <!-- type="number" lets the browser show a numeric keyboard and arrows for stepping the value. -->
+      <div class="field">
+        <label for="age">Wiek</label>
+        <input id="age" name="age" type="number">
+        <span class="error" id="error-age"></span>
+      </div>
+
+      <!-- Checkbox group. The input goes before the label so the box sits left of the text. -->
+      <div class="field field-checkbox">
+        <input id="consent" name="consent" type="checkbox">
+        <label for="consent">Zgadzam się na regulamin</label>
+        <span class="error" id="error-consent"></span>
+      </div>
+
+      <!-- TU ZMIEŃ: kolejne pola. Skopiuj jedną grupę div.field i nadaj nowe id oraz nowy error-<id>. -->
+
+      <!-- type="submit" means this button sends the form, which is the event script.js listens for. -->
+      <button class="button" type="submit">Wyślij</button>
+
+      <!-- Success message. Empty until validate() finds no errors, then script.js fills it in. -->
+      <p class="ok" id="success"></p>
+    </form>
+  </main>
+
+  <!--
+    The script sits at the end of the body on purpose. The browser reads the page top to bottom,
+    so by the time this line runs the form and the inputs already exist and can be found by id.
+  -->
+  <script src="script.js"></script>
+</body>
+</html>

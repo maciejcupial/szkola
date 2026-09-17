@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--
+  Lesson 5 (3TI): links. Model solution of exercise 1 (slide 10): three pages and a shared menu.
+  Folder layout mirrors the slide 5 tree: index.html and contact.html here, pages/about.html one level down.
+  Serve it like the students do: copy the folder to htdocs and open http://localhost/<folder>/
+-->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Start</title>
+</head>
+<body>
+  <h1>Moja strona</h1>
+
+  <!-- The menu: an unordered list, one link per page. Same folder: just the file name. -->
+  <!-- One level down: folder, slash, file. Slashes are always "/", even on Windows. -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Start</a></li>
+      <li><a href="pages/about.html">O mnie</a></li>
+      <li><a href="contact.html">Kontakt</a></li>
+    </ul>
+  </nav>
+
+  <p>Witaj na mojej stronie.</p>
+
+  <!-- Link straight to a section of another page: file name, then # and the id of the target. -->
+  <p><a href="contact.html#hours">Godziny otwarcia</a></p>
+
+  <!-- Absolute address: the full URL, used for pages outside our site. -->
+  <!-- target="_blank" opens a new tab; rel="noopener" goes with it, and the text says so. -->
+  <p>
+    Dokumentacja:
+    <a href="https://developer.mozilla.org/pl/" target="_blank" rel="noopener">MDN Web Docs (nowa karta)</a>
+  </p>
+</body>
+</html>

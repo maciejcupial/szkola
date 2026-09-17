@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!-- Contact page: the anchor target #hours, a mailto: link and a tel: link (slides 6 and 7). -->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kontakt</title>
+</head>
+<body>
+  <h1>Kontakt</h1>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Start</a></li>
+      <li><a href="pages/about.html">O mnie</a></li>
+      <li><a href="contact.html">Kontakt</a></li>
+    </ul>
+  </nav>
+
+  <!-- mailto: opens the mail program; the subject goes after "?". No space after the colon. -->
+  <p>E-mail: <a href="mailto:kontakt@przyklad.pl?subject=Pytanie">Napisz do nas</a></p>
+
+  <!-- tel: dials the number on a phone; the visible text can have spaces, the href cannot. -->
+  <p>Telefon: <a href="tel:+48123456789">Zadzwoń: 123 456 789</a></p>
+
+  <!-- Filler so the page can actually scroll to the anchor on a projector. -->
+  <p>Odpowiadamy w ciągu dwu dni roboczych.</p>
+  <p>Zapraszamy też na miejscu.</p>
+  <p style="height: 60vh"></p>
+
+  <!-- The anchor target: the id has NO "#", the link to it does (#hours). -->
+  <h2 id="hours">Godziny otwarcia</h2>
+  <p>od poniedziałku do piątku, 8:00 do 16:00</p>
+
+  <!-- Back to the top of this same page: only the fragment, no file name. -->
+  <p><a href="#top">Do góry</a></p>
+</body>
+</html>

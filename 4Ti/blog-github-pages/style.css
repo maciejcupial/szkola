@@ -1,0 +1,252 @@
+/* Styles for all four pages of the blog: index.html, posts.html, post.html, contact.html. */
+/* Colors live in custom properties at the top, so one change repaints the whole blog. */
+/* The dark version reuses the same property names with different values. */
+
+/* TU ZMIEŃ: kolory wersji jasnej */
+/* :root is the whole document. A name starting with -- is a custom property, */
+/* read anywhere below with var(--name). */
+:root {
+  --background: #ffffff;
+  --text: #1d2433;
+  --muted: #5b6472;
+  --accent: #7c3aed;
+  --border: #e2e8f0;
+  --card: #f8fafc;
+}
+
+/* TU ZMIEŃ: kolory wersji ciemnej */
+/* Same property names, new values. script.js adds the class dark to body, */
+/* every var() below then reads these values and the page repaints itself. */
+body.dark {
+  --background: #0f172a;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --accent: #a78bfa;
+  --border: #1e293b;
+  --card: #16213a;
+}
+
+/* border-box means padding and border count inside the declared width, */
+/* so a box with width 100% plus padding never sticks out of the screen. */
+* {
+  box-sizing: border-box;
+}
+
+/* Page basics: no default margin, a serif font for reading, colors from the variables. */
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.7;
+  color: var(--text);
+  background: var(--background);
+}
+
+a {
+  color: var(--accent);
+}
+
+/* Header bar. flex puts the logo, the menu and the theme button in one row, */
+/* wrap lets them move to a second row when the screen is too narrow. */
+.top {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 14px 24px;
+  border-bottom: 1px solid var(--border);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 20px;
+  text-decoration: none;
+  color: var(--text);
+}
+
+/* margin-left: auto eats all the free space on the left, pushing the menu to the right. */
+nav {
+  display: flex;
+  gap: 16px;
+  margin-left: auto;
+}
+
+/* A transparent bottom border reserves the space for the underline, */
+/* so nothing jumps when the link gets highlighted. */
+nav a {
+  text-decoration: none;
+  color: var(--muted);
+  padding: 6px 0;
+  border-bottom: 2px solid transparent;
+}
+
+/* Hover and the current page look the same: accent color plus an underline. */
+nav a:hover,
+nav a.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* Theme button: a circle, because border-radius larger than half the size rounds it fully. */
+#theme-toggle {
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text);
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* Content column. max-width keeps a line of text short enough to read, */
+/* margin: 0 auto centers the column on wide screens. */
+main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+/* Headings in a sans serif font, so they stand out from the serif body text. */
+h1,
+h2,
+h3 {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.25;
+}
+
+/* Hero: the welcome block on the home page. */
+.hero {
+  padding: 24px 0 8px;
+}
+
+.hero h1 {
+  font-size: 40px;
+  margin: 0 0 8px;
+}
+
+/* .button works both on a link and on a real button, hence the reset of border and font. */
+.button {
+  display: inline-block;
+  padding: 10px 18px;
+  background: var(--accent);
+  color: #ffffff;
+  border: 0;
+  border-radius: 6px;
+  text-decoration: none;
+  font: inherit;
+  font-family: Arial, Helvetica, sans-serif;
+  cursor: pointer;
+}
+
+/* Card: one post teaser on the home page and on the list of posts. */
+.card {
+  padding: 18px 20px;
+  margin: 14px 0;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--card);
+}
+
+.card h2,
+.card h3 {
+  margin: 0 0 4px;
+}
+
+/* Small gray line with the date and the reading time. */
+.meta {
+  margin: 0 0 8px;
+  color: var(--muted);
+  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* A single post page: a little more air between the paragraphs. */
+.post p {
+  margin: 0 0 16px;
+}
+
+.post h2 {
+  margin-top: 28px;
+}
+
+/* Code block. overflow-x: auto gives a long line its own scrollbar */
+/* instead of stretching the whole page. */
+pre {
+  padding: 12px 14px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+/* Contact form. grid stacks the fields in one column with an even gap. */
+form {
+  display: grid;
+  gap: 4px;
+  max-width: 480px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+label {
+  margin-top: 12px;
+  font-weight: bold;
+}
+
+/* font: inherit makes the fields use the page font instead of the browser default. */
+input,
+textarea {
+  padding: 8px;
+  font: inherit;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--card);
+  color: var(--text);
+}
+
+/* .invalid is added by script.js to a field that failed the check. */
+input.invalid,
+textarea.invalid {
+  border-color: #dc2626;
+}
+
+/* min-height keeps the space for the message, so the form does not jump when it appears. */
+.error {
+  color: #dc2626;
+  font-size: 14px;
+  min-height: 18px;
+}
+
+/* .ok is the green message shown after a correct submit. */
+.ok {
+  color: #16a34a;
+  font-weight: bold;
+}
+
+/* justify-self: start stops the submit button from stretching across the grid column. */
+form .button {
+  margin-top: 12px;
+  justify-self: start;
+}
+
+footer {
+  padding: 18px 24px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+
+/* @media applies the rules only when the condition is true, here on screens up to 600px. */
+/* Phone: the menu moves under the blog name and the big heading shrinks. */
+@media (max-width: 600px) {
+  nav {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .hero h1 {
+    font-size: 30px;
+  }
+}
