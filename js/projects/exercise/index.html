@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!-- JavaScript exercise: one field, one button, one result line. -->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- TU ZMIEŃ: nazwa ćwiczenia widoczna na karcie przeglądarki -->
+  <title>Ćwiczenie: JavaScript</title>
+  <style>
+    /* Colours */
+    :root {
+      --background: #ffffff;
+      --text: #1f2933;
+      --muted: #6b7280;
+      --accent: #2563eb;
+      --border: #d1d5db;
+      --card: #f1f5f9;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 0 20px;
+      line-height: 1.6;
+      background: var(--background);
+      color: var(--text);
+    }
+
+    .meta {
+      color: var(--muted);
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-top: 12px;
+    }
+
+    input {
+      padding: 8px;
+      font: inherit;
+      width: 100%;
+      max-width: 280px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+    }
+
+    .button {
+      margin-top: 12px;
+      padding: 8px 16px;
+      font: inherit;
+      cursor: pointer;
+      border: none;
+      border-radius: 6px;
+      background: var(--accent);
+      color: var(--background);
+    }
+
+    .card {
+      margin-top: 16px;
+      padding: 12px;
+      background: var(--card);
+      border-radius: 6px;
+      min-height: 24px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <!-- TU ZMIEŃ: treść zadania -->
+    <h1>Podwój liczbę</h1>
+    <p class="meta">Wpisz liczbę i kliknij przycisk. Wynik pojawi się niżej.</p>
+  </header>
+
+  <main>
+    <label for="input">Liczba</label>
+    <input id="input" type="number" value="21">
+
+    <button id="button" type="button" class="button">Policz</button>
+
+    <p id="result" class="card"></p>
+  </main>
+
+  <!-- At the end of body, so getElementById finds the elements. -->
+  <script src="script.js"></script>
+</body>
+</html>

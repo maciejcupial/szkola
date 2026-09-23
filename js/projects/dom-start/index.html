@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!-- DOM practice page: every element has an id for script.js. -->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- TU ZMIEŃ: tytuł widoczny na karcie przeglądarki -->
+  <title>Ćwiczenia z DOM</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <!-- TU ZMIEŃ: nagłówek strony, zostaw id="heading" -->
+    <h1 id="heading">Ćwiczenia z DOM</h1>
+  </header>
+
+  <main>
+    <!-- TU ZMIEŃ: treść akapitu, id="description" zostaw bez zmian -->
+    <p id="description">Ten akapit zmienia się po kliknięciu przycisku.</p>
+
+    <img id="picture" src="image-a.svg" alt="Obrazek A" width="240" height="120">
+
+    <ul id="list">
+      <li>pierwszy element</li>
+      <li>drugi element</li>
+    </ul>
+
+    <div class="buttons">
+      <button type="button" id="change-text">Zmień tekst</button>
+      <button type="button" id="change-style">Zmień wygląd</button>
+      <button type="button" id="swap-image">Podmień obrazek</button>
+      <button type="button" id="add-item">Dodaj element listy</button>
+      <button type="button" id="remove-item">Usuń ostatni element</button>
+    </div>
+  </main>
+
+  <!-- At the end of body, so getElementById finds the elements. -->
+  <script src="script.js"></script>
+</body>
+</html>

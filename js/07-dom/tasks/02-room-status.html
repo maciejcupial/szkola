@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!-- Task 2 of 5. Change only 02-room-status.js. -->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zadanie 2: tablica przy sali</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <div class="card">
+    <h2>Zadanie 2: przyciski zmieniają tekst i wygląd</h2>
+    <p>Kod piszesz w <code>02-room-status.js</code>, ten plik zostaw bez zmian.</p>
+    <ol>
+      <li>
+        W funkcji <code>setBusy()</code> wpisz do akapitu <code>status</code>
+        tekst <code>Sala zajęta</code> i ustaw mu kolor <code>red</code>.
+      </li>
+      <li>
+        W funkcji <code>setFree()</code> zrób to samo z tekstem <code>Sala wolna</code>
+        i kolorem <code>green</code>.
+      </li>
+      <li>
+        Obie funkcje zwiększają zmienną <code>changes</code> o 1 i wypisują ją
+        w akapicie <code>changes</code> jako <code>Zmian statusu: 1</code>,
+        <code>Zmian statusu: 2</code> i tak dalej.
+      </li>
+      <li>
+        Dla chętnych: napisz jedną funkcję <code>setStatus(text, color)</code>, która robi
+        całą pracę, a <code>setBusy()</code> i <code>setFree()</code> niech ją tylko wywołują
+        z innymi argumentami.
+      </li>
+    </ol>
+    <p class="meta">
+      Sprawdź: kliknij „Zajęta”, „Wolna”, „Zajęta”. Ma być czerwone „Sala zajęta”
+      i „Zmian statusu: 3”.
+    </p>
+  </div>
+
+  <h1>Sala 12</h1>
+  <p id="status">Status nieznany</p>
+  <p id="changes" class="meta">Zmian statusu: 0</p>
+  <button type="button" class="button" onclick="setBusy()">Zajęta</button>
+  <button type="button" class="button" onclick="setFree()">Wolna</button>
+
+  <script src="02-room-status.js"></script>
+</body>
+</html>

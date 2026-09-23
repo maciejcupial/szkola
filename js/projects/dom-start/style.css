@@ -1,0 +1,67 @@
+/* DOM practice page. .highlight is toggled by script.js. */
+
+:root {
+  --background: #ffffff;
+  --text: #111827;
+  --accent: #1f6feb;
+  --border: #d1d5db;
+  --card: #f9fafb;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  max-width: 640px;
+  margin: 40px auto;
+  padding: 0 20px;
+  line-height: 1.6;
+  background: var(--background);
+  color: var(--text);
+}
+
+h1 {
+  color: var(--accent);
+  font-size: 28px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+ul {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 12px 12px 32px;
+}
+
+/* TU ZMIEŃ: kolory i wygląd wyróżnienia; klasa .highlight jest włączana przez script.js */
+.highlight {
+  background: #fef08a;
+  padding: 8px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+button {
+  padding: 8px 14px;
+  font: inherit;
+  color: var(--text);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}

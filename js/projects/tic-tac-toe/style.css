@@ -1,0 +1,96 @@
+/* Tic-tac-toe board. Classes x and o are added by script.js. */
+
+:root {
+  --background: #f1f5f9;
+  --text: #0f172a;
+  --muted: #64748b;
+  --accent: #2563eb;
+  --border: #cbd5e1;
+  --card: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 24px 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  background: var(--background);
+  text-align: center;
+}
+
+h1 {
+  margin: 0 0 8px;
+  font-size: 28px;
+}
+
+#status {
+  margin: 0 0 20px;
+  font-size: 18px;
+  color: var(--muted);
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  gap: 8px;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.cell {
+  width: 100px;
+  height: 100px;
+  font-family: inherit;
+  font-size: 48px;
+  font-weight: bold;
+  line-height: 1;
+  color: var(--text);
+  background: var(--card);
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.cell:hover {
+  background: var(--background);
+}
+
+/* Sign colours */
+.cell.x {
+  color: #dc2626;
+}
+
+.cell.o {
+  color: var(--accent);
+}
+
+.button {
+  padding: 10px 18px;
+  font-family: inherit;
+  font-size: 16px;
+  color: var(--card);
+  background: var(--accent);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: #1d4ed8;
+}
+
+@media (max-width: 380px) {
+  .board {
+    grid-template-columns: repeat(3, 88px);
+  }
+
+  .cell {
+    width: 88px;
+    height: 88px;
+    font-size: 40px;
+  }
+}

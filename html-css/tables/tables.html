@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<!-- Lesson 7 (3TI): tables, solution of exercise 1 (slide 10). -->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tabele</title>
+  <style>
+    table { border-collapse: collapse; margin-bottom: 2rem; }
+    caption { font-weight: bold; text-align: left; padding-bottom: .4rem; }
+    th, td { border: 1px solid #555; padding: .4rem .8rem; text-align: left; }
+  </style>
+</head>
+<body>
+  <h1>Tabele</h1>
+
+  <!-- Four columns: every row adds up to four places. -->
+  <table>
+    <!-- caption must be the FIRST tag inside table. -->
+    <caption>Mój plan lekcji</caption>
+
+    <thead>
+      <tr>
+        <th scope="col">Godzina</th>
+        <th scope="col">Poniedziałek</th>
+        <th scope="col">Wtorek</th>
+        <th scope="col">Środa</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td rowspan="2">Pracownia aplikacji</td>
+        <td>Matematyka</td>
+        <td>Polski</td>
+      </tr>
+
+      <!-- Three cells: the Monday place is taken by the cell above. -->
+      <tr>
+        <th scope="row">2</th>
+        <td>Angielski</td>
+        <td>Sieci komputerowe</td>
+      </tr>
+
+      <tr>
+        <th scope="row">Przerwa</th>
+        <td colspan="3">Przerwa obiadowa</td>
+      </tr>
+
+      <tr>
+        <th scope="row">3</th>
+        <td>Strony i aplikacje internetowe</td>
+        <td>Wychowanie fizyczne</td>
+        <td>Historia</td>
+      </tr>
+      <tr>
+        <th scope="row">4</th>
+        <td>Sieci komputerowe</td>
+        <td>Polski</td>
+        <td>Matematyka</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table>
+    <caption>Moje oceny</caption>
+
+    <thead>
+      <tr>
+        <th scope="col">Przedmiot</th>
+        <th scope="col">Ocena 1</th>
+        <th scope="col">Ocena 2</th>
+        <th scope="col">Ocena 3</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <th scope="row">Sieci komputerowe</th>
+        <td>5</td>
+        <td>4</td>
+        <td>4</td>
+      </tr>
+      <tr>
+        <th scope="row">Strony i aplikacje internetowe</th>
+        <td>4</td>
+        <td>5</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <th scope="row">Matematyka</th>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+    </tbody>
+
+    <tfoot>
+      <tr>
+        <th scope="row">Średnia</th>
+        <td>4,0</td>
+        <td>4,3</td>
+        <td>4,7</td>
+      </tr>
+    </tfoot>
+  </table>
+</body>
+</html>

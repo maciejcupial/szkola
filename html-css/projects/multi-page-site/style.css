@@ -1,0 +1,113 @@
+/* Shared styles for all three pages. */
+
+/* TU ZMIEŃ: kolory całej witryny */
+:root {
+  --background: #ffffff;
+  --text: #1d2433;
+  --muted: #666666;
+  --accent: #0b7a75;
+  --border: #d9dee7;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--background);
+}
+
+/* Header: flex-wrap lets the menu drop to a new line on a phone */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 14px 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.logo {
+  margin: 0;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+/* Menu: transparent border reserved, so the highlight does not shift the layout */
+nav a {
+  margin-left: 16px;
+  color: var(--text);
+  text-decoration: none;
+  padding: 6px 0;
+  border-bottom: 2px solid transparent;
+}
+
+nav a:hover,
+nav a.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+h1 {
+  color: var(--accent);
+}
+
+/* Link that looks like a button */
+.button {
+  display: inline-block;
+  padding: 10px 18px;
+  background: var(--accent);
+  color: #ffffff;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+/* Contact form */
+form {
+  display: grid;
+  gap: 6px;
+  max-width: 480px;
+}
+
+label {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+input,
+select,
+textarea {
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font: inherit;
+}
+
+button {
+  margin-top: 14px;
+  padding: 10px 18px;
+  background: var(--accent);
+  color: #ffffff;
+  border: 0;
+  border-radius: 6px;
+  font: inherit;
+  cursor: pointer;
+}
+
+footer {
+  padding: 16px 24px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 14px;
+}

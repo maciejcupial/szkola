@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!-- Task 1 of 5. Change only 01-club-plan.js. -->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zadanie 1: plan zajęć</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <div class="card">
+    <h2>Zadanie 1: znajdź elementy i zmień stronę</h2>
+    <p>
+      Cały kod piszesz w <code>01-club-plan.js</code>. Działa od razu po otwarciu strony,
+      bez klikania.
+    </p>
+    <ol>
+      <li>
+        Znajdź nagłówek po <code>id="title"</code> i zmień jego tekst
+        na <code>Plan koła informatycznego</code>.
+      </li>
+      <li>
+        Pobierz wszystkie elementy z klasą <code>lesson</code> i zapisz ich liczbę
+        w zmiennej <code>count</code>.
+      </li>
+      <li>Pomaluj akapit <code>summary</code> na zielono (<code>green</code>).</li>
+      <li>
+        Dla chętnych: dopisz na końcu nazwy pierwszego zajęcia słowo <code>(start)</code>
+        i sprawdź w konsoli, co wypisuje <code>lessons.tagName</code>,
+        a co <code>lessons[0].tagName</code>.
+      </li>
+    </ol>
+  </div>
+
+  <!-- The part of the page the script changes. -->
+  <h1 id="title">Tytuł do zmiany</h1>
+  <ul>
+    <li class="lesson">Sieci: adresy IP</li>
+    <li class="lesson">HTML: formularze</li>
+    <li class="lesson">JavaScript: pętle</li>
+    <li class="lesson">JavaScript: DOM</li>
+  </ul>
+  <p id="summary"></p>
+
+  <script src="01-club-plan.js"></script>
+</body>
+</html>

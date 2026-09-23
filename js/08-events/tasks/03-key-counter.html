@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!-- Task 3 of 5. Change only 03-key-counter.js. -->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zadanie 3: licznik klawiszy</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <h1>Zadanie 3: licznik klawiszy</h1>
+
+  <div class="card">
+    <p>
+      Zdarzenie <code>keydown</code> odpala się przy każdym naciśnięciu klawisza w polu, w którym
+      stoi kursor. Obiekt zdarzenia ma właściwość <code>event.key</code>: nazwę naciśniętego klawisza,
+      na przykład <code>"a"</code>, <code>"Enter"</code> albo <code>"Escape"</code>.
+    </p>
+    <ol>
+      <li>Każde naciśnięcie zwiększa <code>keyCount</code> o 1 i pokazuje „Naciśnięcia klawiszy: 4”
+        (z aktualną liczbą).</li>
+      <li>Drugi akapit pokazuje ostatni klawisz, na przykład „Ostatni klawisz: t”.</li>
+      <li>Klawisz Escape czyści pole: gdy <code>event.key === "Escape"</code>, wpisz do
+        <code>messageField.value</code> pusty tekst.</li>
+      <li>Sprawdź: wpisz „kot” i naciśnij Escape. Strona pokazuje „Naciśnięcia klawiszy: 4” i
+        „Ostatni klawisz: Escape”, a pole jest puste.</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <label for="message">Wiadomość</label>
+    <input type="text" id="message">
+    <p id="key-count">Naciśnięcia klawiszy: 0</p>
+    <p id="last-key">Ostatni klawisz: brak</p>
+  </div>
+
+  <script src="03-key-counter.js"></script>
+</body>
+</html>

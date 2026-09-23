@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!-- Lesson 6 (3TI, pracownia): tables, solution of steps 1-4 (slides 5-8). -->
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Moje oceny</title>
+  <meta name="description" content="Moje oceny: tabela przedmiotów z podsumowaniem.">
+  <link rel="icon" href="favicon.svg">
+</head>
+<body>
+  <header>
+    <h1>Moje oceny</h1>
+  </header>
+
+  <!-- Step 1: the same menu goes into index.html, about.html and plan.html. -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Start</a></li>
+      <li><a href="about.html">O mnie</a></li>
+      <li><a href="plan.html">Plan</a></li>
+      <li><a href="grades.html">Oceny</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section>
+      <h2>Moje przedmioty</h2>
+
+      <table>
+        <!-- Step 2: caption comes first, before thead. -->
+        <caption>Moje przedmioty</caption>
+
+        <thead>
+          <tr>
+            <th scope="col">Przedmiot</th>
+            <th scope="col">Ocena</th>
+            <th scope="col">Uwagi</th>
+          </tr>
+        </thead>
+
+        <!-- Step 3: as many td in a row as th in the header. -->
+        <tbody>
+          <tr><td>Matematyka</td><td>5</td><td>-</td></tr>
+          <tr><td>Informatyka</td><td>6</td><td>-</td></tr>
+          <tr><td>Fizyka</td><td>4</td><td>-</td></tr>
+          <tr><td>Angielski</td><td>5</td><td>-</td></tr>
+          <tr><td>WF</td><td>5</td><td>-</td></tr>
+        </tbody>
+
+        <!-- Step 4: (5 + 6 + 4 + 5 + 5) / 5 = 5.0 -->
+        <tfoot>
+          <tr><td colspan="2">Średnia</td><td>5.0</td></tr>
+        </tfoot>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <p>Autor: Imię Nazwisko, klasa 3TI</p>
+  </footer>
+</body>
+</html>

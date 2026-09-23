@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!-- Lesson 6 (3TI): images, code from slides 3, 4, 5, 9, 10. Solution: gallery.html. -->
+<!-- SVG placeholders instead of the photos named on the slides. -->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Obrazy w HTML, kod ze slajdów</title>
+</head>
+<body>
+  <h1>Obrazy w HTML: kod ze slajdów</h1>
+
+  <h2>Slajd 3: znacznik img i jego cztery atrybuty</h2>
+  <img src="img/cat.svg" alt="Rudy kot" width="600" height="400">
+
+  <h2>Slajd 4: alt, czyli obraz opisany słowami</h2>
+  <img src="img/lake.svg" alt="Jezioro o zachodzie słońca" width="640" height="360">
+  <!-- Missing alt is a mistake, empty alt is a decision. -->
+  <img src="img/divider.svg" alt="" width="600" height="24">
+  <!-- Uncomment: a wrong path shows the alt text. -->
+  <!-- <img src="img/lakee.svg" alt="Jezioro o zachodzie słońca" width="640" height="360"> -->
+
+  <h2>Slajd 5: width i height, czyli zarezerwowane miejsce</h2>
+  <img src="img/city.svg" alt="Panorama miasta" width="480" height="320">
+  <p>Ten tekst stoi w miejscu, bo obraz nad nim ma <code>width</code> i <code>height</code>.</p>
+  <img src="img/city.svg" alt="Panorama miasta">
+  <p>Ten tekst skacze w dół, bo obraz nad nim nie ma wymiarów.</p>
+
+  <h2>Slajd 9: figure i figcaption</h2>
+  <figure>
+    <img src="img/mountains.svg"
+         alt="Giewont nad Zakopanem"
+         width="600" height="400">
+    <figcaption>
+      Giewont, wycieczka klasowa.
+    </figcaption>
+  </figure>
+
+  <h2>Slajd 10: obraz jako łącze</h2>
+  <a href="img/mountains-large.svg">
+    <img src="img/mountains.svg" alt="Giewont, powiększ" width="600" height="400">
+  </a>
+</body>
+</html>

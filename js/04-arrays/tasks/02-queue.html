@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!-- Task 2 of 6: page for 02-queue.js. -->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zadanie 2: kolejka do sklepiku</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <h1>Zadanie 2: kolejka do sklepiku</h1>
+
+  <div class="card">
+    <p>W kolejce do sklepiku stoją Ola i Kuba. Otwórz <code>02-queue.js</code> i w miejscach
+      <code>TU ZMIEŃ</code> zapisz, co dzieje się dalej:</p>
+    <ol>
+      <li>na koniec kolejki dochodzi Zosia, a za nią Tomek (<code>push()</code>),</li>
+      <li>nauczycielka wchodzi na sam początek (<code>unshift()</code>),</li>
+      <li>sklepik obsługuje pierwszą osobę i ta osoba odchodzi (<code>shift()</code>),</li>
+      <li>ostatnia osoba rezygnuje i wychodzi z kolejki (<code>pop()</code>).</li>
+    </ol>
+    <p><code>shift()</code> i <code>pop()</code> oddają usuniętą osobę, więc możesz ją od razu
+      zapisać w stałej.</p>
+  </div>
+
+  <p>W konsoli (F12, zakładka <code>Console</code>) ma się pojawić:</p>
+  <pre>(5) ['Nauczycielka', 'Ola', 'Kuba', 'Zosia', 'Tomek']
+Obsłużona osoba: Nauczycielka
+Rezygnuje z kolejki: Tomek
+(3) ['Ola', 'Kuba', 'Zosia']
+Teraz obsługiwana: Ola
+W kolejce zostało: 3</pre>
+  <p class="meta">Podobny kod: <code>script.js</code>, część „Lesson 2”.</p>
+
+  <script src="02-queue.js"></script>
+</body>
+</html>

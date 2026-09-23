@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!-- BROKEN ON PURPOSE (three errors), do not copy. Lesson 4, deck 04, slides 8-8a. -->
+<!-- Correct version: website/index.html. -->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The textbook has href="style.css"; here the stylesheet lives in website/. -->
+  <link rel="stylesheet" href="website/style.css">
+  <title>Siedem cudów świata</title>
+  <!-- Only for the warning box, not part of the listing. -->
+  <style>
+    .warning {
+      border: 3px solid #b00020;
+      color: #b00020;
+      padding: 12px;
+      text-align: left;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<!-- ERROR 1: </body> instead of <body>. -->
+</body>
+  <p class="warning">
+    Uwaga: ten plik ma trzy błędy, celowo. To nie jest wzór do przepisywania.
+    Poprawna wersja tej strony leży w folderze website (pliki index.html i style.css).
+  </p>
+
+  <!-- ERROR 2: <h1> closed with </h2>. ERROR 3: class tytul, but the rule is .title. -->
+  <h1 class="tytul">Zwiedzamy świat</h2>
+
+  <hr>
+  <h2>Piramidy w Gizie</h2>
+  <p>
+    Piramidy w Gizie to zespół historycznych budowli obejmujący dwie największe piramidy Egiptu.
+    Ten akapit jest wyjustowany, bo reguła dla znacznika p trafia w niego bez żadnej klasy.
+  </p>
+</body>
+</html>

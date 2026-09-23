@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<!-- Lesson 5 (3TI, pracownia): lists, code from slides 2-10. Solution: plan.html. -->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Listy w HTML: kod ze slajdów</title>
+  <meta name="description" content="Kod z lekcji o listach w HTML, slajd po slajdzie.">
+</head>
+<body>
+  <header>
+    <h1>Listy w HTML: kod ze slajdów</h1>
+    <p>Wzorcowe rozwiązanie zadania: <a href="plan.html">plan.html</a></p>
+  </header>
+
+  <main>
+    <h2>Slajd 2: koszyk i rzeczy w środku</h2>
+
+    <ul>
+      <li>mleko</li>
+      <li>jajka</li>
+    </ul>
+
+    <ol>
+      <li>Pobierz XAMPP</li>
+      <li>Uruchom Apache</li>
+    </ol>
+
+    <h3>Atrybuty ol z tabeli na slajdzie</h3>
+
+    <!-- A. pierwszy, B. drugi -->
+    <ol type="A">
+      <li>pierwszy</li>
+      <li>drugi</li>
+    </ol>
+
+    <!-- start is a number even with letters: D. czwarty, E. piąty -->
+    <ol type="A" start="4">
+      <li>czwarty</li>
+      <li>piąty</li>
+    </ol>
+
+    <!-- 3. trzy, 2. dwa, 1. jeden -->
+    <ol reversed>
+      <li>trzy</li>
+      <li>dwa</li>
+      <li>jeden</li>
+    </ol>
+
+    <h2>Slajd 3: lista w liście, drzewo</h2>
+
+    <!-- The </li> of the day stands below </ul>. -->
+    <ol>
+      <li>Poniedziałek
+        <ul>
+          <li>matematyka</li>
+          <li>WF</li>
+        </ul>
+      </li>
+      <li>Wtorek</li>
+    </ol>
+
+    <h2>Slajd 4: słowniczek, dl, dt, dd</h2>
+
+    <dl>
+      <dt>HTML</dt>
+      <dd>Język do opisu treści strony.</dd>
+      <dt>Znacznik</dt>
+      <dd>Nawias z nazwą wokół treści.</dd>
+    </dl>
+
+    <h2>Slajd 5: krok 1, plan.html i menu</h2>
+
+    <header>
+      <h1>Mój plan tygodnia</h1>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Start</a></li>
+        <li><a href="about.html">O mnie</a></li>
+        <li><a href="plan.html">Plan</a></li>
+      </ul>
+    </nav>
+
+    <h2>Slajd 6: krok 2, pięć dni, w każdym zajęcia</h2>
+
+    <section>
+      <h3>Plan tygodnia</h3>
+      <ol>
+        <li>Poniedziałek
+          <ul>
+            <li>matematyka</li>
+            <li>trening</li>
+          </ul>
+        </li>
+        <li>Wtorek
+          <ul>
+            <li>pracownia</li>
+            <li>gitara</li>
+          </ul>
+        </li>
+        <li>Środa
+          <ul>
+            <li>sieci</li>
+            <li>basen</li>
+          </ul>
+        </li>
+        <li>Czwartek
+          <ul>
+            <li>polski</li>
+            <li>kino</li>
+          </ul>
+        </li>
+        <li>Piątek
+          <ul>
+            <li>WF</li>
+            <li>granie</li>
+          </ul>
+        </li>
+      </ol>
+    </section>
+
+    <h2>Slajd 7: krok 3, słowniczek HTML</h2>
+
+    <section>
+      <h3>Słowniczek</h3>
+      <dl>
+        <dt>html</dt>
+        <dd>Znacznik obejmujący całą stronę.</dd>
+        <dt>head</dt>
+        <dd>Informacje o stronie, których nie widać.</dd>
+        <dt>body</dt>
+        <dd>Wszystko, co widać na stronie.</dd>
+        <dt>nav</dt>
+        <dd>Menu z łączami.</dd>
+        <dt>section</dt>
+        <dd>Temat z własnym nagłówkiem.</dd>
+      </dl>
+    </section>
+
+    <h2>Slajd 8: krok 4, ranking i stopka</h2>
+
+    <!-- The favourite goes last: reversed gives it number 1. -->
+    <section>
+      <h3>Moje ulubione gry</h3>
+      <ol reversed>
+        <li>trzecie miejsce</li>
+        <li>drugie miejsce</li>
+        <li>Twoja ulubiona gra</li>
+      </ol>
+    </section>
+
+    <footer>
+      <p>Autor: Imię Nazwisko, klasa 3TI</p>
+    </footer>
+
+    <h2>Slajd 9: dla szybkich, lista zadań do odhaczania</h2>
+
+    <section>
+      <h3>Do zrobienia</h3>
+      <ul>
+        <li><input type="checkbox" checked> plan</li>
+        <li><input type="checkbox"> zdjęcie</li>
+        <li><input type="checkbox"> tabela ocen</li>
+      </ul>
+    </section>
+
+    <h2>Slajd 10: pytanie 1, co jest źle w kodzie?</h2>
+
+    <!-- Broken: 1. Poniedziałek, 2. matematyka, 3. WF, 4. Wtorek. Fix: a ul inside the li. -->
+    <ol>
+      <li>Poniedziałek</li>
+      <li>matematyka</li>
+      <li>WF</li>
+      <li>Wtorek</li>
+    </ol>
+
+    <!--
+      Broken too: the ul sits OUTSIDE the li, only the validator complains. Uncomment to show.
+
+      <ol>
+        <li>Poniedziałek</li>
+        <ul>
+          <li>matematyka</li>
+          <li>WF</li>
+        </ul>
+        <li>Wtorek</li>
+      </ol>
+    -->
+  </main>
+</body>
+</html>

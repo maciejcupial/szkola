@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!-- Lesson 8 (3TI): forms, solution of exercise 1 (slajdy_1.html, slide 10). -->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Napisz do nas</title>
+</head>
+<body>
+  <h1>Napisz do nas</h1>
+
+  <form action="sent.html" method="get">
+
+    <p>
+      <label for="firstName">Imię:</label>
+      <input type="text" id="firstName" name="firstName" required>
+    </p>
+
+    <p>
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" name="email" placeholder="jan@szkola.pl" required>
+    </p>
+
+    <p>
+      <label for="age">Wiek:</label>
+      <input type="number" id="age" name="age">
+    </p>
+
+    <!-- textarea always has a closing tag. -->
+    <p>
+      <label for="message">Wiadomość:</label><br>
+      <textarea id="message" name="message" rows="4" cols="40"></textarea>
+    </p>
+
+    <p><button type="submit">Wyślij</button></p>
+  </form>
+
+  <!-- Expected: sent.html?firstName=Jan&email=jan%40szkola.pl&age=17&message=Dzien+dobry -->
+</body>
+</html>

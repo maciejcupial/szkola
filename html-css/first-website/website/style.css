@@ -1,0 +1,37 @@
+/* Lesson 4, deck 04, slides 6, 7, 9 and the answer to slide 11. */
+
+body {
+  max-width: 40em;
+  margin: 2em auto;
+  font-family: Tahoma, Geneva, sans-serif;
+  color: #000000;
+  background: #fdfcfa;
+}
+
+/* Must match class="title" letter for letter. */
+.title {
+  text-align: center;
+  color: #99680a;
+}
+
+p {
+  text-align: justify;
+}
+
+/* Responsive image: narrow the window to see it. */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+table {
+  border-collapse: collapse;
+  margin-top: 1em;
+}
+
+th,
+td {
+  border: 2px solid #99680a;
+  padding: 8px;
+  text-align: left;
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Placeholder for a real photo (600x400). -->
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400"
+     role="img" font-family="Arial, Helvetica, sans-serif">
+  <rect width="600" height="400" fill="#4a2f2f"/>
+  <circle cx="300" cy="208" r="104" fill="#f7a54f"/>
+  <path d="M204 136 L228 56 L300 120 Z" fill="#f7a54f"/>
+  <path d="M396 136 L372 56 L300 120 Z" fill="#f7a54f"/>
+  <rect x="0" y="322" width="600" height="78" fill="#0a1420" fill-opacity="0.72"/>
+  <text x="300" y="362" text-anchor="middle" fill="#f2f5f9"
+        font-size="30" font-weight="700">Kot</text>
+  <text x="300" y="390" text-anchor="middle" fill="#cfd9e4"
+        font-size="20">rysunek zastępczy, 600 na 400 pikseli</text>
+</svg>

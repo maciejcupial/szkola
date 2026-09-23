@@ -1,0 +1,114 @@
+/* Shared look of index.html and tasks/. */
+
+/* Colours */
+:root {
+  --background: #ffffff;
+  --text: #111827;
+  --muted: #6b7280;
+  --accent: #1f6feb;
+  --border: #d1d5db;
+  --card: #f9fafb;
+  --error: #b42318;
+  --ok: #067647;
+}
+
+/* Page */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  max-width: 680px;
+  margin: 40px auto;
+  padding: 0 16px;
+  line-height: 1.6;
+  background: var(--background);
+  color: var(--text);
+}
+
+h1 {
+  color: var(--accent);
+  font-size: 26px;
+}
+
+h2 {
+  font-size: 20px;
+  margin-top: 0;
+}
+
+/* Card */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+}
+
+/* Hint under a card */
+.meta {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* Inline code */
+code {
+  font-family: Consolas, Menlo, monospace;
+  background: var(--card);
+  padding: 0 4px;
+  border-radius: 4px;
+}
+
+/* Buttons */
+button,
+.button {
+  font-size: 16px;
+  padding: 8px 16px;
+  margin: 4px 4px 4px 0;
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  background: var(--accent);
+  color: #ffffff;
+  cursor: pointer;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+input {
+  font-size: 16px;
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 320px;
+}
+
+/* Messages */
+.error {
+  color: var(--error);
+}
+
+.ok {
+  color: var(--ok);
+}
+
+/* Colour preview box */
+.preview {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+  font-size: 20px;
+}
+
+/* Seats in task 5 */
+.seat {
+  min-width: 90px;
+}
+
+.taken {
+  background: var(--muted);
+  border-color: var(--muted);
+}

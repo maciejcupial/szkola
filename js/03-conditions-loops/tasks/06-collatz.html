@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<!-- Task 6 of 6: page for 06-collatz.js. -->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zadanie 6 dla chętnych: ścieżka liczby</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <h1>Zadanie 6 dla chętnych: ścieżka liczby</h1>
+
+  <div class="card">
+    <ol>
+      <li>Weź liczbę <code>START</code>. Jeśli jest parzysta, podziel ją przez 2. Jeśli nieparzysta,
+        pomnóż przez 3 i dodaj 1. Powtarzaj, aż dojdziesz do 1.</li>
+      <li>Napisz to pętlą <code>do...while</code>: w każdym przebiegu policz następną liczbę, dopisz ją
+        do tekstu <code>path</code> razem ze strzałką i zwiększ <code>steps</code>.</li>
+      <li>Dlaczego <code>do...while</code>? Dla <code>START = 1</code> pętla i tak wykona się raz i
+        przejdzie 1 → 4 → 2 → 1. Sprawdź to.</li>
+      <li>Na koniec wypróbuj <code>START = 27</code>: kroków wyjdzie 111.</li>
+    </ol>
+  </div>
+
+  <p>Oczekiwany wynik w konsoli (F12 → Console):</p>
+  <pre class="card"><code>6 → 3 → 10 → 5 → 16 → 8 → 4 → 2 → 1
+Liczba kroków: 8</code></pre>
+  <p class="meta">Kod piszesz w pliku <code>06-collatz.js</code>,
+    w miejscu oznaczonym <code>TU ZMIEŃ</code>.
+    Po zapisaniu odśwież stronę klawiszem F5.</p>
+
+  <script src="06-collatz.js"></script>
+</body>
+</html>

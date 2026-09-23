@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!-- Task 2 of 5. Change only 02-calculator.js. -->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zadanie 2: kalkulator</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <h1>Zadanie 2: kalkulator na czterech przyciskach</h1>
+
+  <div class="card">
+    <ol>
+      <li>Otwórz konsolę (F12). Wpisz 8 i 2, kliknij „Dodaj”. W konsoli pojawi się <code>Suma: 10</code>.</li>
+      <li>
+        Pozostałe trzy przyciski na razie wypisują 0. W <code>02-calculator.js</code> dokończ funkcje
+        <code>subtract()</code>, <code>multiply()</code> i <code>divide()</code>. Każda odczytuje
+        oba pola tak samo jak <code>add()</code>.
+      </li>
+      <li>Dla 8 i 2 mają wyjść: różnica 6, iloczyn 16, iloraz 4.</li>
+      <li>
+        Wpisz 7 i 0, kliknij „Podziel”. Zamiast wyniku konsola ma pokazać
+        <code>Nie dzielimy przez zero</code>. Przyda się <code>if</code> i <code>else</code>.
+      </li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <label for="number1">Pierwsza liczba</label>
+    <input type="text" id="number1">
+    <label for="number2">Druga liczba</label>
+    <input type="text" id="number2">
+    <button type="button" class="button" onclick="add()">Dodaj</button>
+    <button type="button" class="button" onclick="subtract()">Odejmij</button>
+    <button type="button" class="button" onclick="multiply()">Pomnóż</button>
+    <button type="button" class="button" onclick="divide()">Podziel</button>
+  </div>
+  <p class="meta">Podpowiedź: funkcja <code>add()</code> w <code>script.js</code> piętro wyżej.</p>
+
+  <script src="02-calculator.js"></script>
+</body>
+</html>

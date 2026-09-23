@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!-- List of posts; every card links to a copy of post.html. -->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- TU ZMIEŃ: tytuł widoczny na karcie przeglądarki -->
+  <title>Wpisy · Mój blog</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <!-- TU ZMIEŃ: nazwa bloga -->
+    <a class="logo" href="index.html">Mój blog</a>
+    <nav>
+      <a href="index.html">Start</a>
+      <a href="posts.html" class="active">Wpisy</a>
+      <a href="contact.html">Kontakt</a>
+    </nav>
+    <button type="button" id="theme-toggle" aria-label="Przełącz tryb ciemny">◐</button>
+  </header>
+
+  <main>
+    <h1>Wszystkie wpisy</h1>
+    <!-- TU ZMIEŃ: nowy wpis = nowa karta; link prowadzi do kopii post.html pod inną nazwą -->
+    <article class="card">
+      <h2><a href="post.html">Tytuł pierwszego wpisu</a></h2>
+      <p class="meta">Data wpisu · 3 min czytania</p>
+      <p>Krótka zajawka pierwszego wpisu.</p>
+    </article>
+    <article class="card">
+      <h2><a href="post.html">Tytuł drugiego wpisu</a></h2>
+      <p class="meta">Data wpisu · 2 min czytania</p>
+      <p>Krótka zajawka drugiego wpisu.</p>
+    </article>
+  </main>
+
+  <footer>
+    <!-- TU ZMIEŃ: autor -->
+    <p>© <span id="year"></span> Imię Nazwisko · klasa 4Ti</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<!-- Lesson 5 (3TI, pracownia): lists, solution of steps 1-4 (slides 5-8) and slide 9. -->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Step 1: head copied from about.html, new title and description. -->
+  <title>Mój plan tygodnia</title>
+  <meta name="description" content="Mój plan tygodnia: zajęcia, słowniczek HTML i ranking gier.">
+</head>
+<body>
+  <!-- Step 1: header and menu. -->
+  <header>
+    <h1>Mój plan tygodnia</h1>
+  </header>
+
+  <!-- href must match the file name letter for letter. -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Start</a></li>
+      <li><a href="about.html">O mnie</a></li>
+      <li><a href="plan.html">Plan</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <!-- Step 2: days in an ol, classes in a ul. -->
+    <section>
+      <h2>Plan tygodnia</h2>
+      <ol>
+        <li>Poniedziałek
+          <!-- The sub-list lives INSIDE the li, before its </li>. -->
+          <ul>
+            <li>fizyka</li>
+            <li>trening</li>
+          </ul>
+        </li>
+        <li>Wtorek
+          <ul>
+            <li>pracownia</li>
+            <li>gitara</li>
+          </ul>
+        </li>
+        <li>Środa
+          <ul>
+            <li>sieci</li>
+            <li>basen</li>
+          </ul>
+        </li>
+        <li>Czwartek
+          <ul>
+            <li>polski</li>
+            <li>kino</li>
+          </ul>
+        </li>
+        <li>Piątek
+          <ul>
+            <li>WF</li>
+            <li>granie</li>
+          </ul>
+        </li>
+      </ol>
+    </section>
+
+    <!-- Step 3: glossary. -->
+    <section>
+      <h2>Słowniczek</h2>
+      <dl>
+        <dt>html</dt>
+        <dd>Obejmuje całą stronę.</dd>
+        <dt>head</dt>
+        <dd>Informacje o stronie, niewidoczne.</dd>
+        <dt>body</dt>
+        <dd>Wszystko, co widać na stronie.</dd>
+        <dt>nav</dt>
+        <dd>Menu z łączami.</dd>
+        <dt>section</dt>
+        <dd>Temat z własnym nagłówkiem.</dd>
+      </dl>
+    </section>
+
+    <!-- Step 4: reversed numbers the FIRST li highest, so the favourite goes last. -->
+    <section>
+      <h2>Moje ulubione gry</h2>
+      <ol reversed>
+        <li>Rocket League</li>
+        <li>Counter-Strike 2</li>
+        <li>Minecraft</li>
+      </ol>
+    </section>
+
+    <!-- Extra (slide 9): clicking saves nothing, Ctrl+F5 restores it. -->
+    <section>
+      <h2>Do zrobienia</h2>
+      <ul>
+        <li><input type="checkbox" id="task-plan" checked> <label for="task-plan">plan</label></li>
+        <li><input type="checkbox" id="task-photo"> <label for="task-photo">zdjęcie</label></li>
+        <li><input type="checkbox" id="task-grades"> <label for="task-grades">tabela ocen</label></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>Autor: Imię Nazwisko, klasa 3TI</p>
+  </footer>
+</body>
+</html>

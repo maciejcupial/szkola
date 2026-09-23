@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!-- Task 4 of 6: page for 04-grades.js. -->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zadanie 4: oceny z semestru</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <h1>Zadanie 4: oceny z semestru</h1>
+
+  <div class="card">
+    <p>W tablicy <code>grades</code> są oceny z jednego przedmiotu. Otwórz <code>04-grades.js</code>
+      i napisz jedną pętlę <code>for</code> z licznikiem <code>i</code>, która dla każdej oceny:</p>
+    <ol>
+      <li>wypisuje jej numer i wartość, numerując od 1, a nie od 0 (numer to <code>i + 1</code>),</li>
+      <li>dodaje ją do akumulatora <code>sum</code>,</li>
+      <li>zwiększa licznik <code>goodCount</code>, jeśli ocena jest 4 albo wyższa.</li>
+    </ol>
+    <p>Po pętli policz średnią: suma podzielona przez liczbę ocen. Nie wpisuj liczby 6 na sztywno.</p>
+  </div>
+
+  <p>W konsoli (F12, zakładka <code>Console</code>) ma się pojawić:</p>
+  <pre>Ocena nr 1: 5
+Ocena nr 2: 3
+Ocena nr 3: 4
+Ocena nr 4: 6
+Ocena nr 5: 2
+Ocena nr 6: 4
+Suma ocen: 24
+Średnia: 4
+Ocen 4 i wyższych: 4</pre>
+  <p class="meta">Podobny kod: <code>script.js</code>, część „Lesson 3” (pętla for i akumulator sum).</p>
+
+  <script src="04-grades.js"></script>
+</body>
+</html>

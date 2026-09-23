@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!-- Task 4 of 5. Change only 04-game-scores.js. -->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zadanie 4: wyniki z gry</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <h1>Zadanie 4: wyniki z gry</h1>
+
+  <div class="card">
+    <p>
+      Wyniki pięciu rozgrywek zapisano jako teksty, na przykład <code>"87 pkt"</code>.
+      Zanim cokolwiek policzysz, trzeba je zamienić na liczby.
+    </p>
+    <ol>
+      <li>
+        W <code>parseScores</code> przejdź pętlą po tekstach i każdy zamień przez
+        <code>parseFloat</code>. Pierwsza linia w konsoli pokaże wtedy same liczby.
+      </li>
+      <li>W <code>bestScore</code> znajdź największy wynik: w pętli użyj <code>Math.max</code>.</li>
+      <li>W <code>worstScore</code> znajdź najmniejszy wynik: w pętli użyj <code>Math.min</code>.</li>
+      <li>
+        W <code>roundedAverage</code> policz średnią i zaokrąglij ją przez <code>Math.round</code>.
+        Ma wyjść 87.
+      </li>
+    </ol>
+  </div>
+  <p class="meta">Podpowiedź: części 4 i 5 w <code>script.js</code> piętro wyżej.</p>
+
+  <script src="04-game-scores.js"></script>
+</body>
+</html>

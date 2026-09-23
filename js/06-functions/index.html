@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!-- Functions: worked example. Buttons call script.js, results are in the console (F12). -->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JavaScript: funkcje</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>JavaScript: funkcje</h1>
+
+  <div class="card">
+    <p>Wyniki pojawiają się w konsoli przeglądarki, także te po kliknięciu przycisku.</p>
+    <ol>
+      <li>Wciśnij F12 (albo Ctrl+Shift+I) i przejdź na zakładkę <code>Console</code>.</li>
+      <li>Odśwież stronę klawiszem F5. Część napisów pojawi się od razu, bez klikania.</li>
+      <li>Wpisz liczby w pola poniżej, kliknij przycisk i sprawdź, co doszło w konsoli.</li>
+      <li>Otwórz <code>script.js</code> obok. Kod podzielony jest na pięć części.</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <h2>Dodawanie dwóch liczb</h2>
+    <label for="number1">Pierwsza liczba</label>
+    <input type="text" id="number1">
+    <label for="number2">Druga liczba</label>
+    <input type="text" id="number2">
+    <!-- onclick="add" without () never runs the function. -->
+    <button type="button" class="button" onclick="add()">Dodaj</button>
+  </div>
+
+  <div class="card">
+    <h2>Jedna funkcja, dwa przyciski</h2>
+    <button type="button" class="button" onclick="console.log(absoluteValue(-7))">Wartość z -7</button>
+    <button type="button" class="button" onclick="console.log(absoluteValue(7))">Wartość z 7</button>
+  </div>
+
+  <div class="card">
+    <h2>Zaokrąglanie i potęga</h2>
+    <!-- type="number" still gives text in .value. -->
+    <label for="inputValue">Liczba z częścią po kropce, na przykład 4.6</label>
+    <input type="number" id="inputValue" step="any">
+    <button type="button" class="button" onclick="calculate()">Oblicz</button>
+  </div>
+
+  <p class="meta">Zadania do tej lekcji są w folderze <code>tasks</code>.</p>
+
+  <script src="script.js"></script>
+</body>
+</html>

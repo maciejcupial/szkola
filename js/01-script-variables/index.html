@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<!-- Scripts and variables example. All output is in the console (F12). -->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JavaScript: skrypty i zmienne</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Also works: defer runs the script after the whole page is read.
+  <script src="script.js" defer></script>
+  -->
+</head>
+<body>
+  <h1>JavaScript: skrypty i zmienne</h1>
+
+  <div class="card">
+    <p>Ta strona prawie nic nie pokazuje. Cały wynik jest w konsoli przeglądarki.</p>
+    <ol>
+      <li>Wciśnij F12 (albo Ctrl+Shift+I) i przejdź na zakładkę <code>Console</code>.</li>
+      <li>Odśwież stronę klawiszem F5, żeby zobaczyć wszystkie napisy od początku.</li>
+      <li>Otwórz <code>script.js</code> obok i porównaj każdą linię z tym, co widzisz w konsoli.</li>
+    </ol>
+  </div>
+  <p class="meta">Zadania do tej lekcji są w folderze <code>tasks</code>.</p>
+
+  <!-- 1. Internal script -->
+  <script>
+    console.log("1. Skrypt wewnątrz strony (index.html)");
+  </script>
+
+  <!-- 2. External script, runs after the one above -->
+  <script src="script.js"></script>
+</body>
+</html>

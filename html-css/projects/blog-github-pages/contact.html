@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!-- Contact page, checked by validate() in script.js. -->
+<!-- GitHub Pages is static, so nothing is really sent. -->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- TU ZMIEŃ: tytuł widoczny na karcie przeglądarki -->
+  <title>Kontakt · Mój blog</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <!-- TU ZMIEŃ: nazwa bloga -->
+    <a class="logo" href="index.html">Mój blog</a>
+    <nav>
+      <a href="index.html">Start</a>
+      <a href="posts.html">Wpisy</a>
+      <a href="contact.html" class="active">Kontakt</a>
+    </nav>
+    <button type="button" id="theme-toggle" aria-label="Przełącz tryb ciemny">◐</button>
+  </header>
+
+  <main>
+    <h1>Kontakt</h1>
+    <!-- TU ZMIEŃ: zaproszenie do napisania -->
+    <p>Napisz, jeśli masz pytanie do wpisu.</p>
+
+    <!-- novalidate: only our own Polish messages show up -->
+    <form id="contact-form" action="" method="post" novalidate>
+      <!-- Empty span: script.js writes the field's error here -->
+      <label for="name">Imię</label>
+      <input id="name" name="name" type="text">
+      <span class="error" id="error-name"></span>
+
+      <label for="email">E-mail</label>
+      <input id="email" name="email" type="email">
+      <span class="error" id="error-email"></span>
+
+      <label for="message">Wiadomość</label>
+      <textarea id="message" name="message" rows="5"></textarea>
+      <span class="error" id="error-message"></span>
+
+      <button type="submit" class="button">Wyślij</button>
+      <p class="ok" id="success"></p>
+    </form>
+  </main>
+
+  <footer>
+    <!-- TU ZMIEŃ: autor -->
+    <p>© <span id="year"></span> Imię Nazwisko · klasa 4Ti</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

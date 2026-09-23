@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!-- Task 5 of 5 (for volunteers). Change only 05-seat-booking.js. -->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zadanie 5: rezerwacja miejsc</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <h1>Zadanie 5 dla chętnych: rezerwacja miejsc</h1>
+
+  <div class="card">
+    <p>
+      Sześć miejsc w kinie, jedna osoba może zarezerwować najwyżej trzy. Stan miejsc trzymasz w tablicy
+      <code>seats</code>: <code>false</code> to miejsce wolne, <code>true</code> zajęte. To ten sam pomysł,
+      którego użyjesz w grze w kółko i krzyżyk: tablica pamięta planszę, a kliknięcie ją zmienia.
+    </p>
+    <ol>
+      <li>Kliknięcie wolnego miejsca: w tablicy <code>true</code>, na przycisku napis „zajęte”,
+        klasa <code>seat taken</code>, komunikat „Zarezerwowano miejsce 2.” (z numerem z przycisku).</li>
+      <li>Kliknięcie zajętego miejsca: nic się nie zmienia,
+        komunikat „Miejsce 2 jest już zajęte.”.</li>
+      <li>Po trzech rezerwacjach kolejne wolne miejsce się nie rezerwuje, a komunikat to
+        „Limit: najwyżej 3 miejsca.”.</li>
+      <li>Po każdym kliknięciu licznik pokazuje „Zarezerwowane: 2 z 3” (z aktualną liczbą).</li>
+      <li>Przycisk „Zacznij od nowa” zwalnia wszystkie miejsca i przywraca stan z początku.</li>
+    </ol>
+    <p class="meta">
+      Numer miejsca w tablicy odczytasz z atrybutu:
+      <code>Number(event.target.getAttribute("data-seat"))</code>.
+      Miejsce z napisem 1 ma numer 0, bo tablice liczą od zera.
+    </p>
+  </div>
+
+  <div class="card">
+    <button type="button" class="seat" data-seat="0">1</button>
+    <button type="button" class="seat" data-seat="1">2</button>
+    <button type="button" class="seat" data-seat="2">3</button>
+    <button type="button" class="seat" data-seat="3">4</button>
+    <button type="button" class="seat" data-seat="4">5</button>
+    <button type="button" class="seat" data-seat="5">6</button>
+    <p id="summary">Zarezerwowane: 0 z 3</p>
+    <p id="status">Wybierz miejsce.</p>
+    <button type="button" id="reset">Zacznij od nowa</button>
+  </div>
+
+  <script src="05-seat-booking.js"></script>
+</body>
+</html>

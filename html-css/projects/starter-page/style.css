@@ -1,0 +1,73 @@
+/* Page looks: colors, fonts, spacing. */
+
+/* TU ZMIEŃ: kolory całej strony */
+:root {
+  --background: #f6f7fb;
+  --text: #1d2433;
+  --muted: #5b6472;
+  --accent: #1f6feb;
+  --border: #d8dce4;
+  --card: #ffffff;
+}
+
+/* Padding and border count inside the width */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  /* TU ZMIEŃ: czcionka całej strony */
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--background);
+}
+
+/* Layout */
+header,
+main,
+footer {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 16px 24px;
+}
+
+header {
+  border-bottom: 2px solid var(--accent);
+}
+
+h1 {
+  margin: 0 0 8px;
+}
+
+h2 {
+  color: var(--accent);
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px 24px;
+  margin-top: 24px;
+}
+
+.button {
+  background: var(--accent);
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 18px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.button:hover {
+  filter: brightness(0.9);
+}
+
+.meta {
+  color: var(--muted);
+  font-size: 14px;
+}

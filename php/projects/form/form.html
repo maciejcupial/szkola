@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<!-- Form page: sends the fields to receive.php -->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- TU ZMIEŃ: tytuł widoczny na karcie przeglądarki -->
+  <title>Formularz zgłoszeniowy</title>
+  <style>
+    /* Colors */
+    :root {
+      --background: #f5f6f8;
+      --text: #1f2430;
+      --muted: #5b6472;
+      --accent: #2563eb;
+      --border: #d3d8e0;
+      --card: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      max-width: 540px;
+      margin: 40px auto;
+      padding: 0 16px;
+      line-height: 1.5;
+    }
+
+    .meta {
+      color: var(--muted);
+      margin-top: 0;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    /* Form */
+    form {
+      display: grid;
+      gap: 6px;
+    }
+
+    label {
+      font-weight: bold;
+      margin-top: 12px;
+    }
+
+    input,
+    textarea {
+      font: inherit;
+      padding: 9px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--card);
+      color: var(--text);
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: 2px solid var(--accent);
+      outline-offset: 1px;
+    }
+
+    .button {
+      margin-top: 18px;
+      padding: 10px 18px;
+      font: inherit;
+      color: var(--card);
+      background: var(--accent);
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <!-- TU ZMIEŃ: nagłówek formularza -->
+    <h1>Zgłoszenie</h1>
+    <p class="meta">Wypełnij pola i naciśnij „Wyślij”. Odpowiedź pokaże się na następnej stronie.</p>
+  </header>
+
+  <main class="card">
+    <form action="receive.php" method="post">
+      <!-- Without name the browser does not send the field -->
+      <label for="name">Imię</label>
+      <input id="name" name="name" type="text" autocomplete="given-name">
+
+      <label for="email">E-mail</label>
+      <input id="email" name="email" type="email" autocomplete="email">
+
+      <label for="message">Wiadomość</label>
+      <textarea id="message" name="message" rows="5"></textarea>
+
+      <!-- TU ZMIEŃ: kolejne pola. Każde potrzebuje label for, id oraz name (ten sam tekst co id) -->
+
+      <button class="button" type="submit">Wyślij</button>
+    </form>
+  </main>
+</body>
+</html>

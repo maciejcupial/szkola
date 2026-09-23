@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Placeholder for a real photo (1200x800). -->
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800"
+     role="img" font-family="Arial, Helvetica, sans-serif">
+  <rect width="1200" height="800" fill="#1f4e79"/>
+  <path d="M72 624 L384 224 L576 464 L744 320 L1128 624 Z" fill="#7dd3a3"/>
+  <circle cx="912" cy="176" r="72" fill="#ffd54f"/>
+  <rect x="0" y="644" width="1200" height="156" fill="#0a1420" fill-opacity="0.72"/>
+  <text x="600" y="725" text-anchor="middle" fill="#f2f5f9"
+        font-size="60" font-weight="700">Góry, większa wersja</text>
+  <text x="600" y="779" text-anchor="middle" fill="#cfd9e4"
+        font-size="40">rysunek zastępczy, 1200 na 800 pikseli</text>
+</svg>

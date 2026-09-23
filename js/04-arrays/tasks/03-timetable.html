@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!-- Task 3 of 6: page for 03-timetable.js. -->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zadanie 3: plan lekcji</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <h1>Zadanie 3: plan lekcji</h1>
+
+  <div class="card">
+    <p>Plan lekcji przyszedł jako jeden napis z przecinkami. Otwórz <code>03-timetable.js</code>
+      i w miejscach <code>TU ZMIEŃ</code>:</p>
+    <ol>
+      <li>potnij napis na tablicę <code>lessons</code> metodą <code>split()</code>,</li>
+      <li>znajdź indeks lekcji „wf” metodą <code>indexOf()</code>,</li>
+      <li>jeśli „wf” jest w planie (indeks różny od -1), zamień go na „fizyka”,</li>
+      <li>sprawdź warunkiem <code>if</code>, czy w planie jest „chemia”, i wypisz jedno z dwóch zdań:
+        „Chemia jest w planie” albo „Chemii nie ma w planie”.</li>
+    </ol>
+  </div>
+
+  <p>W konsoli (F12, zakładka <code>Console</code>) ma się pojawić:</p>
+  <pre>(5) ['matematyka', 'polski', 'wf', 'informatyka', 'angielski']
+Liczba lekcji: 5
+wf jest pod indeksem 2
+(5) ['matematyka', 'polski', 'fizyka', 'informatyka', 'angielski']
+Chemii nie ma w planie</pre>
+  <p class="meta">Podobny kod: <code>script.js</code>, część „Lesson 2” (indexOf i split).</p>
+
+  <script src="03-timetable.js"></script>
+</body>
+</html>

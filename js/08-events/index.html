@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!-- Events: worked example. All the code is in script.js. -->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JavaScript: zdarzenia</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>JavaScript: zdarzenia</h1>
+  <p class="meta" id="load-info">Strona jeszcze się wczytuje.</p>
+
+  <!-- Example 1: click -->
+  <div class="card">
+    <h2>1. Kliknięcie</h2>
+    <!-- No onclick: the listener is added in script.js. -->
+    <button type="button" id="action">Kliknij mnie</button>
+    <p id="info">Jeszcze nikt nie kliknął.</p>
+  </div>
+
+  <!-- Example 2: submit and keydown -->
+  <div class="card">
+    <h2>2. Formularz i klawisze</h2>
+    <form id="signup">
+      <label for="nameField">Twoje imię</label>
+      <input type="text" id="nameField" placeholder="Twoje imię">
+      <button type="submit">Wyślij</button>
+    </form>
+    <p id="form-message"></p>
+    <p id="key-count">Naciśnięcia klawiszy: 0</p>
+  </div>
+
+  <p class="meta">Zadania do tej lekcji są w folderze <code>tasks</code>.</p>
+
+  <script src="script.js"></script>
+</body>
+</html>

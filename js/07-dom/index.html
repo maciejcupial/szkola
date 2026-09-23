@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!-- DOM: worked example. Every element script.js touches has an id or a class. -->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JavaScript: DOM</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1 id="title">JavaScript: DOM</h1>
+
+  <div class="card">
+    <p class="item">Pierwszy element</p>
+    <p class="item">Drugi element</p>
+    <p class="item">Trzeci element</p>
+    <p id="count" class="meta"></p>
+  </div>
+
+  <!-- Part 1: text and look -->
+  <div class="card">
+    <p id="info">Stary tekst</p>
+    <button type="button" class="button" onclick="changeText()">Zmień tekst</button>
+    <button type="button" class="button" onclick="paintRed()">Pomaluj na czerwono</button>
+  </div>
+
+  <!-- Part 2: attributes -->
+  <div class="card">
+    <img id="photo" src="image-a.svg" alt="Obrazek A" width="240" height="120">
+    <p>
+      <button type="button" class="button" onclick="swapImage()">Zamień obrazek</button>
+      <button type="button" class="button" onclick="markInfo()">Wyróżnij akapit</button>
+    </p>
+  </div>
+
+  <!-- Part 3: new elements -->
+  <div class="card">
+    <ul id="tasks">
+      <li>Pierwsze zadanie</li>
+    </ul>
+    <button type="button" class="button" onclick="addItem()">Dodaj zadanie</button>
+    <button type="button" class="button" onclick="removeLast()">Usuń ostatnie</button>
+  </div>
+
+  <p class="meta">Zadania do tej lekcji są w folderze <code>tasks</code>.</p>
+
+  <!-- At the end of body, so the elements above already exist. -->
+  <script src="script.js"></script>
+</body>
+</html>

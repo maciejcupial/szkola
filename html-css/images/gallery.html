@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!-- Lesson 6 (3TI): solution of exercise 1 (slide 11). SVG placeholders instead of photos. -->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Moja galeria</title>
+</head>
+<body>
+  <h1>Moja galeria</h1>
+
+  <figure>
+    <img src="img/mountains.svg" alt="Szczyt górski o wschodzie słońca" width="600" height="400">
+    <!-- A photo from Commons: the author's name goes here. -->
+    <figcaption>Widok ze szczytu, fot. Imię Nazwisko, licencja CC BY-SA 4.0.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="img/lake.svg" alt="Jezioro o zachodzie słońca" width="640" height="360">
+    <figcaption>Jezioro wieczorem, fot. Imię Nazwisko.</figcaption>
+  </figure>
+
+  <!-- On the lesson: link to the photo's source page, with target="_blank" rel="noopener". -->
+  <figure>
+    <a href="img/mountains-large.svg">
+      <img src="img/city.svg" alt="Panorama miasta, powiększ" width="480" height="320">
+    </a>
+    <figcaption>Miasto z lotu ptaka, kliknij, aby powiększyć.</figcaption>
+  </figure>
+
+  <!-- Extra 1: uncomment, a wrong path shows the alt text. -->
+  <!-- <img src="img/mountainz.svg" alt="Szczyt górski o wschodzie słońca" width="600" height="400"> -->
+
+  <!-- Extra 2: add loading="lazy" to pictures 2 and 3. -->
+</body>
+</html>

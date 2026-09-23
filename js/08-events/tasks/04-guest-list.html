@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!-- Task 4 of 5. Change only 04-guest-list.js. -->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zadanie 4: lista gości</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <h1>Zadanie 4: lista gości</h1>
+
+  <div class="card">
+    <p>
+      Formularz zapisuje gości na listę na tej samej stronie, bez wysyłania danych na serwer.
+      Dlatego funkcja <code>handleSubmit(event)</code> zawsze wywołuje <code>event.preventDefault()</code>:
+      strona nie może się przeładować, bo zniknęłaby cała lista.
+    </p>
+    <ol>
+      <li>Puste pole: pod polem pojawia się „Wpisz imię.”, a lista się nie zmienia.</li>
+      <li>Wpisane imię: trafia na listę jako nowy element <code>li</code>
+        (<code>createElement</code> i <code>appendChild</code>), komunikat o błędzie znika,
+        a pole się czyści.</li>
+      <li>Pod listą jest licznik, na przykład „Zapisanych gości: 2”.</li>
+      <li>Nasłuch <code>"submit"</code> podpinasz do formularza, nie do przycisku.</li>
+      <li>Sprawdź: kliknij „Zapisz” z pustym polem, potem zapisz „Ala” i „Olek”.
+        Na liście są dwie osoby, licznik pokazuje 2, a strona ani razu się nie przeładowała.</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <form id="signup">
+      <label for="name">Imię</label>
+      <input type="text" id="name">
+        <span class="error" id="error-name"></span>
+      <div>
+        <button type="submit">Zapisz</button>
+      </div>
+    </form>
+    <ul id="guest-list"></ul>
+    <p id="guest-count">Zapisanych gości: 0</p>
+  </div>
+
+  <script src="04-guest-list.js"></script>
+</body>
+</html>

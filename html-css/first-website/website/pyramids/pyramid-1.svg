@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="200" viewBox="0 0 320 200">
+  <!-- Placeholder: replace with a real photo, same folder. -->
+  <rect width="320" height="200" fill="#f3e2c0"/>
+  <polygon points="160,40 250,160 70,160" fill="#c79a4b"/>
+  <polygon points="160,40 160,160 70,160" fill="#dcb469"/>
+  <rect y="160" width="320" height="40" fill="#e0cba0"/>
+  <text x="160" y="186" text-anchor="middle" font-family="Arial" font-size="16" fill="#5c4522">
+    tu wstaw własne zdjęcie piramidy
+  </text>
+</svg>

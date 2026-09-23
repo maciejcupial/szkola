@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!-- Third page: contact form, class="active" on the contact.html link. -->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- TU ZMIEŃ: tytuł widoczny na karcie przeglądarki -->
+  <title>Kontakt</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <!-- TU ZMIEŃ: nazwa strony (ta sama na każdej podstronie) -->
+    <p class="logo">Nazwa strony</p>
+    <nav>
+      <a href="index.html">Start</a>
+      <a href="about.html">O nas</a>
+      <a href="contact.html" class="active">Kontakt</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Kontakt</h1>
+    <!-- Empty action: no receiver yet, sending only reloads this page -->
+    <form action="" method="post">
+      <!-- label for must match the input id -->
+      <label for="name">Imię</label>
+      <input id="name" name="name" type="text" required>
+
+      <label for="email">E-mail</label>
+      <input id="email" name="email" type="email" required>
+
+      <!-- value is sent to the server, the text between tags is shown -->
+      <label for="subject">Temat</label>
+      <select id="subject" name="subject">
+        <!-- TU ZMIEŃ: tematy do wyboru -->
+        <option value="question">Pytanie</option>
+        <option value="cooperation">Współpraca</option>
+      </select>
+
+      <label for="message">Wiadomość</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
+      <button type="submit">Wyślij</button>
+    </form>
+  </main>
+
+  <footer>
+    <!-- TU ZMIEŃ: autor -->
+    <p>Autor: Imię Nazwisko, klasa 3TI</p>
+  </footer>
+</body>
+</html>

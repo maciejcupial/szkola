@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!-- Task 5 of 5. Output is in the console (F12). -->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zadanie 5: zamówienie w sklepie</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <h1>Zadanie 5 dla chętnych: zamówienie w sklepie</h1>
+
+  <div class="card">
+    <p>
+      Obiekt <code>order</code> trzyma listę produktów w tablicy <code>items</code> i ma dwie metody,
+      które na razie zwracają 0. Tu łączysz wszystko z obu lekcji o obiektach i z pętli.
+    </p>
+    <ol>
+      <li>Pętlą <code>for...of</code> wypisz każdą pozycję, na przykład „Zeszyt x3 = 12 zł”.</li>
+      <li>
+        Napisz metodę <code>itemsTotal()</code>: suma ceny razy liczba sztuk wszystkich produktów
+        z <code>this.items</code>.
+      </li>
+      <li>
+        Napisz metodę <code>shipping()</code>: dostawa kosztuje 15 zł, gdy towary są tańsze
+        niż 100 zł, a od 100 zł jest darmowa.
+      </li>
+      <li>
+        Pierwsze podsumowanie to „Towary: 87 zł, dostawa: 15 zł”. Po dopisaniu piórnika ma wyjść
+        „Towary: 107 zł, dostawa: 0 zł”.
+      </li>
+    </ol>
+  </div>
+  <p class="meta">Wynik zobaczysz w konsoli: F12, zakładka <code>Console</code>, potem F5.</p>
+
+  <script src="05-shop-order.js"></script>
+</body>
+</html>

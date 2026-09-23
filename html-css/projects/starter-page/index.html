@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!-- Page content; looks come from style.css, behaviour from script.js. -->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- TU ZMIEŃ: tytuł widoczny na karcie przeglądarki -->
+  <title>Moja pierwsza strona</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <!-- TU ZMIEŃ: nagłówek strony -->
+    <h1>Moja pierwsza strona</h1>
+    <p>Krótkie zdanie o tym, czego dotyczy strona.</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>O czym jest ta strona?</h2>
+      <!-- TU ZMIEŃ: własna treść, akapity, listy, obrazy -->
+      <p>Tu wpisz pierwszy akapit. Możesz dodać <strong>pogrubienie</strong> i <em>kursywę</em>.</p>
+      <ul>
+        <li>pierwszy punkt listy</li>
+        <li>drugi punkt listy</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Przycisk i JavaScript</h2>
+      <!-- script.js finds this button by its id -->
+      <button type="button" class="button" id="greet-button">Przywitaj się</button>
+      <!-- Empty until script.js writes the greeting -->
+      <p id="greeting" class="meta"></p>
+    </section>
+  </main>
+
+  <footer>
+    <!-- TU ZMIEŃ: imię i nazwisko, klasa -->
+    <p class="meta">Autor: Imię Nazwisko, klasa 3TI</p>
+  </footer>
+
+  <!-- At the end of body, so the button above already exists -->
+  <script src="script.js"></script>
+</body>
+</html>

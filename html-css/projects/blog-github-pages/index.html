@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!-- Blog home page: welcome and a teaser of the newest post. -->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- TU ZMIEŃ: tytuł widoczny na karcie przeglądarki -->
+  <title>Start · Mój blog</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Same header on every page -->
+  <header class="top">
+    <!-- TU ZMIEŃ: nazwa bloga -->
+    <a class="logo" href="index.html">Mój blog</a>
+    <!-- .active marks the current page -->
+    <nav>
+      <a href="index.html" class="active">Start</a>
+      <a href="posts.html">Wpisy</a>
+      <a href="contact.html">Kontakt</a>
+    </nav>
+    <!-- aria-label: the icon alone says nothing to a screen reader -->
+    <button type="button" id="theme-toggle" aria-label="Przełącz tryb ciemny">◐</button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <!-- TU ZMIEŃ: powitanie -->
+      <h1>Cześć, tu mój blog</h1>
+      <p>Piszę o tym, czego uczę się na informatyce: strony, JavaScript, PHP.</p>
+      <a class="button" href="posts.html">Zobacz wpisy</a>
+    </section>
+
+    <section>
+      <h2>Najnowszy wpis</h2>
+      <article class="card">
+        <!-- TU ZMIEŃ: tytuł i zajawka najnowszego wpisu -->
+        <h3><a href="post.html">Tytuł najnowszego wpisu</a></h3>
+        <p class="meta">Data wpisu</p>
+        <p>Dwa zdania zajawki, które zachęcają do kliknięcia.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <!-- TU ZMIEŃ: autor -->
+    <!-- script.js fills in the year -->
+    <p>© <span id="year"></span> Imię Nazwisko · klasa 4Ti</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

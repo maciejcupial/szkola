@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!-- Task 2 of 5. Change only 02-color-picker.js. -->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zadanie 2: wybór koloru</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <h1>Zadanie 2: jedna funkcja, trzy przyciski</h1>
+
+  <div class="card">
+    <p>
+      Trzy przyciski mają wspólną klasę <code>color-button</code>. Nie pisz trzech funkcji: napisz jedną,
+      <code>handleColorClick(event)</code>, i sprawdzaj w niej, który przycisk kliknięto.
+    </p>
+    <ol>
+      <li>Kliknięty przycisk to <code>event.target</code>. Jego napis to
+        <code>event.target.textContent</code>.</li>
+      <li>Po kliknięciu pole poniżej pokazuje na przykład „Wybrano: Zielony”.</li>
+      <li>Tło pola dostaje kolor z atrybutu <code>data-color</code> klikniętego przycisku
+        (odczytasz go przez <code>getAttribute</code>), a tekst w polu robi się biały.</li>
+      <li>Pętlą <code>for...of</code> przejdź po wszystkich przyciskach i każdemu podepnij tę samą
+        funkcję.</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <!-- Any attribute starting with data- is allowed: read it with getAttribute. -->
+    <button type="button" class="color-button" data-color="#d1242f">Czerwony</button>
+    <button type="button" class="color-button" data-color="#1a7f37">Zielony</button>
+    <button type="button" class="color-button" data-color="#0969da">Niebieski</button>
+    <div class="preview" id="preview">Wybierz kolor</div>
+  </div>
+
+  <script src="02-color-picker.js"></script>
+</body>
+</html>

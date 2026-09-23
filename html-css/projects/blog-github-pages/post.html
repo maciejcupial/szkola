@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!-- One post. Copy under a new name and link the copy in posts.html. -->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- TU ZMIEŃ: tytuł widoczny na karcie przeglądarki -->
+  <title>Wpis · Mój blog</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Wpisy stays active: a post belongs to that section -->
+  <header class="top">
+    <!-- TU ZMIEŃ: nazwa bloga -->
+    <a class="logo" href="index.html">Mój blog</a>
+    <nav>
+      <a href="index.html">Start</a>
+      <a href="posts.html" class="active">Wpisy</a>
+      <a href="contact.html">Kontakt</a>
+    </nav>
+    <button type="button" id="theme-toggle" aria-label="Przełącz tryb ciemny">◐</button>
+  </header>
+
+  <main>
+    <article class="post">
+      <!-- TU ZMIEŃ: cały wpis, od tytułu do ostatniego akapitu -->
+      <h1>Tytuł wpisu</h1>
+      <p class="meta">Data wpisu · 3 min czytania</p>
+      <p>Pierwszy akapit. Wpis może mieć nagłówki, listy, obrazy i kod.</p>
+      <h2>Śródtytuł</h2>
+      <p>Drugi akapit z <a href="posts.html">łączem</a>.</p>
+      <!-- pre keeps spaces and line breaks as typed -->
+      <pre><code>console.log("kod we wpisie");</code></pre>
+      <p><a href="posts.html">← Wszystkie wpisy</a></p>
+    </article>
+  </main>
+
+  <footer>
+    <!-- TU ZMIEŃ: autor -->
+    <p>© <span id="year"></span> Imię Nazwisko · klasa 4Ti</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

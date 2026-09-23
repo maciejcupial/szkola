@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!-- Lesson 4 (3TI, pracownia): head and page blocks, steps 1-4 (slides 5-8) and slide 9. -->
+<html lang="pl">
+<head>
+  <!-- Step 1: head lines. -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>O mnie</title>
+  <meta name="description" content="Strona o mnie: kim jestem i co lubię.">
+  <link rel="icon" href="favicon.svg">
+</head>
+<body>
+  <!-- Step 2: header and nav. -->
+  <header>
+    <h1>Imię Nazwisko</h1>
+  </header>
+
+  <!-- The link has the "#", the id never does. -->
+  <nav>
+    <ul>
+      <li><a href="#about">O mnie</a></li>
+      <li><a href="#hobby">Hobby</a></li>
+      <li><a href="#plans">Plany</a></li>
+    </ul>
+  </nav>
+
+  <!-- Step 3: the id sits on the section now, not on the h2. -->
+  <main>
+    <section id="about">
+      <h2>O mnie</h2>
+      <p>
+        Mam na imię Imię, chodzę do klasy 3TI w technikum informatycznym.
+        Interesuję się stronami internetowymi i chcę <em>naprawdę</em> zrozumieć, jak działają.
+      </p>
+      <p>
+        <strong>Uwaga:</strong> to strona ćwiczeniowa, dane na niej są przykładowe.
+      </p>
+    </section>
+
+    <section id="hobby">
+      <h2>Hobby</h2>
+      <p>
+        Po szkole gram w siatkówkę i składam klawiatury mechaniczne.
+        Raz w tygodniu jeżdżę na basen, bo po całym dniu przy komputerze trzeba się ruszyć.
+      </p>
+    </section>
+
+    <section id="plans">
+      <h2>Plany</h2>
+      <p>
+        Za rok chcę mieć własną stronę z portfolio.<br>
+        Za pięć lat chcę pracować przy aplikacjach internetowych.
+      </p>
+    </section>
+  </main>
+
+  <!-- Step 4: footer. -->
+  <footer>
+    <p>Autor: Imię Nazwisko, klasa 3TI</p>
+
+    <!-- Extra (slide 9): datetime always as year-month-day. -->
+    <p>Ostatnia zmiana: <time datetime="2026-09-08">8 września 2026</time></p>
+    <!-- A made-up address, never a private one. -->
+    <address>
+      Kontakt: <a href="mailto:jan@example.com">jan@example.com</a>
+    </address>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!-- Task 5 of 6: page for 05-temperatures.js. -->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zadanie 5: temperatury z tygodnia</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <h1>Zadanie 5: temperatury z tygodnia</h1>
+
+  <div class="card">
+    <p>W tablicy <code>temperatures</code> jest temperatura z każdego dnia tygodnia.
+      Otwórz <code>05-temperatures.js</code> i w miejscach <code>TU ZMIEŃ</code>:</p>
+    <ol>
+      <li>przejdź przez tablicę pętlą <code>for...of</code> (bez licznika <code>i</code>),</li>
+      <li>w tej pętli znajdź najwyższą i najniższą temperaturę,</li>
+      <li>w tej samej pętli dopisz do tablicy <code>warmDays</code> każdą temperaturę powyżej 15 stopni,</li>
+      <li>na koniec wypisz ciepłe dni metodą <code>forEach()</code>.</li>
+    </ol>
+    <p>Zastanów się, dlaczego <code>max</code> i <code>min</code> zaczynają od pierwszego elementu
+      tablicy, a nie od zera. Co by się stało zimą, przy samych ujemnych temperaturach?</p>
+  </div>
+
+  <p>W konsoli (F12, zakładka <code>Console</code>) ma się pojawić:</p>
+  <pre>Najcieplej: 21 stopni
+Najzimniej: 9 stopni
+Ciepłych dni (powyżej 15 stopni): 3
+Ciepły dzień: 17 stopni
+Ciepły dzień: 21 stopni
+Ciepły dzień: 18 stopni</pre>
+  <p class="meta">Podobny kod: <code>script.js</code>, część „Lesson 3” (for...of i forEach).</p>
+
+  <script src="05-temperatures.js"></script>
+</body>
+</html>

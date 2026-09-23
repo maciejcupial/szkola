@@ -1,0 +1,80 @@
+/* Shared look of index.html and tasks/. */
+
+/* Colours */
+:root {
+  --background: #ffffff;
+  --text: #111827;
+  --muted: #6b7280;
+  --accent: #1f6feb;
+  --border: #d1d5db;
+  --card: #f9fafb;
+}
+
+/* Page */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  max-width: 680px;
+  margin: 40px auto;
+  padding: 0 16px;
+  line-height: 1.6;
+  background: var(--background);
+  color: var(--text);
+}
+
+h1 {
+  color: var(--accent);
+  font-size: 26px;
+}
+
+h2 {
+  font-size: 18px;
+}
+
+/* Card */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+}
+
+/* Hint under a card */
+.meta {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* Form */
+label {
+  display: block;
+  margin-top: 8px;
+}
+
+input {
+  font: inherit;
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+/* Button */
+.button {
+  font: inherit;
+  margin-top: 12px;
+  margin-right: 8px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #ffffff;
+  cursor: pointer;
+}
+
+/* Inline code */
+code {
+  font-family: Consolas, Menlo, monospace;
+  background: var(--card);
+  padding: 0 4px;
+  border-radius: 4px;
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!-- Task 3 of 5. Change only 03-leaking-variables.js. -->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zadanie 3: zmienne, które wyciekają</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <h1>Zadanie 3: zmienne, które wyciekają</h1>
+
+  <div class="card">
+    <p>
+      Program z pliku <code>03-leaking-variables.js</code> ma policzyć średnią ocen trzech grup.
+      Wypisuje jednak tylko pierwszą grupę, a konsola nie pokazuje żadnego błędu.
+    </p>
+    <ol>
+      <li>Otwórz konsolę (F12) i zobacz, co program wypisuje teraz.</li>
+      <li>
+        Przeczytaj kod i zapisz na kartce: jaką wartość ma <code>i</code> zaraz po tym,
+        jak funkcja <code>average</code> skończy liczyć pierwszą grupę?
+      </li>
+      <li>Przy komentarzach <code>TU ZMIEŃ</code> dopisz <code>let</code> w trzech miejscach.</li>
+      <li>
+        Odśwież stronę. Konsola ma pokazać średnie 5, 2.5 i 4.5, a ostatnia linia ma powiedzieć,
+        że poza funkcją <code>total</code> ma typ <code>undefined</code>.
+      </li>
+    </ol>
+  </div>
+  <p class="meta">
+    Podpowiedź: część 3 w <code>script.js</code> piętro wyżej, funkcja <code>countNoLet</code>.
+  </p>
+
+  <script src="03-leaking-variables.js"></script>
+</body>
+</html>

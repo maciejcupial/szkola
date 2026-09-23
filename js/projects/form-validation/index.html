@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- TU ZMIEŃ: tytuł widoczny na karcie przeglądarki -->
+  <title>Formularz ze sprawdzaniem</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <!-- TU ZMIEŃ: nagłówek strony -->
+    <h1>Zapisy na warsztaty</h1>
+    <p class="meta">Wypełnij pola i kliknij „Wyślij”. Komunikaty o błędach pojawią się pod polami.</p>
+  </header>
+
+  <main>
+    <!-- novalidate: only script.js checks the fields. -->
+    <form class="card" id="signup-form" action="" method="post" novalidate>
+      <!-- The span id must be error-<field id>. -->
+      <div class="field">
+        <label for="name">Imię i nazwisko</label>
+        <input id="name" name="name" type="text" placeholder="Imię Nazwisko">
+        <span class="error" id="error-name"></span>
+      </div>
+
+      <div class="field">
+        <label for="email">E-mail</label>
+        <input id="email" name="email" type="email" placeholder="adres@example.com">
+        <span class="error" id="error-email"></span>
+      </div>
+
+      <div class="field">
+        <label for="age">Wiek</label>
+        <input id="age" name="age" type="number">
+        <span class="error" id="error-age"></span>
+      </div>
+
+      <div class="field field-checkbox">
+        <input id="consent" name="consent" type="checkbox">
+        <label for="consent">Zgadzam się na regulamin</label>
+        <span class="error" id="error-consent"></span>
+      </div>
+
+      <!-- TU ZMIEŃ: kolejne pola, kopia div.field z nowym id i error-<id>. -->
+
+      <button class="button" type="submit">Wyślij</button>
+
+      <p class="ok" id="success"></p>
+    </form>
+  </main>
+
+  <!-- At the end of body, so getElementById finds the elements. -->
+  <script src="script.js"></script>
+</body>
+</html>

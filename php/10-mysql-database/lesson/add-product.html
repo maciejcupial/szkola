@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!-- Lessons 20 and 22 (4Ti 22 and 24), slide 8: one form per PHP version. -->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dodaj produkt</title>
+</head>
+<body>
+  <h1>Dodaj produkt</h1>
+
+  <h2>Lekcja 20, ćwiczenie ze slajdu 8</h2>
+  <form action="add-product.php" method="post">
+    <label>Nazwa: <input type="text" name="productName"></label><br>
+    <label>Cena: <input type="text" name="productPrice"></label><br>
+    <button type="submit">Dodaj</button>
+  </form>
+
+  <h2>Lekcja 20, slajd 6: zapytanie przygotowane</h2>
+  <form action="add-product-prepared.php" method="post">
+    <label>Nazwa: <input type="text" name="productName"></label><br>
+    <label>Cena: <input type="text" name="productPrice"></label><br>
+    <button type="submit">Dodaj</button>
+  </form>
+
+  <h2>Lekcja 22: dodawanie z obsługą błędu</h2>
+  <form action="add-product-errors.php" method="post">
+    <label>Nazwa: <input type="text" name="productName"></label><br>
+    <label>Cena: <input type="text" name="productPrice"></label><br>
+    <button type="submit">Dodaj</button>
+  </form>
+</body>
+</html>

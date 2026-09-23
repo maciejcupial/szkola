@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!-- Task 5 of 5 (for volunteers). Change only 05-grade-check.js. -->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zadanie 5: punkty na ocenę</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <h1>Zadanie 5 dla chętnych: punkty na ocenę</h1>
+
+  <div class="card">
+    <p>
+      Nauczyciel wpisuje punkty ze sprawdzianu i maksimum punktów, a program podaje procent i ocenę.
+      Skala: 0–39% niedostateczny, 40–54% dopuszczający, 55–74% dostateczny, 75–89% dobry,
+      90–97% bardzo dobry, 98–100% celujący.
+    </p>
+    <ol>
+      <li>W <code>percentOf</code> policz procent i zaokrąglij go przez <code>Math.round</code>.</li>
+      <li>W <code>gradeFor</code> zwróć nazwę oceny dla podanego procentu.</li>
+      <li>
+        W <code>checkGrade</code> zatrzymaj błędne dane: litery zamiast liczb albo maksimum 0.
+        Wtedy w konsoli ma się pojawić <code>Wpisz liczby w oba pola, maksimum większe od 0</code>.
+      </li>
+      <li>
+        Sprawdź w konsoli (F12): 42 z 50 to 84% i dobry, 45.5 z 50 to 91% i bardzo dobry,
+        19 z 50 to 38% i niedostateczny.
+      </li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <label for="points">Zdobyte punkty</label>
+    <input type="text" id="points">
+    <label for="max-points">Maksimum punktów</label>
+    <input type="text" id="max-points">
+    <button type="button" class="button" onclick="checkGrade()">Sprawdź</button>
+  </div>
+  <p class="meta">
+    Podpowiedź: <code>calculate()</code> w <code>script.js</code> piętro wyżej odczytuje pole
+    i zaokrągla wynik.
+  </p>
+
+  <script src="05-grade-check.js"></script>
+</body>
+</html>

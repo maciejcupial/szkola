@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!-- Task 6 of 6: page for 06-vote.js. -->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zadanie 6 dla chętnych: głosowanie</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <h1>Zadanie 6 dla chętnych: głosowanie</h1>
+
+  <div class="card">
+    <p>Klasa głosuje, co zamówić na wycieczkę. Głosy przyszły jako jeden napis. Otwórz
+      <code>06-vote.js</code> i w miejscach <code>TU ZMIEŃ</code>:</p>
+    <ol>
+      <li>potnij napis na tablicę <code>votes</code>,</li>
+      <li>zbuduj tablicę <code>options</code>, w której każda propozycja jest tylko raz
+        (dopisuj głos przez <code>push()</code>, tylko gdy <code>indexOf()</code> daje -1),</li>
+      <li>dla każdej propozycji policz jej głosy: pętla w pętli, wewnętrzna przechodzi przez
+        wszystkie <code>votes</code>,</li>
+      <li>zapamiętaj zwycięzcę: propozycję z największą liczbą głosów.</li>
+    </ol>
+    <p>Przy remisie wygrywa ta propozycja, która pojawiła się pierwsza.</p>
+  </div>
+
+  <p>W konsoli (F12, zakładka <code>Console</code>) ma się pojawić:</p>
+  <pre>Oddanych głosów: 7
+(4) ['pizza', 'kebab', 'sushi', 'pierogi']
+pizza: 3
+kebab: 2
+sushi: 1
+pierogi: 1
+Wygrywa: pizza, liczba głosów: 3</pre>
+  <p class="meta">Podobny kod: <code>script.js</code>, części „Lesson 2” i „Lesson 3”.</p>
+
+  <script src="06-vote.js"></script>
+</body>
+</html>

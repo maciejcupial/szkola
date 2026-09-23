@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!-- Task 2 of 5: page for 02-player-card.js. -->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zadanie 2: karta gracza</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <h1>Zadanie 2: karta gracza bez var</h1>
+
+  <div class="card">
+    <p>
+      Plik <code>02-player-card.js</code> jest napisany starym stylem: każda zmienna ma
+      <code>var</code>. Zamień każde <code>var</code> na <code>const</code> albo <code>let</code>
+      według zasady „const, kiedy możesz, let, kiedy musisz”.
+    </p>
+    <ol>
+      <li>Zanim cokolwiek zmienisz, otwórz konsolę (F12) i zapisz, co pokazuje.</li>
+      <li>Wartość, która dalej w pliku się nie zmienia, dostaje <code>const</code>.</li>
+      <li>
+        Wartość, która dalej w pliku dostaje nową wartość albo <code>++</code>, dostaje <code>let</code>.
+      </li>
+      <li>
+        Odśwież stronę. Konsola ma pokazać dokładnie to samo co na początku i ani jednego czerwonego
+        błędu. Czerwony <code>TypeError</code> znaczy, że <code>const</code> trafiło do zmiennej,
+        która się zmienia.
+      </li>
+    </ol>
+  </div>
+
+  <script src="02-player-card.js"></script>
+</body>
+</html>

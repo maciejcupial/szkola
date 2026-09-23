@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!-- Task 4 of 5. Change only 04-shopping-list.js. -->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zadanie 4: lista zakupów</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <div class="card">
+    <h2>Zadanie 4: dodawanie i usuwanie elementów</h2>
+    <p>Kod piszesz w <code>04-shopping-list.js</code>.</p>
+    <ol>
+      <li>
+        <code>addProduct()</code>: gdy pole jest puste, pokaż w <code>message</code> napis
+        <code>Wpisz nazwę produktu</code>. W przeciwnym razie utwórz nowy <code>&lt;li&gt;</code>
+        z klasą <code>product</code> i tekstem z pola, dołącz go do listy i wyczyść pole.
+      </li>
+      <li><code>removeLast()</code>: usuń ostatni produkt, ale tylko gdy lista nie jest pusta.</li>
+      <li>
+        Po każdej zmianie licznik ma pokazywać <code>Na liście: 3</code>,
+        <code>Na liście: 2</code> i tak dalej.
+      </li>
+      <li>
+        Dla chętnych: nie dodawaj produktu, który już jest na liście. Przejdź pętlą po kolekcji
+        <code>products</code> i porównaj teksty. W <code>message</code> pokaż
+        <code>Ten produkt już jest</code>.
+      </li>
+    </ol>
+    <p class="meta">
+      Sprawdź: dopisz „jabłka”, potem dwa razy „Usuń ostatni”. Zostaje sam „chleb”
+      i „Na liście: 1”.
+    </p>
+  </div>
+
+  <h1>Lista zakupów</h1>
+  <p>
+    <label for="product">Produkt:</label>
+    <input type="text" id="product">
+    <button type="button" class="button" onclick="addProduct()">Dodaj</button>
+    <button type="button" class="button" onclick="removeLast()">Usuń ostatni</button>
+  </p>
+  <p id="message" class="error"></p>
+
+  <ul id="shopping-list">
+    <li class="product">chleb</li>
+    <li class="product">mleko</li>
+  </ul>
+  <p id="counter" class="meta">Na liście: 2</p>
+
+  <script src="04-shopping-list.js"></script>
+</body>
+</html>

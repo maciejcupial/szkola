@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!-- Lesson 9 (3TI): forms, solution of exercise 1 (slajdy_2.html, slide 9). -->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ankieta o grach</title>
+</head>
+<body>
+  <h1>Ankieta o grach</h1>
+
+  <form action="sent.html" method="get">
+
+    <fieldset>
+      <legend>O Tobie</legend>
+
+      <!-- required on one radio covers the whole group. -->
+      <p>Rocznik:</p>
+      <p>
+        <label><input type="radio" name="birthYear" value="2008" required> 2008</label>
+        <label><input type="radio" name="birthYear" value="2009"> 2009</label>
+        <label><input type="radio" name="birthYear" value="2010"> 2010</label>
+      </p>
+
+      <p>
+        <label for="className">Klasa:</label>
+        <select name="className" id="className">
+          <optgroup label="Klasy trzecie">
+            <option value="3ti" selected>3TI</option>
+            <option value="3te">3TE</option>
+          </optgroup>
+          <optgroup label="Klasy czwarte">
+            <option value="4ti">4TI</option>
+            <option value="4te">4TE</option>
+          </optgroup>
+        </select>
+      </p>
+    </fieldset>
+
+    <fieldset>
+      <legend>Gry</legend>
+
+      <!-- The address holds genre once per checked box. -->
+      <p>W co grasz? (możesz zaznaczyć kilka)</p>
+      <p>
+        <label><input type="checkbox" name="genre" value="rpg"> RPG</label>
+        <label><input type="checkbox" name="genre" value="strategy"> strategiczne</label>
+        <label><input type="checkbox" name="genre" value="sport"> sportowe</label>
+        <label><input type="checkbox" name="genre" value="shooter"> strzelanki</label>
+      </p>
+
+      <p>
+        <label for="lastPlayed">Kiedy ostatnio grałeś?</label>
+        <input type="date" id="lastPlayed" name="lastPlayed" max="2030-12-31">
+      </p>
+
+      <p>
+        <label for="rating">Jak oceniasz tę grę? (1 do 10)</label>
+        <input type="range" id="rating" name="rating" min="1" max="10" step="1" value="5">
+      </p>
+    </fieldset>
+
+    <p><button type="submit">Wyślij ankietę</button></p>
+  </form>
+
+  <!-- Expected, for example:
+    sent.html?birthYear=2009&className=3ti&genre=rpg&genre=strategy&lastPlayed=2026-09-14&rating=5 -->
+</body>
+</html>

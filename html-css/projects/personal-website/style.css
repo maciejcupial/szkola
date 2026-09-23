@@ -1,0 +1,110 @@
+/* Styles for index.html. */
+
+/* TU ZMIEŃ: kolory strony */
+:root {
+  --background: #fafafa;
+  --text: #222222;
+  --muted: #666666;
+  --accent: #c2410c;
+  --border: #cccccc;
+  --card: #eeeeee;
+}
+
+body {
+  margin: 0;
+  /* TU ZMIEŃ: czcionka strony */
+  font-family: Verdana, Geneva, sans-serif;
+  color: var(--text);
+  background: var(--background);
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  background: var(--accent);
+  color: #ffffff;
+  padding: 16px 24px;
+}
+
+header h1 {
+  margin: 0 0 8px;
+}
+
+/* Navigation */
+nav {
+  display: flex;
+  gap: 16px;
+}
+
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Content */
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 16px 24px;
+}
+
+section {
+  margin-bottom: 32px;
+}
+
+h2 {
+  color: var(--accent);
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 4px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Table */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  border: 1px solid var(--border);
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background: var(--card);
+}
+
+footer {
+  text-align: center;
+  padding: 16px;
+}
+
+.meta {
+  color: var(--muted);
+  font-size: 14px;
+  margin: 0;
+}
+
+/* Phones */
+@media (max-width: 600px) {
+  nav {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  main {
+    padding: 12px 16px;
+  }
+}

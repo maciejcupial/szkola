@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!-- Lesson 8 (3TI): the page every form in this folder sends to. -->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dziękujemy za wiadomość</title>
+</head>
+<body>
+  <h1>Dziękujemy za wiadomość</h1>
+
+  <p>Spójrz teraz na pasek adresu. Wszystko po znaku <code>?</code> to dane z formularza.</p>
+
+  <h2>Jak czytać adres</h2>
+
+  <ul>
+    <li><code>sent.html</code> to plik z atrybutu <code>action</code>, czyli adres na kopercie.</li>
+    <li><code>?</code> oznacza „tu zaczynają się dane”.</li>
+    <li>
+      <code>firstName=Jan</code> to jedna para: po lewej <code>name</code> pola, po prawej wpisana wartość.
+    </li>
+    <li><code>&amp;</code> skleja kolejne pary, po jednej na każde pole z atrybutem <code>name</code>.</li>
+  </ul>
+
+  <p>Cały adres z formularza kontaktowego wygląda tak:</p>
+  <p><code>sent.html?firstName=Jan&amp;email=jan%40szkola.pl&amp;age=17&amp;message=Dzien+dobry</code></p>
+
+  <p>A z ankiety o grach tak:</p>
+  <p><code>sent.html?birthYear=2009&amp;className=3ti&amp;genre=rpg&amp;genre=strategy</code></p>
+
+  <h2>Dziwne znaki w adresie</h2>
+
+  <p>
+    Adres nie może zawierać spacji ani polskich liter, więc przeglądarka zamienia je na kody:
+    spacja to <code>+</code>, litera „ł” to <code>%C5%82</code>, znak <code>@</code> to <code>%40</code>.
+    Nic się nie zepsuło, serwer odczyta z tego z powrotem normalny tekst.
+  </p>
+
+  <h2>Czego tu nie ma</h2>
+
+  <ul>
+    <li>Pola bez atrybutu <code>name</code> nie ma w adresie w ogóle.</li>
+    <li>Niezaznaczonego pola <code>checkbox</code> ani <code>radio</code> też nie ma.</li>
+    <li>Przy <code>method="post"</code> po adresie nie widać nic: dane jadą w środku żądania.</li>
+  </ul>
+
+  <p><a href="contact.html">Wróć do formularza kontaktowego</a></p>
+  <p><a href="survey.html">Wróć do ankiety o grach</a></p>
+</body>
+</html>

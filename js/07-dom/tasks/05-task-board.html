@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!-- Task 5 of 5 (for volunteers). Change only 05-task-board.js. -->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zadanie 5: tablica zadań</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <div class="card">
+    <h2>Zadanie 5 dla chętnych: strona zbudowana z tablicy</h2>
+    <p>Kod piszesz w <code>05-task-board.js</code>, w funkcji <code>renderBoard()</code>.</p>
+    <ol>
+      <li>
+        Przejdź pętlą po tablicy <code>tasks</code>. Dla każdego obiektu utwórz
+        <code>&lt;li&gt;</code> z jego tytułem i dołącz go do listy.
+        Zrobione zadanie dostaje klasę <code>done</code>.
+      </li>
+      <li>
+        Policz zrobione zadania i wpisz do <code>progress</code>
+        tekst <code>Zrobione: 2 z 4</code>.
+      </li>
+      <li>
+        Ustaw szerokość paska <code>bar-fill</code> na procent zrobionych zadań,
+        na przykład <code>50%</code>.
+      </li>
+      <li>
+        Przycisk „Zrób wszystkie” już działa: oznacza każde zadanie jako zrobione i woła
+        <code>renderBoard()</code> jeszcze raz. Sprawdź, czy lista się nie podwaja.
+      </li>
+    </ol>
+    <p class="meta">
+      Sprawdź: po otwarciu „Zrobione: 2 z 4” i pasek do połowy, po kliknięciu „Zrobione: 4 z 4”.
+    </p>
+  </div>
+
+  <h1>Tablica zadań</h1>
+  <ul id="board"></ul>
+  <p id="progress">Zrobione: 0 z 0</p>
+  <div class="bar">
+    <div id="bar-fill" class="bar-fill"></div>
+  </div>
+  <p>
+    <button type="button" class="button" onclick="finishAll()">Zrób wszystkie</button>
+  </p>
+
+  <script src="05-task-board.js"></script>
+</body>
+</html>

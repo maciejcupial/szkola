@@ -1,0 +1,17 @@
+<?php
+// Lesson 26, slide 9: exam EE.09 2022 zad. 9 and 37, names as on the slide.
+session_start();
+
+// Question 2 code, word for word; before the first echo.
+if (!isset($_COOKIE["visits"])) $counter = 1;
+else $counter = intval($_COOKIE["visits"]) + 1;
+setcookie("visits", $counter);
+header("Content-Type: text/html; charset=UTF-8");
+
+echo "<h2>1. Egzamin: zmienna sesji choiceId o wartości 4</h2>";
+$_SESSION["choiceId"] = 4;   // odpowiedź D
+echo $_SESSION["choiceId"] . "<br>";   // 4
+
+echo "<h2>2. Egzamin: co robi wielokrotne wykonanie kodu?</h2>";
+// No expiry: the cookie lasts until the browser closes.
+echo $counter . "<br>";   // 1, then 2, 3 after each refresh

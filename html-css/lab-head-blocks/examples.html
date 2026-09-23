@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<!-- Lesson 4 (3TI, pracownia): code from slides 2-9, one h2 per slide. -->
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Przykłady z lekcji: head i bloki</title>
+  <meta name="description" content="Kod ze slajdów lekcji o sekcji head i blokach strony.">
+  <link rel="icon" href="favicon.svg">
+  <style>
+    /* Only for the block and inline demo. */
+    .demo-block {
+      border: 2px solid #4fc3f7;
+      padding: 4px;
+      margin-bottom: 4px;
+    }
+    .demo-inline {
+      background: #ffe082;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Przykłady z lekcji: head i bloki strony</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Start</a></li>
+      <li><a href="about.html">O mnie</a></li>
+      <li><a href="examples.html">Przykłady z lekcji</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section id="slide-2">
+      <h2>Slajd 2: Co siedzi w head?</h2>
+      <p>Sześć linijek, które warto znać. Piszemy je wewnątrz <code>head</code>.</p>
+<pre><code>&lt;meta charset="utf-8"&gt;
+&lt;title&gt;O mnie&lt;/title&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+&lt;meta name="description" content="Strona o mnie: kim jestem i co lubię."&gt;
+&lt;link rel="icon" href="favicon.svg"&gt;
+&lt;link rel="stylesheet" href="style.css"&gt;</code></pre>
+      <p>
+        Na karcie przeglądarki widać tylko <code>title</code> i ikonę.
+        Opisu nie widać nigdzie na stronie, pokazuje go dopiero wyszukiwarka.
+        Ostatnia linijka dołącza wygląd (CSS) i przyda się na późniejszej lekcji.
+      </p>
+    </section>
+
+    <section id="slide-3">
+      <h2>Slajd 3: Bloki strony, pudełka z nazwami</h2>
+      <p>Szkielet ze schematu na slajdzie: cztery bloki w <code>body</code>, trzy sekcje w środku.</p>
+<pre><code>&lt;body&gt;
+  &lt;header&gt; ... &lt;/header&gt;
+  &lt;nav&gt; ... &lt;/nav&gt;
+  &lt;main&gt;
+    &lt;section&gt; ... &lt;/section&gt;
+    &lt;section&gt; ... &lt;/section&gt;
+    &lt;section&gt; ... &lt;/section&gt;
+  &lt;/main&gt;
+  &lt;footer&gt; ... &lt;/footer&gt;
+&lt;/body&gt;</code></pre>
+      <p>
+        Przeglądarka rysuje te bloki tak samo jak zwykły <code>div</code>.
+        Różnica jest w nazwie: czytnik ekranu i wyszukiwarka wiedzą, co jest menu,
+        co treścią, a co stopką. <code>article</code> to treść, która ma sens sama,
+        na przykład wpis na blogu. <code>div</code> to pudełko bez nazwy, na wypadek
+        gdy żaden z nazwanych bloków nie pasuje.
+      </p>
+    </section>
+
+    <section id="slide-4">
+      <h2>Slajd 4: Blok czy w linii?</h2>
+<pre><code>&lt;div&gt;Pierwszy div&lt;/div&gt;
+&lt;div&gt;Drugi div&lt;/div&gt;
+&lt;p&gt;Zdanie, a w nim &lt;span&gt;span&lt;/span&gt;, i tekst płynie dalej.&lt;/p&gt;</code></pre>
+      <p>Tak to wygląda naprawdę (ramka i żółte tło tylko po to, żeby było widać granice):</p>
+      <div class="demo-block">Pierwszy div</div>
+      <div class="demo-block">Drugi div</div>
+      <p>Zdanie, a w nim <span class="demo-inline">span</span>, i tekst płynie dalej.</p>
+      <p>
+        Element blokowy dostaje własną linię i całą szerokość.
+        Element w linii siedzi w środku zdania i zajmuje tyle, ile treść.
+        <code>div</code> i <code>span</code> nic nie znaczą, to puste pudełka do użycia z CSS.
+      </p>
+    </section>
+
+    <section id="slide-5">
+      <h2>Slajd 5: Krok 1, description i ikona</h2>
+      <p>Do sekcji <code>head</code> w pliku <code>about.html</code> dopisujemy dwie linijki:</p>
+<pre><code>&lt;meta name="description" content="Strona o mnie: kim jestem i co lubię."&gt;
+&lt;link rel="icon" href="favicon.svg"&gt;</code></pre>
+      <p>Obok, w tym samym folderze, nowy plik <code>favicon.svg</code> (to zwykły plik tekstowy):</p>
+<pre><code>&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"&gt;
+  &lt;circle cx="8" cy="8" r="8" fill="#4fc3f7"/&gt;
+&lt;/svg&gt;</code></pre>
+      <p>
+        Po zapisie i F5 na karcie pojawia się niebieskie kółko obok tytułu.
+        Ikony nie widać? Otwórz stronę w nowej karcie, przeglądarka pamięta starą ikonę.
+      </p>
+    </section>
+
+    <section id="slide-6">
+      <h2>Slajd 6: Krok 2, header i nav</h2>
+<pre><code>&lt;body&gt;
+  &lt;header&gt;
+    &lt;h1&gt;Imię Nazwisko&lt;/h1&gt;
+  &lt;/header&gt;
+  &lt;nav&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href="#about"&gt;O mnie&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#hobby"&gt;Hobby&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#plans"&gt;Plany&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/nav&gt;</code></pre>
+      <p>
+        Po kliknięciu w menu w pasku adresu dopisuje się <code>#about</code>,
+        ale strona się nie rusza: celu jeszcze nie ma, powstaje w kroku 3.
+      </p>
+    </section>
+
+    <section id="slide-7">
+      <h2>Slajd 7: Krok 3, main z trzema sekcjami</h2>
+<pre><code>  &lt;main&gt;
+    &lt;section id="about"&gt;
+      &lt;h2&gt;O mnie&lt;/h2&gt;
+      &lt;p&gt;Twoje akapity z poprzedniej lekcji.&lt;/p&gt;
+    &lt;/section&gt;
+    &lt;section id="hobby"&gt;
+      &lt;h2&gt;Hobby&lt;/h2&gt;
+      &lt;p&gt;Co robisz po szkole.&lt;/p&gt;
+    &lt;/section&gt;
+    &lt;section id="plans"&gt;
+      &lt;h2&gt;Plany&lt;/h2&gt;
+      &lt;p&gt;Czego chcesz się nauczyć.&lt;/p&gt;
+    &lt;/section&gt;
+  &lt;/main&gt;</code></pre>
+      <p>
+        Jeden <code>main</code> na stronę. <code>id</code> ma teraz <code>section</code>,
+        a nie <code>h2</code>: stare <code>id</code> z nagłówków usuwamy.
+        <code>id</code> to nazwa z łącza bez <code>#</code> i każda tylko raz w pliku.
+      </p>
+    </section>
+
+    <section id="slide-8">
+      <h2>Slajd 8: Krok 4, stopka i wysyłka</h2>
+<pre><code>  &lt;footer&gt;
+    &lt;p&gt;Autor: Imię Nazwisko, klasa 3TI&lt;/p&gt;
+  &lt;/footer&gt;
+&lt;/body&gt;</code></pre>
+      <p>
+        Ctrl+U pokazuje kolejność: <code>header</code>, <code>nav</code>,
+        <code>main</code>, <code>footer</code>. Potem GitHub Desktop: zaznacz
+        <code>about.html</code> i <code>favicon.svg</code>, opis
+        <code>head i bloki strony</code>, Commit, Push origin.
+      </p>
+    </section>
+
+    <section id="slide-9">
+      <h2>Slajd 9: Dla szybkich, time i address w stopce</h2>
+<pre><code>&lt;footer&gt;
+  &lt;p&gt;Autor: Imię Nazwisko, klasa 3TI&lt;/p&gt;
+  &lt;p&gt;Ostatnia zmiana: &lt;time datetime="2026-09-08"&gt;8 września 2026&lt;/time&gt;&lt;/p&gt;
+  &lt;address&gt;
+    Kontakt: &lt;a href="mailto:jan@example.com"&gt;jan@example.com&lt;/a&gt;
+  &lt;/address&gt;
+&lt;/footer&gt;</code></pre>
+      <p>
+        <code>time</code>: data dla ludzi w treści, dla komputera w <code>datetime</code>
+        (rok-miesiąc-dzień). <code>address</code>: kontakt do autora, przeglądarka pokazuje
+        go kursywą. Adres pocztowy zawsze przykładowy, nigdy prywatny.
+      </p>
+      <p>Gotowy plik: <a href="about.html">about.html</a>.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Kod ze slajdów lekcji 4, klasa 3TI.</p>
+  </footer>
+</body>
+</html>

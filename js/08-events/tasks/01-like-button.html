@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!-- Task 1 of 5. Change only 01-like-button.js. -->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zadanie 1: przycisk „Lubię to”</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <h1>Zadanie 1: przycisk „Lubię to”</h1>
+
+  <div class="card">
+    <p>
+      Przycisk poniżej na razie nic nie robi. W pliku <code>01-like-button.js</code> dokończ funkcję
+      <code>handleLike</code> i podepnij ją pod kliknięcie przez <code>addEventListener</code>.
+    </p>
+    <ol>
+      <li>Każde kliknięcie zwiększa <code>likeCount</code> o 1 i wpisuje w akapit „Polubienia: 3”
+        (z aktualną liczbą).</li>
+      <li>Podepnij nasłuch: <code>likeButton.addEventListener("click", handleLike);</code>,
+        nazwa funkcji bez nawiasów.</li>
+      <li>Podepnij do tego samego przycisku drugą funkcję, <code>logLike</code>. Po każdym kliknięciu
+        konsola (F12) ma pokazać „Ktoś polubił wpis”.</li>
+      <li>Sprawdź: po trzech kliknięciach strona pokazuje „Polubienia: 3”,
+        a w konsoli są trzy wpisy.</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <button type="button" id="like">Lubię to</button>
+    <p id="likes">Polubienia: 0</p>
+  </div>
+
+  <script src="01-like-button.js"></script>
+</body>
+</html>

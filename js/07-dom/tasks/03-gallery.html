@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!-- Task 3 of 5. Change only 03-gallery.js. -->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zadanie 3: galeria</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <div class="card">
+    <h2>Zadanie 3: galeria, która podmienia atrybuty</h2>
+    <p>Kod piszesz w <code>03-gallery.js</code>, w funkcji <code>nextImage()</code>.</p>
+    <ol>
+      <li>
+        Zwiększ <code>index</code> o 1. Gdy dojdzie do końca tablicy <code>files</code>,
+        wróć do 0.
+      </li>
+      <li>
+        Ustaw obrazkowi <code>src</code> na <code>files[index]</code>
+        i <code>alt</code> na <code>names[index]</code>.
+      </li>
+      <li>Do podpisu wpisz, który to obrazek, na przykład <code>Obrazek 2 z 3</code>.</li>
+      <li>
+        Dla chętnych: dopisz w tym pliku przycisk „Poprzedni”
+        z <code>onclick="previousImage()"</code> i funkcję, która cofa galerię,
+        z przejściem z pierwszego obrazka na ostatni.
+      </li>
+    </ol>
+    <p class="meta">
+      Sprawdź: trzy kliknięcia „Następny” wracają do obrazka A i podpisu „Obrazek 1 z 3”.
+    </p>
+  </div>
+
+  <img id="photo" src="../image-a.svg" alt="Obrazek A" width="240" height="120">
+  <p id="caption">Obrazek 1 z 3</p>
+  <button type="button" class="button" onclick="nextImage()">Następny</button>
+
+  <script src="03-gallery.js"></script>
+</body>
+</html>
