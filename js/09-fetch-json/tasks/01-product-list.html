@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!-- Task 1 of 5. Change only 01-product-list.js. -->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zadanie 1: lista produktów z API</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <h1>Zadanie 1: lista produktów z API</h1>
+
+  <div class="card">
+    <p>
+      Plik <code>../api/products.php</code> wysyła produkty z bazy <code>shop</code> w formacie JSON.
+      Pobierz je w funkcji <code>loadProducts()</code> i zbuduj z nich listę na tej stronie.
+    </p>
+    <ol>
+      <li>Pobierz dane przez <code>await fetch("../api/products.php")</code>, a potem zamień odpowiedź
+        na tablicę przez <code>await response.json()</code>.</li>
+      <li>W pętli <code>for...of</code> utwórz dla każdego produktu element <code>li</code>
+        z tekstem „nazwa - cena zł” (<code>textContent</code>) i dołącz go do listy.</li>
+      <li>Pod listą wpisz liczbę produktów, na przykład „Produktów: 3”.</li>
+      <li>Sprawdź: otwórz stronę przez serwer, na przykład
+        <code>http://localhost/09-fetch-json/tasks/01-product-list.html</code>.</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <ul id="product-list"></ul>
+    <p id="product-count">Produktów: 0</p>
+  </div>
+
+  <script src="01-product-list.js"></script>
+</body>
+</html>

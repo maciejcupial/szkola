@@ -3,9 +3,11 @@
 Do lekcji 01 kursu PHP (4Ti: lekcja 03).
 
 `index.php` to karta jednej książki z biblioteki. Dane o książce siedzą w zmiennych czterech typów,
-`var_dump()` pokazuje, co jest w każdej z nich, a niżej tekst jest sklejany kropką, wstawiany
-wprost w cudzysłów i przerabiany funkcjami do ciągów. W folderze `tasks` jest pięć plików do
-dokończenia, od najłatwiejszego do zadania dla chętnych.
+`var_dump()` pokazuje, co jest w każdej z nich, a tekst jest sklejany kropką, wstawiany
+wprost w cudzysłów i przerabiany funkcjami do ciągów. Na górze pliku PHP składa cały tekst
+w zmiennych, a HTML na dole tylko je wypisuje przez `<?= ... ?>`, czyli krótszy zapis
+`echo`. W folderze `tasks` jest pięć plików do dokończenia, od najłatwiejszego do zadania
+dla chętnych.
 
 Komentarze w kodzie są po angielsku i tylko tam, gdzie coś może być niejasne.
 
@@ -35,13 +37,13 @@ Komentarze w kodzie są po angielsku i tylko tam, gdzie coś może być niejasne
 ## Co zmienić
 
 - `index.php`: w miejscu `TU ZMIEŃ` wpisz dane swojej książki, a na końcu dopisz własną linię.
-- `tasks/01-introduce.php`: dopisz cztery `var_dump()` i jedno `echo`. Ma wyjść
+- `tasks/01-introduce.php`: dopisz cztery `var_dump()` i sklej zdanie w `$sentence`. Ma wyjść
   „Ola ma 17 lat i 1.65 m wzrostu.”
 - `tasks/02-fix-output.php`: popraw trzy linie tak, żeby wyszło „Cześć, Kuba!”,
   „Mieszkasz w mieście Gdynia.” i „Za rok będziesz mieć 18 lat.”
 - `tasks/03-cinema-ticket.php`: policz `$ticketsTotal` i `$total`, dopisz trzy wiersze tabeli.
   Za bilety wychodzi 119.96 zł, razem z popcornem 138.45 zł.
-- `tasks/04-boarding-pass.php`: uzupełnij trzy linie `echo`. Kod lotu to „ŁÓD-WRO-204”,
+- `tasks/04-boarding-pass.php`: uzupełnij trzy zmienne na górze pliku. Kod lotu to „ŁÓD-WRO-204”,
   a imię i nazwisko ma 15 znaków i 16 bajtów.
 - `tasks/05-school-email.php`: zbuduj adres „mikolaj.wojcik@example.com”, jego długość to 26,
   litera „o” występuje w nim 3 razy.

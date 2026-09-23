@@ -22,6 +22,21 @@ $students = [
 
 // TU ZMIEŃ: liczba uczniów w dzienniku
 $studentCount = 0;
+
+$rows = [];
+foreach ($students as $student) {
+    // Reset for every student.
+    $sum = 0;
+    $line = $student["name"] . ":";
+
+    // TU ZMIEŃ: foreach po $student["grades"]: $line = $line . " " . $grade; $sum = $sum + $grade;
+
+    // TU ZMIEŃ: zamiast 0 liczba ocen tego ucznia i średnia (/ to dzielenie)
+    $gradeCount = 0;
+    $average = 0;
+
+    $rows[] = $line . " (ocen: " . $gradeCount . ", średnia: " . $average . ")";
+}
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -37,25 +52,12 @@ $studentCount = 0;
     ich liczbę i średnią. Średnia to suma ocen podzielona przez ich liczbę.
   </p>
 
-  <p><?php echo "Uczniów w dzienniku: " . $studentCount; ?></p>
+  <p>Uczniów w dzienniku: <?= $studentCount ?></p>
 
   <ul>
-    <?php
-        foreach ($students as $student) {
-            // Reset for every student.
-            $sum = 0;
-
-            echo "<li>" . htmlspecialchars($student["name"]) . ":";
-
-            // TU ZMIEŃ: foreach po $student["grades"]: wypisz ocenę ze spacją, $sum = $sum + $grade;
-
-            // TU ZMIEŃ: zamiast 0 liczba ocen tego ucznia i średnia (/ to dzielenie)
-            $gradeCount = 0;
-            $average = 0;
-
-            echo " (ocen: " . $gradeCount . ", średnia: " . $average . ")</li>";
-        }
-    ?>
+    <?php foreach ($rows as $row): ?>
+      <li><?= htmlspecialchars($row) ?></li>
+    <?php endforeach; ?>
   </ul>
 </body>
 </html>

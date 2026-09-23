@@ -4,12 +4,15 @@
 header("Content-Type: text/html; charset=UTF-8");
 
 // isset() avoids Warning: Undefined array key when opened without the form.
-if (isset($_POST["userName"], $_POST["userMessage"])) {
+$isSent = isset($_POST["userName"], $_POST["userMessage"]);
+if ($isSent) {
     $name = $_POST["userName"];
     $message = $_POST["userMessage"];
-    echo "Dziękujemy, " . htmlspecialchars($name) . "! Otrzymaliśmy wiadomość: "
-        . htmlspecialchars($message);
-    // Dziękujemy, Jan! Otrzymaliśmy wiadomość: Czesc
-} else {
-    echo "Brak danych z formularza. Otwórz contact.html i wyślij formularz.";
 }
+?>
+<?php if ($isSent): ?>
+<p>Dziękujemy, <?= htmlspecialchars($name) ?>! Otrzymaliśmy wiadomość: <?= htmlspecialchars($message) ?></p>
+<?php // Dziękujemy, Jan! Otrzymaliśmy wiadomość: Czesc ?>
+<?php else: ?>
+<p>Brak danych z formularza. Otwórz contact.html i wyślij formularz.</p>
+<?php endif; ?>

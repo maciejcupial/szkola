@@ -24,6 +24,15 @@ $firstName = "";
 $firstPrice = 0;
 // TU ZMIEŃ: liczba produktów w koszyku
 $productCount = 0;
+
+$receiptLines = [];
+foreach ($cart as $product) {
+    // TU ZMIEŃ: zamiast 0 pomnóż cenę produktu przez liczbę sztuk
+    $lineTotal = 0;
+
+    // TU ZMIEŃ: dopisz do tej linii „4 szt. po 2.5 zł = ” przed kwotą
+    $receiptLines[] = $product["name"] . ": " . $lineTotal . " zł";
+}
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -40,22 +49,14 @@ $productCount = 0;
   </p>
 
   <p>
-    <?php
-        echo "Pierwszy produkt: " . htmlspecialchars($firstName) . " za " . $firstPrice . " zł<br>";
-        echo "Produktów w koszyku: " . $productCount;
-    ?>
+    Pierwszy produkt: <?= htmlspecialchars($firstName) ?> za <?= $firstPrice ?> zł<br>
+    Produktów w koszyku: <?= $productCount ?>
   </p>
 
   <ul>
-    <?php
-        foreach ($cart as $product) {
-            // TU ZMIEŃ: zamiast 0 pomnóż cenę produktu przez liczbę sztuk
-            $lineTotal = 0;
-
-            // TU ZMIEŃ: dopisz do tej linii „4 szt. po 2.5 zł = ” przed kwotą
-            echo "<li>" . htmlspecialchars($product["name"]) . ": " . $lineTotal . " zł</li>";
-        }
-    ?>
+    <?php foreach ($receiptLines as $line): ?>
+      <li><?= htmlspecialchars($line) ?></li>
+    <?php endforeach; ?>
   </ul>
 </body>
 </html>

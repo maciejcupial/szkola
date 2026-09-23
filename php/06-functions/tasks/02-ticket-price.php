@@ -12,6 +12,11 @@ function ticketPrice($basePrice) {
     // TU ZMIEŃ: odejmij od ceny podany procent i zwróć wynik przez return (zamiast zera)
     return 0;
 }
+
+// number_format(value, 2, ",", " ") gives a Polish decimal comma
+$normalPrice = number_format(ticketPrice(30), 2, ",", " ");
+$reducedPrice = number_format(ticketPrice(30, 50), 2, ",", " ");
+$seniorPrice = number_format(ticketPrice(24.5, 20), 2, ",", " ");
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -26,11 +31,8 @@ function ticketPrice($basePrice) {
     Dokończ funkcję <code>ticketPrice($basePrice, $discountPercent = 0)</code>. Zniżka 50 oznacza
     połowę ceny, brak drugiego argumentu oznacza bilet bez zniżki.
   </p>
-<?php
-// number_format(value, 2, ",", " ") gives a Polish decimal comma
-echo "<p>Bilet normalny: " . number_format(ticketPrice(30), 2, ",", " ") . " zł</p>";
-echo "<p>Bilet ulgowy: " . number_format(ticketPrice(30, 50), 2, ",", " ") . " zł</p>";
-echo "<p>Bilet seniora: " . number_format(ticketPrice(24.5, 20), 2, ",", " ") . " zł</p>";
-?>
+  <p>Bilet normalny: <?= $normalPrice ?> zł</p>
+  <p>Bilet ulgowy: <?= $reducedPrice ?> zł</p>
+  <p>Bilet seniora: <?= $seniorPrice ?> zł</p>
 </body>
 </html>

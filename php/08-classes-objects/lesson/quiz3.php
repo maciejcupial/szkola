@@ -3,19 +3,16 @@
 // Lesson 17, slide 6.
 header("Content-Type: text/html; charset=UTF-8");
 
-echo "<h2>1: do którego pola jest dostęp z zewnątrz?</h2>";
-class Dane {
+class Data {
     public $a;
     private $b;
     protected $c;
 }
-$dane = new Dane();
-$dane->a = "wartość a";
-echo $dane->a . "<br>";   // wartość a
-// echo $dane->b;   Fatal error: Cannot access private property Dane::$b
-// echo $dane->c;   Fatal error: Cannot access protected property Dane::$c
+$data = new Data();
+$data->a = "wartość a";
+// $b = $data->b;   Fatal error: Cannot access private property Data::$b
+// $c = $data->c;   Fatal error: Cannot access protected property Data::$c
 
-echo "<h2>2: który zapis nie spowoduje błędu?</h2>";
 class Product {
     public $name;
     private $price;
@@ -30,8 +27,12 @@ class Product {
     }
 }
 $product1 = new Product("Keyboard", 120);
-echo $product1->getPrice() . "<br>";   // 120, answer B
 // Fatal error: Cannot access private property Product::$price
-// echo $product1->price;
+// $price = $product1->price;
 // $product1->price = 10;
-// print $product1->price;
+?>
+<h2>1: do którego pola jest dostęp z zewnątrz?</h2>
+<p><?= htmlspecialchars($data->a) ?></p>  <!-- wartość a -->
+
+<h2>2: który zapis nie spowoduje błędu?</h2>
+<p><?= $product1->getPrice() ?></p>  <!-- 120, answer B -->

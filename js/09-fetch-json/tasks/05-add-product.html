@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!-- Task 5 of 5, dla chętnych. Change only 05-add-product.js. -->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zadanie 5: dodajemy produkt przez API</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <h1>Zadanie 5 (dla chętnych): dodajemy produkt przez API</h1>
+
+  <div class="card">
+    <p>
+      Do tej pory JavaScript tylko pobierał dane. Teraz wyśle nowy produkt do serwera: metodą
+      <code>POST</code>, w formacie JSON. Gotowy plik <code>05-add-product.php</code> zapisuje produkt
+      w bazie i odsyła go z nadanym numerem <code>id</code>.
+    </p>
+    <ol>
+      <li>W <code>handleSubmit(event)</code> zatrzymaj przeładowanie strony przez
+        <code>event.preventDefault()</code>.</li>
+      <li>Wyślij <code>fetch("05-add-product.php", { method: "POST", headers: …, body: … })</code>.
+        Nagłówek <code>"Content-Type": "application/json"</code> mówi serwerowi, że w treści jest JSON,
+        a <code>JSON.stringify()</code> zamienia obiekt na tekst JSON.</li>
+      <li>Odpowiedź zamień przez <code>await response.json()</code>. Gdy <code>response.ok</code> jest
+        fałszem, pokaż pod formularzem komunikat z <code>data.error</code>.</li>
+      <li>Gdy się udało, dopisz produkt do listy „Dodane teraz” i wyczyść oba pola.</li>
+      <li>Sprawdź: dodaj „Linijka” za 2.40, potem wyślij formularz z pustą nazwą, na koniec dodaj
+        <code>&lt;b&gt;Test&lt;/b&gt;</code> za 1. Otwórz <code>../index.html</code>: nowe produkty są
+        w bazie.</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <form id="product-form">
+      <label for="name">Nazwa produktu</label>
+      <input type="text" id="name">
+      <label for="price">Cena w zł</label>
+      <input type="number" id="price" step="0.01">
+      <div>
+        <button type="submit">Dodaj produkt</button>
+      </div>
+    </form>
+    <p class="error" id="form-error"></p>
+    <h2>Dodane teraz</h2>
+    <ul id="added-list"></ul>
+  </div>
+
+  <script src="05-add-product.js"></script>
+</body>
+</html>

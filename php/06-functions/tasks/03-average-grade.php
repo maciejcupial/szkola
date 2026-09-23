@@ -18,6 +18,11 @@ $register = [
     "Celina" => [5, 5, 6],
     "Dawid" => [1, 2, 1],
 ];
+
+$averages = [];
+foreach ($register as $name => $grades) {
+    $averages[$name] = averageGrade($grades);
+}
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -32,10 +37,8 @@ $register = [
     Dokończ funkcję <code>averageGrade($grades)</code>. Sumę policz pętlą <code>foreach</code>
     w zmiennej <code>$sum</code>, bez <code>array_sum</code>. Wynik zaokrąglij do dwóch miejsc.
   </p>
-<?php
-foreach ($register as $name => $grades) {
-    echo "<p>" . htmlspecialchars($name) . ": " . averageGrade($grades) . "</p>";
-}
-?>
+  <?php foreach ($averages as $name => $average): ?>
+    <p><?= htmlspecialchars($name) ?>: <?= $average ?></p>
+  <?php endforeach; ?>
 </body>
 </html>

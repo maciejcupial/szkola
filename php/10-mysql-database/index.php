@@ -39,8 +39,20 @@ if (!empty($_POST)) {
     }
 }
 
+$products = [];
+$listError = "";
 // No user input here, so plain mysqli_query() is safe.
 $result = mysqli_query($db, "SELECT id, name, price FROM products");
+if (!$result) {
+    $listError = "Błąd zapytania: " . mysqli_error($db);
+} else {
+    while ($row = mysqli_fetch_assoc($result)) {
+        $products[] = $row;
+    }
+}
+mysqli_close($db);
+
+// Below this block the page only prints ready variables; the tag with = is short for "php echo".
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -72,14 +84,11 @@ $result = mysqli_query($db, "SELECT id, name, price FROM products");
   <h1>Sklepik: produkty z bazy</h1>
 
   <?php if ($message !== ""): ?>
-    <?php
-    // The tag with = on the next line is short for "php echo".
-    ?>
     <p><?= htmlspecialchars($message) ?></p>
   <?php endif; ?>
 
-  <?php if (!$result): ?>
-    <p class="error">Błąd zapytania: <?= htmlspecialchars(mysqli_error($db)) ?></p>
+  <?php if ($listError !== ""): ?>
+    <p class="error"><?= htmlspecialchars($listError) ?></p>
   <?php else: ?>
     <table>
       <tr>
@@ -88,7 +97,7 @@ $result = mysqli_query($db, "SELECT id, name, price FROM products");
         <th>Cena</th>
         <th>Akcja</th>
       </tr>
-      <?php while ($row = mysqli_fetch_assoc($result)): ?>
+      <?php foreach ($products as $row): ?>
         <tr>
           <td><?= htmlspecialchars($row["id"]) ?></td>
           <td><?= htmlspecialchars($row["name"]) ?></td>
@@ -101,7 +110,7 @@ $result = mysqli_query($db, "SELECT id, name, price FROM products");
             </form>
           </td>
         </tr>
-      <?php endwhile; ?>
+      <?php endforeach; ?>
     </table>
   <?php endif; ?>
 
@@ -116,8 +125,6 @@ $result = mysqli_query($db, "SELECT id, name, price FROM products");
     <button type="submit">Dodaj</button>
   </form>
 
-  <!-- TU ZMIEŃ: dopisz tu własną sekcję, na przykład listę produktów tańszych niż 10 zł. -->
+  <!-- TU ZMIEŃ: własna sekcja, np. produkty tańsze niż 10 zł: zapytanie w bloku PHP u góry, lista tu. -->
 </body>
 </html>
-<?php
-mysqli_close($db);

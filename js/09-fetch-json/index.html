@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<!-- PHP as a JSON API, JavaScript builds the page. The code is in script.js and api/products.php. -->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JavaScript: dane z PHP w formacie JSON</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Sklepik: produkty z bazy</h1>
+  <p class="meta">Dane wysyła <code>api/products.php</code>, a listę buduje <code>script.js</code>.</p>
+
+  <div class="card">
+    <h2>Produkty</h2>
+    <p id="message">Wczytuję produkty…</p>
+    <ul id="product-list"></ul>
+  </div>
+
+  <p class="meta">Zadania do tej lekcji są w folderze <code>tasks</code>.</p>
+
+  <script src="script.js"></script>
+</body>
+</html>

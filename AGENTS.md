@@ -32,8 +32,17 @@ README table „Znajdź swoją klasę” maps classes to folders.
 Few and short: the code must read cleanly. A file header of at most two lines; a one-line comment only where a
 student would really get stuck (a trap, a trick, a function not seen before). No comments that restate the
 code or explain a concept from the slides, no history, no dates, no names. Lesson code keeps expected output
-in the shortest form next to the line (`// 25`); task scaffolds keep „Task N of M”, the expected output and the
-`TU ZMIEŃ` markers.
+in the shortest form next to the line (`// 25`); task scaffolds keep „Task N of M”, the expected output and
+the `TU ZMIEŃ` markers.
+
+## PHP structure
+
+Logic and HTML are separated. Up to the include lesson (`php/01`-`php/10`): one `<?php` block on top holds all
+logic (data, form handling, queries, fetched rows into arrays), below it plain HTML that only uses `<?=
+htmlspecialchars($x) ?>`, `foreach (): endforeach;` and `if (): endif;`. No `echo` with HTML tags, no queries
+and no function definitions in the view. From `php/11` on: controller (`index.php`), model (`functions.php`,
+`db.php`) and views (`templates/`). `php/13-laravel-comparison` shows the same split in a framework;
+`js/09-fetch-json` shows PHP as a JSON API with JavaScript building the page.
 
 ## Shared vocabulary
 
@@ -47,14 +56,13 @@ CSS custom properties `--background`, `--text`, `--muted`, `--accent`, `--border
 Modern, minimal, correct: `const`/`let`, strict equality, `textContent` for user text, `type="button"` on
 non-submit buttons, viewport meta and `lang="pl"` on every page, labels bound to inputs, no external network
 resources (local SVG images), PHP 8 with `htmlspecialchars()` on every output and PDO prepared statements
-only. Exception: `php/10-mysql-database` and `php/11-include-errors/lesson` use procedural mysqli like the
-INF.03 exam, with `mysqli_prepare` for every query that takes user input; lesson code may show the slide's
-glued query only next to its prepared version, with a comment on why it is unsafe. Indentation: 2 spaces in
-HTML/CSS/JS, 4 in PHP and Python. CSS: one declaration per line. Lines at most 110 characters.
+only. Exception: `php/10-mysql-database`, `php/11-include-errors/lesson` and `js/09-fetch-json` use procedural
+mysqli like the INF.03 exam, with `mysqli_prepare` for every query that takes user input; lesson code may show
+the slide's glued query only next to its prepared version, with a comment on why it is unsafe. Indentation: 2
+spaces in HTML/CSS/JS, 4 in PHP and Python. CSS: one declaration per line. Lines at most 110 characters.
 
-Each template README: what it is, `## Jak uruchomić`, `## Co jest w plikach`, `## Co zmienić`,
-`## Częste błędy`, plus the sentence
-„Komentarze w kodzie są po angielsku i tylko tam, gdzie coś może być niejasne.”
+Each template README: what it is, `## Jak uruchomić`, `## Co jest w plikach`, `## Co zmienić`, `## Częste
+błędy`, plus the sentence „Komentarze w kodzie są po angielsku i tylko tam, gdzie coś może być niejasne.”
 
 ## Checks before a push
 

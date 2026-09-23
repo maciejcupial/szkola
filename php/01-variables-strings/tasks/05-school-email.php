@@ -15,6 +15,14 @@ $login = $firstName;
 
 // TU ZMIEŃ: sklej $login z domeną „@example.com”
 $email = $login;
+
+// substr_count(text, piece) counts how many times the piece appears.
+
+// TU ZMIEŃ: wstaw długość adresu zamiast 0
+$lengthLine = "Długość adresu: 0 znaków";
+
+// TU ZMIEŃ: wstaw wynik substr_count() zamiast 0
+$countLine = "Litera „o” występuje 0 razy.";
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -29,16 +37,9 @@ $email = $login;
     między imieniem a nazwiskiem. Potem policz jego długość i to, ile razy jest w nim litera „o”.</p>
 
   <p>
-    <?php
-        // substr_count(text, piece) counts how many times the piece appears.
-        echo "Adres: " . htmlspecialchars($email) . "<br>";
-
-        // TU ZMIEŃ: wstaw długość adresu zamiast 0
-        echo "Długość adresu: 0 znaków<br>";
-
-        // TU ZMIEŃ: wstaw wynik substr_count() zamiast 0
-        echo "Litera „o” występuje 0 razy.";
-    ?>
+    Adres: <?= htmlspecialchars($email) ?><br>
+    <?= htmlspecialchars($lengthLine) ?><br>
+    <?= htmlspecialchars($countLine) ?>
   </p>
 </body>
 </html>

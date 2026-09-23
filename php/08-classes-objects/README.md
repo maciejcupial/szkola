@@ -8,6 +8,9 @@ konstruktor `__construct`, destruktor `__destruct`, trzy poziomy dostępu `publi
 i `protected` oraz getter i setter, które pilnują prywatnej liczby stron. W folderze `tasks` jest
 pięć plików do dokończenia, od najłatwiejszego do najtrudniejszego. Ostatni jest dla chętnych.
 
+W każdym pliku klasy i cała logika są w bloku PHP na górze. Metody zwracają wynik przez `return`,
+a HTML pod blokiem tylko wypisuje gotowe zmienne przez `<?= ?>`.
+
 Komentarze w kodzie są po angielsku i tylko tam, gdzie coś może być niejasne.
 
 ## Jak uruchomić
@@ -25,10 +28,12 @@ Komentarze w kodzie są po angielsku i tylko tam, gdzie coś może być niejasne
 ## Co jest w plikach
 
 - `index.php`: klasa `Book`, dwa obiekty z konstruktorem, getter `getPages()` i setter `setPages()`,
-  tablica obiektów w pętli `foreach` i destruktor wywołany przez `unset()`.
-- `tasks/01-movies.php`: klasa `Movie`, dwa obiekty i metoda `showInfo()` z `$this`.
-- `tasks/02-parking.php`: konstruktor i destruktor, które same ogłaszają wjazd i wyjazd auta,
-  oraz wartość domyślna rocznika.
+  tablica obiektów w pętli `foreach` i destruktor wywołany przez `unset()`, który zapisuje tytuł
+  w obiekcie `Warehouse`, bo destruktor nie może niczego zwrócić.
+- `tasks/01-movies.php`: klasa `Movie`, dwa obiekty i metoda `showInfo()` z `$this`, która zwraca
+  tekst.
+- `tasks/02-parking.php`: konstruktor i destruktor, które same zapisują wjazd i wyjazd auta
+  na tablicy parkingu, oraz wartość domyślna rocznika.
 - `tasks/03-bank-account.php`: prywatne saldo, getter `getBalance()` i metody `deposit()`
   oraz `withdraw()`, które odrzucają złą kwotę.
 - `tasks/04-grade-book.php`: uczniowie jako obiekty z prywatną tablicą ocen, średnia i uczeń
@@ -43,9 +48,10 @@ Komentarze w kodzie są po angielsku i tylko tam, gdzie coś może być niejasne
 W każdym zadaniu szukaj komentarzy `TU ZMIEŃ`. Wynik, który ma się pojawić, jest opisany
 w komentarzu na samej górze pliku. Plik działa od razu, tylko pokazuje niedokończony wynik.
 
-- `index.php`: dopisz trzecią książkę przez `new Book(...)` i wywołaj dla niej `showInfo()`.
-  Spróbuj ustawić jej `-10` stron przez `setPages()` i zobacz odmowę.
-- `tasks/01-movies.php`: dokończ `showInfo()`, utwórz drugi film i wywołaj metodę dla obu.
+- `index.php`: dopisz trzecią książkę przez `new Book(...)`, zapisz w zmiennej wynik jej
+  `showInfo()` i wypisz go w HTML przez `<?= ?>`. Spróbuj ustawić jej `-10` stron przez
+  `setPages()`: metoda zwróci `false`.
+- `tasks/01-movies.php`: dokończ `showInfo()`, utwórz drugi film i zapisz wynik metody dla obu.
   Po zmianie tytułu pierwszego filmu drugi ma zostać bez zmian.
 - `tasks/02-parking.php`: napisz konstruktor i destruktor, dodaj rocznikowi wartość domyślną 2024
   i usuń oba auta przez `unset()`.
@@ -74,5 +80,7 @@ w komentarzu na samej górze pliku. Plik działa od razu, tylko pokazuje niedoko
   czy `count()` nie zwraca 0.
 - `Fatal error: Uncaught Error: Using $this when not in object context`: `$this`
   działa tylko wewnątrz metody klasy. Poza klasą piszesz nazwę obiektu, na przykład `$movie1->title`.
-- Napis z destruktora pojawia się pod całą stroną: obiekt nie został usunięty przez `unset()`,
-  więc PHP sprząta go dopiero na samym końcu skryptu.
+- Brakuje napisu z destruktora: obiekt nie został usunięty przez `unset()` w bloku PHP na górze,
+  więc PHP sprząta go dopiero na samym końcu skryptu, gdy strona jest już wypisana.
+- Metoda jest napisana, a na stronie pusto: metoda zwraca tekst przez `return`, ale nikt go nie
+  wypisuje. Zapisz wynik w zmiennej na górze i wypisz ją w HTML przez `<?= ?>`.

@@ -18,4 +18,7 @@ $stmt = mysqli_prepare($db, "DELETE FROM products WHERE id = ?");
 // i = integer: „0 OR 1=1” becomes 0 and deletes nothing.
 mysqli_stmt_bind_param($stmt, "i", $id);
 mysqli_stmt_execute($stmt);
-echo "Usuniętych: " . mysqli_affected_rows($db);   // Usuniętych: 1
+$deleted = mysqli_affected_rows($db);   // 1
+mysqli_close($db);
+?>
+<p>Usuniętych: <?= $deleted ?></p>

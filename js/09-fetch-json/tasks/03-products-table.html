@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!-- Task 3 of 5. Change only 03-products-table.js. -->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zadanie 3: tabela produktów i suma</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <h1>Zadanie 3: tabela produktów i suma</h1>
+
+  <div class="card">
+    <p>
+      Te same dane z <code>../api/products.php</code>, ale tym razem w tabeli, a pod nią łączna wartość
+      wszystkich produktów.
+    </p>
+    <ol>
+      <li>Dla każdego produktu utwórz wiersz <code>tr</code> z dwiema komórkami <code>td</code>:
+        nazwa i cena z dopiskiem „zł”. Wiersz dołącz do <code>tbody</code>.</li>
+      <li>Cena przychodzi jako tekst, na przykład <code>"19.90"</code>. Do sumy zamień ją na liczbę
+        przez <code>parseFloat()</code>.</li>
+      <li>Sumę pokaż z dwoma miejscami po przecinku: <code>total.toFixed(2)</code>.</li>
+      <li>Sprawdź: w tabeli są trzy wiersze, a pod nią „Razem: 30.60 zł”.</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <table>
+      <thead>
+        <tr><th>Produkt</th><th>Cena</th></tr>
+      </thead>
+      <tbody id="product-rows"></tbody>
+    </table>
+    <p id="total">Razem: 0.00 zł</p>
+  </div>
+
+  <script src="03-products-table.js"></script>
+</body>
+</html>

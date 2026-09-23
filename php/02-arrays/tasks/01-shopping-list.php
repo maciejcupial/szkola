@@ -34,17 +34,13 @@ $itemCount = 0;
   </p>
 
   <p>
-    <?php
-        echo "Pierwsza rzecz: " . htmlspecialchars($firstItem) . "<br>";
-        echo "Ostatnia rzecz: " . htmlspecialchars($lastItem) . "<br>";
-        echo "Rzeczy na liście: " . $itemCount;
-    ?>
+    Pierwsza rzecz: <?= htmlspecialchars($firstItem) ?><br>
+    Ostatnia rzecz: <?= htmlspecialchars($lastItem) ?><br>
+    Rzeczy na liście: <?= $itemCount ?>
   </p>
 
   <ol>
-    <?php
-        // TU ZMIEŃ: foreach, który wypisuje każdą rzecz jako <li>...</li>
-    ?>
+    <!-- TU ZMIEŃ: foreach ($shoppingList as $item): ... endforeach; z <li> dla każdej rzeczy -->
   </ol>
 </body>
 </html>

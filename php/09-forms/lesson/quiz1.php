@@ -2,6 +2,9 @@
 // Exam question (E.14 styczeń 2018 zad. 35), answer B.
 // Lesson 18, slide 7.
 header("Content-Type: text/html; charset=UTF-8");
+
+// print_r(..., true) returns the text instead of printing it.
+$postDump = print_r($_POST, true);   // Array ( ), after „Janek”: Array ( [im] => Janek )
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -17,7 +20,6 @@ header("Content-Type: text/html; charset=UTF-8");
     <input id="im" name="im">
     <button type="submit">Wyślij</button>
   </form>
-  <pre><?= htmlspecialchars(print_r($_POST, true)) ?></pre>
-  <?php // Array ( ), after „Janek”: Array ( [im] => Janek ) ?>
+  <pre><?= htmlspecialchars($postDump) ?></pre>
 </body>
 </html>

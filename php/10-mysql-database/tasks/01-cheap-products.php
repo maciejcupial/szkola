@@ -7,7 +7,11 @@ header("Content-Type: text/html; charset=UTF-8");
 // __DIR__ is this file's folder, so this finds db.php one folder up.
 require __DIR__ . "/../db.php";
 
-// TU ZMIEŃ: wyślij zapytanie SELECT z warunkiem WHERE price < 10 i zapisz wynik w $result.
+$products = [];
+// TU ZMIEŃ: zapytanie SELECT z warunkiem WHERE price < 10 do $result,
+// potem pętla while z mysqli_fetch_assoc($result), każdy wiersz na koniec $products.
+
+mysqli_close($db);
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -20,11 +24,7 @@ require __DIR__ . "/../db.php";
   <h1>Produkty tańsze niż 10 zł</h1>
   <p>Zadanie: pokaż z bazy produkty tańsze niż 10 zł, każdy w osobnym punkcie listy.</p>
   <ul>
-    <?php
-    // TU ZMIEŃ: pętla while z mysqli_fetch_assoc($result), jeden <li> na wiersz.
-    ?>
+    <!-- TU ZMIEŃ: foreach po $products, jeden <li> na produkt. -->
   </ul>
 </body>
 </html>
-<?php
-mysqli_close($db);

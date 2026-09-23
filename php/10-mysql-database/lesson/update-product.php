@@ -14,6 +14,7 @@ $db = mysqli_connect(
 if (!$db) {
     die("Błąd połączenia.");
 }
+
 $id = $_GET["id"];
 $price = $_GET["price"];
 // id is a number, so no apostrophes around $id.
@@ -21,8 +22,9 @@ $query = "UPDATE products
     SET price = '$price'
     WHERE id = $id";
 mysqli_query($db, $query);
-echo "Zmienionych: "
-    . mysqli_affected_rows($db);   // Zmienionych: 1
-// Second run: Zmienionych: 0 (price already 4.20).
-
+// Second run: 0 (price already 4.20).
+$changed = mysqli_affected_rows($db);   // 1
+mysqli_close($db);
 // Risky: ?id=0 OR 1=1&price=0.01 changes every row (Zmienionych: 3).
+?>
+<p>Zmienionych: <?= $changed ?></p>

@@ -4,6 +4,12 @@
 header("Content-Type: text/html; charset=UTF-8");
 
 $letters = ["a", "b", "c", "d", "e", "f", "g", "h"];
+$board = [];
+
+// Dark when ($row + $col) % 2 === 1, with $col from 0.
+
+// TU ZMIEŃ: pętla w pętli, która dla wierszy od 8 do 1 zapisuje $board[$row] = tablica 8 pól,
+// każde pole to ["name" => "a8", "colour" => "light"] (colour: "dark" albo "light")
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -32,17 +38,20 @@ $letters = ["a", "b", "c", "d", "e", "f", "g", "h"];
     zaczyna się od numeru w <code>&lt;th&gt;</code>, potem 8 pól <code>&lt;td&gt;</code> z nazwą
     pola, na przykład „e4”. Pole a1 jest ciemne, a kolory zmieniają się na przemian.</p>
   <table>
-<?php
-echo "<tr><th></th>";
-foreach ($letters as $letter) {
-    echo "<th>$letter</th>";
-}
-echo "</tr>";
-
-// Dark when ($row + $col) % 2 === 1, with $col from 0.
-
-// TU ZMIEŃ: pętla w pętli, która wypisuje 8 wierszy po 8 pól z klasą dark albo light
-?>
+    <tr>
+      <th></th>
+      <?php foreach ($letters as $letter): ?>
+        <th><?= htmlspecialchars($letter) ?></th>
+      <?php endforeach; ?>
+    </tr>
+    <?php foreach ($board as $row => $cells): ?>
+      <tr>
+        <th><?= $row ?></th>
+        <?php foreach ($cells as $cell): ?>
+          <td class="<?= htmlspecialchars($cell["colour"]) ?>"><?= htmlspecialchars($cell["name"]) ?></td>
+        <?php endforeach; ?>
+      </tr>
+    <?php endforeach; ?>
   </table>
 </body>
 </html>

@@ -4,6 +4,10 @@
 header("Content-Type: text/html; charset=UTF-8");
 
 $number = 7;
+$results = [];
+
+// TU ZMIEŃ: pętla for od 1 do 10, która zapisuje iloczyn pod kluczem mnożnika:
+// $results[1] = 7, $results[2] = 14 ... $results[10] = 70
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -17,9 +21,9 @@ $number = 7;
   <p>Napisz pętlę <code>for</code>, która wypisze dziesięć linii: od „<?= $number ?> × 1” do
     „<?= $number ?> × 10”, każdą z wynikiem, jako element listy <code>&lt;li&gt;</code>.</p>
   <ul>
-<?php
-// TU ZMIEŃ: pętla for od 1 do 10, która wypisuje <li>7 × 1 = 7</li> i kolejne linie
-?>
+    <?php foreach ($results as $factor => $result): ?>
+      <li><?= $number ?> × <?= $factor ?> = <?= $result ?></li>
+    <?php endforeach; ?>
   </ul>
 </body>
 </html>

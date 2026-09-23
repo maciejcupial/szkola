@@ -11,9 +11,10 @@ $films = ["Diuna", "Shrek", "Coco", "Toy Story"];
 $films[] = "Minionki";
 
 // The last index is count - 1.
-$filmCount = count($films);
-$lastFilm = $films[$filmCount - 1];
+$filmCount = count($films);                 // 5
+$lastFilm = $films[$filmCount - 1];         // Minionki
 
+// Key in quotes: $ticket["seat"], never $ticket[seat].
 $ticket = [
     "film" => "Coco",
     "hall" => 3,
@@ -28,6 +29,8 @@ $screenings = [
     ["film" => "Shrek", "hour" => "18:30", "hall" => 2],
     ["film" => "Coco", "hour" => "20:15", "hall" => 3],
 ];
+
+// In the HTML below foreach (...): ... endforeach; is the same loop as with braces.
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -55,39 +58,28 @@ $screenings = [
 
   <h2>Tablica zwykła</h2>
   <p>
-    <?php
-        echo "Pierwszy film: " . htmlspecialchars($films[0]) . "<br>";   // Pierwszy film: Diuna
-        echo "Ostatni film: " . htmlspecialchars($lastFilm) . "<br>";    // Ostatni film: Minionki
-        echo "Filmów w repertuarze: " . $filmCount;                      // Filmów w repertuarze: 5
-    ?>
+    Pierwszy film: <?= htmlspecialchars($films[0]) ?><br>
+    Ostatni film: <?= htmlspecialchars($lastFilm) ?><br>
+    Filmów w repertuarze: <?= $filmCount ?>
   </p>
 
   <ol>
-    <?php
-        foreach ($films as $film) {
-            echo "<li>" . htmlspecialchars($film) . "</li>";
-        }
-    ?>
+    <?php foreach ($films as $film): ?>
+      <li><?= htmlspecialchars($film) ?></li>
+    <?php endforeach; ?>
   </ol>
 
   <h2>Tablica asocjacyjna</h2>
   <p>
-    <?php
-        // Key in quotes: $ticket["seat"], never $ticket[seat].
-        echo "Film " . htmlspecialchars($ticket["film"]) . ", sala " . $ticket["hall"]
-            . ", miejsce " . htmlspecialchars($ticket["seat"]) . "<br>";
-        // Film Coco, sala 3, miejsce F7
-        echo "Cena biletu: " . $ticket["price"] . " zł";                  // Cena biletu: 22.5 zł
-    ?>
+    Film <?= htmlspecialchars($ticket["film"]) ?>, sala <?= $ticket["hall"] ?>,
+    miejsce <?= htmlspecialchars($ticket["seat"]) ?><br>
+    Cena biletu: <?= $ticket["price"] ?> zł
   </p>
 
   <ul>
-    <?php
-        foreach ($ticket as $key => $value) {
-            echo "<li>" . htmlspecialchars($key) . ": " . htmlspecialchars($value) . "</li>";
-        }
-        // film: Coco, hall: 3, seat: F7, price: 22.5, snack: popcorn
-    ?>
+    <?php foreach ($ticket as $key => $value): ?>
+      <li><?= htmlspecialchars($key) ?>: <?= htmlspecialchars($value) ?></li>
+    <?php endforeach; ?>
   </ul>
 
   <h2>Podgląd całej tablicy</h2>
@@ -97,21 +89,15 @@ $screenings = [
   ?></pre>
 
   <h2>Tablica w tablicy</h2>
-  <p>
-    <?php
-        echo "Drugi seans zaczyna się o " . htmlspecialchars($screenings[1]["hour"]);
-        // Drugi seans zaczyna się o 18:30
-    ?>
-  </p>
+  <p>Drugi seans zaczyna się o <?= htmlspecialchars($screenings[1]["hour"]) ?></p>
 
   <ul>
-    <?php
-        foreach ($screenings as $screening) {
-            echo "<li>" . htmlspecialchars($screening["hour"]) . " "
-                . htmlspecialchars($screening["film"]) . " (sala " . $screening["hall"] . ")</li>";
-        }
-        // 16:00 Diuna (sala 1), 18:30 Shrek (sala 2), 20:15 Coco (sala 3)
-    ?>
+    <?php foreach ($screenings as $screening): ?>
+      <li>
+        <?= htmlspecialchars($screening["hour"]) ?> <?= htmlspecialchars($screening["film"]) ?>
+        (sala <?= $screening["hall"] ?>)
+      </li>
+    <?php endforeach; ?>
   </ul>
 
   <!-- TU ZMIEŃ: dopisz czwarty seans do $screenings i sprawdź, czy pojawił się na liście -->

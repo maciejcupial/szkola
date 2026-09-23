@@ -7,6 +7,30 @@
 //   Matrix Reaktywacja (2003)
 //   Shrek (2001)
 header("Content-Type: text/html; charset=UTF-8");
+
+class Movie {
+    public $title = "";
+    public $year = 0;
+
+    public function showInfo() {
+        // TU ZMIEŃ: zwróć przez return tytuł i rok, np. Matrix (1999)
+        return "";
+    }
+}
+
+$movie1 = new Movie();
+$movie1->title = "Matrix";
+$movie1->year = 1999;
+
+// TU ZMIEŃ: utwórz $movie2 przez new Movie() i ustaw mu tytuł „Shrek” oraz rok 2001
+
+$movie1Before = $movie1->showInfo();
+$movie2Before = "";   // TU ZMIEŃ: zamiast "" wywołaj showInfo() dla $movie2
+
+$movie1->title = "Matrix Reaktywacja";
+$movie1->year = 2003;
+$movie1After = $movie1->showInfo();
+$movie2After = "";    // TU ZMIEŃ: jeszcze raz showInfo() dla $movie2, film ma się nie zmienić
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -17,33 +41,13 @@ header("Content-Type: text/html; charset=UTF-8");
 </head>
 <body>
   <h1>Zadanie 1: klasa Movie</h1>
-  <p>Dokończ metodę showInfo(), tak żeby wypisywała tytuł i rok w nawiasie. Utwórz drugi obiekt
-    „Shrek” z roku 2001 i wywołaj showInfo() dla obu filmów.</p>
+  <p>Dokończ metodę showInfo(), tak żeby zwracała tytuł i rok w nawiasie. Utwórz drugi obiekt
+    „Shrek” z roku 2001 i zapisz wynik showInfo() dla obu filmów.</p>
   <h2>Wynik</h2>
-<?php
-class Movie {
-    public $title = "";
-    public $year = 0;
-
-    public function showInfo() {
-        // TU ZMIEŃ: wypisz tytuł i rok, np. Matrix (1999), i <br>; użyj htmlspecialchars()
-    }
-}
-
-$movie1 = new Movie();
-$movie1->title = "Matrix";
-$movie1->year = 1999;
-
-// TU ZMIEŃ: utwórz $movie2 przez new Movie() i ustaw mu tytuł „Shrek” oraz rok 2001
-
-$movie1->showInfo();
-// TU ZMIEŃ: wywołaj showInfo() dla $movie2
-
-$movie1->title = "Matrix Reaktywacja";
-$movie1->year = 2003;
-echo "Po zmianie:<br>";
-$movie1->showInfo();
-// TU ZMIEŃ: jeszcze raz wywołaj showInfo() dla $movie2, film ma się nie zmienić
-?>
+  <p><?= htmlspecialchars($movie1Before) ?></p>
+  <p><?= htmlspecialchars($movie2Before) ?></p>
+  <p>Po zmianie:</p>
+  <p><?= htmlspecialchars($movie1After) ?></p>
+  <p><?= htmlspecialchars($movie2After) ?></p>
 </body>
 </html>

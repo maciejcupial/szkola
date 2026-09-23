@@ -1,3 +1,2 @@
-<?php
-// Helper for quiz1.php (slide 3).
-echo "<p><strong>Nagłówek z pliku header.php</strong></p>";
+<?php // Included by quiz1.php (slide 3). ?>
+<p><strong>Nagłówek z pliku header.php</strong></p>

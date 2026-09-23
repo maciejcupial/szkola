@@ -8,5 +8,4 @@ python/**/best_score.txt
 # files the PHP templates write while they run
 php/**/views.txt
 php/**/counter.txt
-demo/**/counter.txt
-demo/**/visits-log.txt
+php/**/visits-log.txt

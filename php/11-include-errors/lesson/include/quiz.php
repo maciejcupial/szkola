@@ -5,22 +5,28 @@ header("Content-Type: text/html; charset=UTF-8");
 
 require_once "connect-database.php";
 
-echo "<h2>1. Co zwraca mysqli_error(\$db), gdy zapytanie się udało?</h2>";
 mysqli_query($db, "SELECT * FROM products");
-var_dump(mysqli_error($db));    // string(0) ""
-echo "<br>";
+$errorAfterSuccess = mysqli_error($db);    // "" (empty text)
 
-echo "<h2>2. Po co mysqli_insert_id(\$db) po udanym INSERT?</h2>";
 mysqli_query($db, "INSERT INTO products (name, price) VALUES ('Test', 1.00)");
-$newId = mysqli_insert_id($db);
-echo "Nowy wiersz dostał id " . $newId . "<br>";    // Nowy wiersz dostał id 4
+$newId = mysqli_insert_id($db);    // 4
 mysqli_query($db, "DELETE FROM products WHERE id = " . $newId);
-echo "Usunięty z powrotem: " . mysqli_affected_rows($db) . " wiersz<br>";    // Usunięty z powrotem: 1 wiersz
+$deletedRows = mysqli_affected_rows($db);    // 1
 
-echo "<h2>3. Co zrobić z wynikiem mysqli_query(), zanim sprawdzimy if (!\$result)?</h2>";
 $result = mysqli_query($db, "SELECT * FROM products");
 if (!$result) {
-    echo "Błąd zapytania: " . htmlspecialchars(mysqli_error($db));
+    $queryStatus = "Błąd zapytania: " . mysqli_error($db);
 } else {
-    echo "Zapytanie się udało, wierszy: " . mysqli_num_rows($result);    // Zapytanie się udało, wierszy: 3
+    $queryStatus = "Zapytanie się udało, wierszy: " . mysqli_num_rows($result);    // ... wierszy: 3
 }
+mysqli_close($db);
+?>
+<h2>1. Co zwraca mysqli_error($db), gdy zapytanie się udało?</h2>
+<p>"<?= htmlspecialchars($errorAfterSuccess) ?>"</p>
+
+<h2>2. Po co mysqli_insert_id($db) po udanym INSERT?</h2>
+<p>Nowy wiersz dostał id <?= $newId ?></p>
+<p>Usunięty z powrotem: <?= $deletedRows ?> wiersz</p>
+
+<h2>3. Co zrobić z wynikiem mysqli_query(), zanim sprawdzimy if (!$result)?</h2>
+<p><?= htmlspecialchars($queryStatus) ?></p>

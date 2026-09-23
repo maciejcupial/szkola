@@ -15,6 +15,7 @@ class Product {
 }
 
 $product1 = new Product("Keyboard", 120);
-echo $product1->name . "<br>";   // Keyboard
-echo $product1->price;           // Fatal error: Cannot access private property
-echo "Ta linia się nie wykona.";
+?>
+<p><?= htmlspecialchars($product1->name) ?></p>  <!-- Keyboard -->
+<p><?= $product1->price ?></p>  <!-- Fatal error: Cannot access private property -->
+<p>Ta linia się nie wykona.</p>

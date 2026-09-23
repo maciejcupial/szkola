@@ -9,25 +9,35 @@ if (!$db) {
     die("Błąd połączenia z bazą danych.");
 }
 
-echo "<h2>1. Jak wyświetlić wszystkie wyniki zapytania?</h2>";
+// Question 1
 $tab = mysqli_query($db, "SELECT name FROM products WHERE price < 10");
+$names = [];
 // Answer C. mysqli_fetch_row(): numeric keys, $row[0] is the first column.
 while ($row = mysqli_fetch_row($tab)) {
-    echo htmlspecialchars($row[0]) . "<br>";
+    $names[] = $row[0];
 }
-// Długopis
-// Zeszyt
+// Długopis, Zeszyt
 // Fatal error: Uncaught Error: Cannot use object of type mysqli_result as array
 // echo $tab[0];
 
-echo "<h2>2. Co wpisać w miejsce kropek?</h2>";
+// Question 2
 $query = mysqli_query($db, "SELECT name, price FROM products");
 $count = mysqli_num_rows($query);
+$rows = [];
 for ($i = 0; $i < $count; $i++) {
     // Answer A
     $row = mysqli_fetch_row($query);
-    echo htmlspecialchars("$row[0] $row[1]") . "<br>";
+    $rows[] = $row;
 }
-// Kubek 19.90
-// Długopis 3.50
-// Zeszyt 7.20
+// Kubek 19.90, Długopis 3.50, Zeszyt 7.20
+mysqli_close($db);
+?>
+<h2>1. Jak wyświetlić wszystkie wyniki zapytania?</h2>
+<?php foreach ($names as $name): ?>
+  <?= htmlspecialchars($name) ?><br>
+<?php endforeach; ?>
+
+<h2>2. Co wpisać w miejsce kropek?</h2>
+<?php foreach ($rows as $row): ?>
+  <?= htmlspecialchars($row[0]) ?> <?= $row[1] ?><br>
+<?php endforeach; ?>

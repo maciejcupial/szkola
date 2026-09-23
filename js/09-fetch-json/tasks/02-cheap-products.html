@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!-- Task 2 of 5. Change only 02-cheap-products.php. -->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zadanie 2: API z tanimi produktami</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <h1>Zadanie 2: API z tanimi produktami</h1>
+
+  <div class="card">
+    <p>
+      Tym razem gotowy jest JavaScript, a Ty piszesz stronę serwera. Plik
+      <code>02-cheap-products.php</code> ma wysłać w formacie JSON tylko produkty tańsze niż 10 zł.
+    </p>
+    <ol>
+      <li>Wyślij zapytanie <code>SELECT id, name, price FROM products</code> z warunkiem
+        <code>WHERE price &lt; 10</code>.</li>
+      <li>W pętli <code>while</code> z <code>mysqli_fetch_assoc()</code> dopisz każdy wiersz
+        do tablicy <code>$products</code>.</li>
+      <li>Otwórz sam plik <code>02-cheap-products.php</code> w przeglądarce: widać tekst JSON
+        z dwoma produktami.</li>
+      <li>Otwórz tę stronę: lista pokazuje Długopis i Zeszyt, a pod nią „Tanich produktów: 2”.</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <ul id="product-list"></ul>
+    <p id="product-count">Tanich produktów: 0</p>
+  </div>
+
+  <script src="02-cheap-products.js"></script>
+</body>
+</html>

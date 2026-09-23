@@ -14,18 +14,21 @@ if (!$db) {
     die("Błąd połączenia z bazą danych.");
 }
 
-echo "<h2>Lekcja 20, slajd 3: od \$_POST do zapytania INSERT</h2>";
 $name = $_POST["productName"];
 $price = $_POST["productPrice"];
 
 // The apostrophes belong to SQL: they mark text values in the query.
 $query = "INSERT INTO products (name, price) VALUES ('$name', '$price')";
-echo htmlspecialchars($query) . "<br>";   // INSERT INTO products (name, price) VALUES ('Ołówek', '1.80')
-
+// INSERT INTO products (name, price) VALUES ('Ołówek', '1.80')
 mysqli_query($db, $query);
-echo "Dodano produkt: " . htmlspecialchars($name) . "<br>";   // Dodano produkt: Ołówek
-
-echo "<h2>Lekcja 20, slajd 5: numer nowego wiersza</h2>";
-echo "Nowy wiersz ma id " . mysqli_insert_id($db);   // Nowy wiersz ma id 4
+$newId = mysqli_insert_id($db);   // 4
+mysqli_close($db);
 
 // Risky: price  1.80'), ('Włamanie', '0  adds two rows; Kubek 'XL' breaks the query.
+?>
+<h2>Lekcja 20, slajd 3: od $_POST do zapytania INSERT</h2>
+<p><?= htmlspecialchars($query) ?></p>
+<p>Dodano produkt: <?= htmlspecialchars($name) ?></p>
+
+<h2>Lekcja 20, slajd 5: numer nowego wiersza</h2>
+<p>Nowy wiersz ma id <?= $newId ?></p>

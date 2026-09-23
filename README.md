@@ -30,7 +30,7 @@ W każdej technologii folder `projects` trzyma większe szablony startowe do pro
 | 2TI | Informatyka | [`html-css/first-website`](html-css/first-website), [`html-css/projects/personal-website`](html-css/projects/personal-website), [`python`](python) |
 | 3TI | Strony i aplikacje internetowe | [`html-css`](html-css): `links`, `images`, `tables`, `forms`; [`html-css/projects`](html-css/projects): `starter-page`, `multi-page-site`; [`js/projects`](js/projects): `exercise`, `form-validation` |
 | 3TI | Pracownia aplikacji internetowych | [`html-css`](html-css): `lab-head-blocks`, `lab-lists`, `lab-tables` |
-| 4Ti | Strony i aplikacje internetowe | [`php`](php) (lekcje 03–27 i 89), [`js`](js) (lekcje 31–70), [`html-css/projects/blog-github-pages`](html-css/projects/blog-github-pages) (71–80) |
+| 4Ti | Strony i aplikacje internetowe | [`php`](php) (lekcje 03–29 i 89), [`js`](js) (lekcje 31–70 i 90), [`html-css/projects/blog-github-pages`](html-css/projects/blog-github-pages) (71–80) |
 
 ## HTML i CSS
 
@@ -73,10 +73,11 @@ zaleca PEP 8, przewodnik stylu Pythona, i tak jest we wszystkich plikach tutaj.
 
 ## PHP
 
-Dwanaście tematów kursu PHP (w klasie 4Ti to lekcje 03–27 i 89). W każdym jest `index.php` z działającym
-przykładem, `lesson/` z kodem z lekcji (od tematu 02) i folder `tasks` z zadaniami: pierwsze ćwiczy to, co
-było na slajdach, kolejne łączą temat z wcześniejszymi lekcjami, ostatnie jest „dla chętnych”. Nagłówek
-każdego zadania mówi, co ma pokazać strona.
+Trzynaście tematów kursu PHP (w klasie 4Ti to lekcje 03–29 i 89). Logika jest oddzielona od HTML-a: do tematu
+10 blok PHP na górze pliku i czysty widok pod nim, od tematu 11 osobne pliki: kontroler, model i widoki w
+`templates/`. W każdym jest `index.php` z działającym przykładem, `lesson/` z kodem z lekcji (od tematu 02) i
+folder `tasks` z zadaniami: pierwsze ćwiczy to, co było na slajdach, kolejne łączą temat z wcześniejszymi
+lekcjami, ostatnie jest „dla chętnych”. Nagłówek każdego zadania mówi, co ma pokazać strona.
 
 | Szablon | Lekcje kursu | Lekcje 4Ti | Co ćwiczysz |
 |---|---|---|---|
@@ -92,6 +93,7 @@ każdego zadania mówi, co ma pokazać strona.
 | [`php/10-mysql-database`](php/10-mysql-database) | 18–22 | 20–24 | MySQL przez `mysqli`: `SELECT`, `INSERT`, `UPDATE`, `DELETE`, błędy |
 | [`php/11-include-errors`](php/11-include-errors) | 23–24 | 25–26 | `include`, `require`, wspólny nagłówek, czytanie błędów, `try` |
 | [`php/12-sessions-cookies`](php/12-sessions-cookies) | 26 | 89 | sesja, ciasteczko, koszyk, zapis licznika do pliku |
+| [`php/13-laravel-comparison`](php/13-laravel-comparison) | 27 | 29 | ta sama lista produktów w Laravelu: trasa, kontroler, model, widok Blade |
 
 Projekty w [`php/projects`](php/projects): `start` (pierwszy skrypt w XAMPP), `form` (formularz z kontrolą
 pustych pól), `mysql-crud` (lista, dodawanie, edycja i usuwanie w MySQL przez PDO).
@@ -101,7 +103,7 @@ trafiają do zapytania przez `mysqli_prepare`, nigdy przez sklejanie tekstu.
 
 ## JavaScript
 
-Osiem tematów kursu JavaScript (w klasie 4Ti to lekcje 31–55 i 66–67). Każde zadanie to strona `.html` z
+Dziewięć tematów kursu JavaScript (w klasie 4Ti to lekcje 31–55 i 66–67). Każde zadanie to strona `.html` z
 treścią zadania i plik `.js` do uzupełnienia. Otwierasz stronę w przeglądarce, a wynik widzisz w konsoli (F12)
 albo na samej stronie. Oczekiwany wynik jest na stronie zadania i w nagłówku pliku `.js`.
 
@@ -115,6 +117,7 @@ albo na samej stronie. Oczekiwany wynik jest na stronie zadania i w nagłówku p
 | [`js/06-functions`](js/06-functions) | 16–19 | 46–49 | własne funkcje, przyciski, zmienne lokalne, `parseFloat`, `Math` |
 | [`js/07-dom`](js/07-dom) | 20–25 | 50–55 | szukanie elementów, zmiana tekstu i stylu, `setAttribute`, nowe elementy |
 | [`js/08-events`](js/08-events) | 26–27 | 66–67 | `addEventListener`, `click`, `keydown`, `submit`, `event.target` |
+| [`js/09-fetch-json`](js/09-fetch-json) | 31 | 90 | PHP zwraca JSON, JavaScript pobiera go przez `fetch` i buduje stronę |
 
 Projekty w [`js/projects`](js/projects): `tic-tac-toe` (lekcje 68–70, plansza gotowa, logika do napisania),
 `dom-start` (strona do ćwiczeń z DOM), `exercise` (pole, przycisk i miejsce na wynik), `form-validation`
@@ -138,7 +141,7 @@ potem uruchom.
 
 ## Jak czytać kod
 
-- Nazwy zmiennych, funkcji, klas CSS i komentarze są po angielsku. Tak wygląda kod w prawdziwych
-  projektach i tak piszemy na lekcjach. Teksty widoczne na stronie zostają po polsku.
+- Nazwy zmiennych, funkcji, klas CSS i komentarze są po angielsku. Tak wygląda kod w prawdziwych projektach i
+  tak piszemy na lekcjach. Teksty widoczne na stronie zostają po polsku.
 - Komentarzy jest mało: tylko tam, gdzie coś może być niejasne. Resztę czytasz z samego kodu.
 - `TU ZMIEŃ` oznacza miejsce, które podmieniasz na własne. Resztę możesz zmieniać, gdy rozumiesz, co robi.

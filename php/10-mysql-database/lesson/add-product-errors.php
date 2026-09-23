@@ -13,7 +13,6 @@ if (!$db) {
     die("Błąd połączenia z bazą danych.");
 }
 
-echo "<h2>Lekcja 22, ćwiczenie ze slajdu 7: obsługa błędu w add-product.php</h2>";
 $name = $_POST["productName"];
 $price = $_POST["productPrice"];
 $query = "INSERT INTO products (name, price) VALUES ('$name', '$price')";
@@ -24,7 +23,11 @@ $query = "INSERT INTO products (name, price) VALUES ('$name', '$price')";
 $result = mysqli_query($db, $query);
 
 if (!$result) {
-    echo "Błąd zapytania: " . htmlspecialchars(mysqli_error($db));
+    $message = "Błąd zapytania: " . mysqli_error($db);
 } else {
-    echo "Dodano produkt nr " . mysqli_insert_id($db);   // Dodano produkt nr 4
+    $message = "Dodano produkt nr " . mysqli_insert_id($db);   // Dodano produkt nr 4
 }
+mysqli_close($db);
+?>
+<h2>Lekcja 22, ćwiczenie ze slajdu 7: obsługa błędu w add-product.php</h2>
+<p><?= htmlspecialchars($message) ?></p>

@@ -1,6 +1,64 @@
 <?php
 // School shop page built with every PHP loop.
 header("Content-Type: text/html; charset=UTF-8");
+
+// for: bun price list
+$bunPrice = 2.5;
+$bunPrices = [];
+for ($count = 1; $count <= 5; $count++) {
+    $bunPrices[$count] = $count * $bunPrice;
+}
+// 1 => 2.5, 2 => 5, 3 => 7.5, 4 => 10, 5 => 12.5
+
+// while: how many buns for 12 zł
+$money = 12;
+$buns = 0;
+while ($money >= $bunPrice) {
+    $money -= $bunPrice;        // without this line the loop never ends
+    $buns++;
+}
+// 4 buns, 2 zł left
+
+// do...while: the body runs once even though the condition is false
+$queue = 0;
+$queueStates = [];
+do {
+    $queueStates[] = $queue;
+} while ($queue > 0);
+// [0]
+
+// break and continue: odd ticket numbers up to 9
+$tickets = [];
+for ($ticket = 1; $ticket <= 20; $ticket++) {
+    if ($ticket % 2 === 0) {
+        continue;
+    }
+    if ($ticket > 9) {
+        break;
+    }
+    $tickets[] = $ticket;
+}
+// [1, 3, 5, 7, 9]
+
+$menu = ["kanapka z serem", "drożdżówka", "sok jabłkowy"];
+// 1. kanapka z serem, 2. drożdżówka, 3. sok jabłkowy
+
+$prices = [
+    "kanapka z serem" => 6,
+    "drożdżówka" => 2.5,
+    "sałatka" => 11,
+];
+// kanapka z serem | 6 zł, drożdżówka | 2.5 zł, sałatka | 11 zł (pink row)
+
+$orders = [
+    ["group" => "1A", "items" => ["kanapka z serem", "sok jabłkowy"]],
+    ["group" => "2B", "items" => ["drożdżówka", "drożdżówka", "sałatka"]],
+];
+// 1A | kanapka z serem; sok jabłkowy; | 2
+// 2B | drożdżówka; drożdżówka; sałatka; | 3
+
+// TU ZMIEŃ: dopisz własną pętlę, która dodaje elementy do $myList, na przykład ulubione gry.
+$myList = [];
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -22,111 +80,71 @@ header("Content-Type: text/html; charset=UTF-8");
   <h1>Sklepik szkolny</h1>
 
   <h2>for: cennik drożdżówek</h2>
-<?php
-$bunPrice = 2.5;
-echo "<table>";
-echo "<tr><th>Sztuk</th><th>Cena</th></tr>";
-for ($count = 1; $count <= 5; $count++) {
-    echo "<tr><td>$count</td><td>" . $count * $bunPrice . " zł</td></tr>";
-}
-echo "</table>";
-// Rows: 1 | 2.5 zł, 2 | 5 zł, 3 | 7.5 zł, 4 | 10 zł, 5 | 12.5 zł
-?>
+  <table>
+    <tr><th>Sztuk</th><th>Cena</th></tr>
+    <?php foreach ($bunPrices as $count => $price): ?>
+      <tr><td><?= $count ?></td><td><?= $price ?> zł</td></tr>
+    <?php endforeach; ?>
+  </table>
 
   <h2>while: na ile drożdżówek starczy 12 zł?</h2>
-<?php
-$money = 12;
-$buns = 0;
-while ($money >= $bunPrice) {
-    $money -= $bunPrice;        // without this line the loop never ends
-    $buns++;
-}
-echo "<p>Kupisz $buns drożdżówki, zostanie $money zł.</p>";
-// Kupisz 4 drożdżówki, zostanie 2 zł.
-?>
+  <p>Kupisz <?= $buns ?> drożdżówki, zostanie <?= $money ?> zł.</p>
 
   <h2>do...while: kolejka do kasy</h2>
-<?php
-$queue = 0;
-do {
-    echo "<p>Kasa otwarta, w kolejce: $queue</p>";     // printed once
-} while ($queue > 0);
-?>
+  <?php foreach ($queueStates as $state): ?>
+    <p>Kasa otwarta, w kolejce: <?= $state ?></p>
+  <?php endforeach; ?>
 
   <h2>break i continue: szukamy numerka</h2>
-<?php
-echo "<p>";
-for ($ticket = 1; $ticket <= 20; $ticket++) {
-    if ($ticket % 2 === 0) {
-        continue;
-    }
-    if ($ticket > 9) {
-        break;
-    }
-    echo $ticket . " ";
-}
-echo "</p>";
-// 1 3 5 7 9
-?>
+  <p>
+    <?php foreach ($tickets as $ticket): ?>
+      <?= $ticket ?>
+    <?php endforeach; ?>
+  </p>
 
   <h2>foreach: menu dnia</h2>
-<?php
-$menu = ["kanapka z serem", "drożdżówka", "sok jabłkowy"];
-echo "<ul>";
-foreach ($menu as $item) {
-    echo "<li>" . htmlspecialchars($item) . "</li>";
-}
-echo "</ul>";
-// Keys count from 0.
-foreach ($menu as $index => $item) {
-    echo ($index + 1) . ". " . htmlspecialchars($item) . "<br>";
-}
-// 1. kanapka z serem
-// 2. drożdżówka
-// 3. sok jabłkowy
-?>
+  <ul>
+    <?php foreach ($menu as $item): ?>
+      <li><?= htmlspecialchars($item) ?></li>
+    <?php endforeach; ?>
+  </ul>
+  <!-- Keys count from 0. -->
+  <?php foreach ($menu as $index => $item): ?>
+    <?= $index + 1 ?>. <?= htmlspecialchars($item) ?><br>
+  <?php endforeach; ?>
 
   <h2>foreach z kluczem: cennik</h2>
-<?php
-$prices = [
-    "kanapka z serem" => 6,
-    "drożdżówka" => 2.5,
-    "sałatka" => 11,
-];
-echo "<table>";
-echo "<tr><th>Produkt</th><th>Cena</th></tr>";
-foreach ($prices as $product => $price) {
-    $rowClass = $price > 10 ? ' class="expensive"' : '';
-    echo "<tr$rowClass><td>" . htmlspecialchars($product) . "</td><td>$price zł</td></tr>";
-}
-echo "</table>";
-// kanapka z serem | 6 zł, drożdżówka | 2.5 zł, sałatka | 11 zł (pink row)
-?>
+  <table>
+    <tr><th>Produkt</th><th>Cena</th></tr>
+    <?php foreach ($prices as $product => $price): ?>
+      <tr class="<?= $price > 10 ? "expensive" : "" ?>">
+        <td><?= htmlspecialchars($product) ?></td><td><?= $price ?> zł</td>
+      </tr>
+    <?php endforeach; ?>
+  </table>
 
   <h2>Pętla w pętli: zamówienia klas</h2>
-<?php
-$orders = [
-    ["group" => "1A", "items" => ["kanapka z serem", "sok jabłkowy"]],
-    ["group" => "2B", "items" => ["drożdżówka", "drożdżówka", "sałatka"]],
-];
-echo "<table>";
-echo "<tr><th>Klasa</th><th>Zamówienie</th><th>Liczba pozycji</th></tr>";
-foreach ($orders as $order) {
-    // $order (one order), not $orders (the whole array).
-    echo "<tr><td>" . htmlspecialchars($order["group"]) . "</td><td>";
-    foreach ($order["items"] as $item) {
-        echo htmlspecialchars($item) . "; ";
-    }
-    echo "</td><td>" . count($order["items"]) . "</td></tr>";
-}
-echo "</table>";
-// 1A | kanapka z serem; sok jabłkowy; | 2
-// 2B | drożdżówka; drożdżówka; sałatka; | 3
-?>
+  <table>
+    <tr><th>Klasa</th><th>Zamówienie</th><th>Liczba pozycji</th></tr>
+    <!-- $order (one order), not $orders (the whole array). -->
+    <?php foreach ($orders as $order): ?>
+      <tr>
+        <td><?= htmlspecialchars($order["group"]) ?></td>
+        <td>
+          <?php foreach ($order["items"] as $item): ?>
+            <?= htmlspecialchars($item) ?>;
+          <?php endforeach; ?>
+        </td>
+        <td><?= count($order["items"]) ?></td>
+      </tr>
+    <?php endforeach; ?>
+  </table>
 
   <h2>Twoja pętla</h2>
-<?php
-// TU ZMIEŃ: dopisz własną pętlę, na przykład foreach po ulubionych grach.
-?>
+  <ul>
+    <?php foreach ($myList as $myItem): ?>
+      <li><?= htmlspecialchars($myItem) ?></li>
+    <?php endforeach; ?>
+  </ul>
 </body>
 </html>

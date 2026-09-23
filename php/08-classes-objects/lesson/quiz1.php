@@ -3,28 +3,30 @@
 // Lesson 15, slide 7.
 header("Content-Type: text/html; charset=UTF-8");
 
-echo "<h2>1: która instrukcja tworzy obiekt?</h2>";
-class Punkt {
+class Point {
     public $x;
     public $y;
 }
-$pkt = new Punkt();          // answer B
-$pkt->x = 3;
-$pkt->y = 4;
-echo "Punkt (" . $pkt->x . ", " . $pkt->y . ")<br>";   // Punkt (3, 4)
+$point = new Point();        // answer B
+$point->x = 3;
+$point->y = 4;
 // Parse error
-// $pkt Punkt;
+// $point Point;
 
-echo "<h2>2: co opisuje klasa Owoc?</h2>";
-class Owoc {
-    public $nazwa;
-    private $kolor;
-    function set_nazwa($nazwa) {
-        $this->nazwa = $nazwa;
+class Fruit {
+    public $name;
+    private $color;
+    function setName($name) {
+        $this->name = $name;
     }
 }
-$owoc = new Owoc();
-$owoc->set_nazwa("gruszka");
-echo $owoc->nazwa . "<br>";   // gruszka
-// Fatal error: Cannot access private property Owoc::$kolor
-// echo $owoc->kolor;
+$fruit = new Fruit();
+$fruit->setName("gruszka");
+// Fatal error: Cannot access private property Fruit::$color
+// $color = $fruit->color;
+?>
+<h2>1: która instrukcja tworzy obiekt?</h2>
+<p>Punkt (<?= $point->x ?>, <?= $point->y ?>)</p>  <!-- Punkt (3, 4) -->
+
+<h2>2: co opisuje klasa Fruit?</h2>
+<p><?= htmlspecialchars($fruit->name) ?></p>  <!-- gruszka -->

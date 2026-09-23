@@ -13,6 +13,27 @@ $visitors = [
     ["name" => "Marta", "age" => 15, "hasTicket" => true, "isStaff" => false],
     ["name" => "Pan Adam", "age" => 45, "hasTicket" => false, "isStaff" => true],
 ];
+
+$results = [];
+foreach ($visitors as $visitor) {
+    // TU ZMIEŃ: bilet LUB obsługa (||)
+    $canEnter = false;
+
+    // TU ZMIEŃ: $canEnter I wiek co najmniej 16 (&&)
+    $canStandFront = false;
+
+    // TU ZMIEŃ: wiek poniżej 26 I NIE obsługa (&& oraz !)
+    $hasDiscount = false;
+
+    $results[] = [
+        "name" => $visitor["name"],
+        "canEnter" => $canEnter,
+        "canStandFront" => $canStandFront,
+        "hasDiscount" => $hasDiscount,
+    ];
+}
+
+// In the HTML below foreach (...): ... endforeach; is the same loop as with braces.
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -36,23 +57,12 @@ $visitors = [
       <th>Pod sceną</th>
       <th>Zniżka</th>
     </tr>
-    <?php
-        // foreach (...): ... endforeach; is the same loop as with braces.
-        foreach ($visitors as $visitor):
-            // TU ZMIEŃ: bilet LUB obsługa (||)
-            $canEnter = false;
-
-            // TU ZMIEŃ: $canEnter I wiek co najmniej 16 (&&)
-            $canStandFront = false;
-
-            // TU ZMIEŃ: wiek poniżej 26 I NIE obsługa (&& oraz !)
-            $hasDiscount = false;
-    ?>
+    <?php foreach ($results as $result): ?>
       <tr>
-        <td><?= htmlspecialchars($visitor["name"]) ?></td>
-        <td><?php var_dump($canEnter); ?></td>
-        <td><?php var_dump($canStandFront); ?></td>
-        <td><?php var_dump($hasDiscount); ?></td>
+        <td><?= htmlspecialchars($result["name"]) ?></td>
+        <td><?php var_dump($result["canEnter"]); ?></td>
+        <td><?php var_dump($result["canStandFront"]); ?></td>
+        <td><?php var_dump($result["hasDiscount"]); ?></td>
       </tr>
     <?php endforeach; ?>
   </table>

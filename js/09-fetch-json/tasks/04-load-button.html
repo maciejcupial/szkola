@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!-- Task 4 of 5. Change only 04-load-button.js. -->
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zadanie 4: produkty po kliknięciu</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <h1>Zadanie 4: produkty po kliknięciu</h1>
+
+  <div class="card">
+    <p>
+      Strona nie pobiera produktów od razu, tylko po kliknięciu przycisku. Każde kliknięcie pobiera
+      świeże dane, więc lista pokazuje też produkty dodane w bazie w międzyczasie.
+    </p>
+    <ol>
+      <li>Podepnij funkcję <code>loadProducts</code> pod zdarzenie <code>"click"</code> przycisku.</li>
+      <li>Na początku funkcji wyczyść listę: <code>list.textContent = ""</code>. Bez tego drugie
+        kliknięcie dopisze te same produkty jeszcze raz.</li>
+      <li>Zanim przyjdą dane, pokaż „Wczytuję…”, a po zbudowaniu listy „Wczytano produktów: 3”.</li>
+      <li>Gdy <code>response.ok</code> jest fałszem, pokaż „Nie udało się pobrać produktów.”
+        i zakończ funkcję.</li>
+      <li>Sprawdź: kliknij przycisk dwa razy. Na liście nadal są trzy produkty, nie sześć.</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <button type="button" id="load">Pokaż produkty</button>
+    <p id="message">Kliknij przycisk, żeby zobaczyć produkty.</p>
+    <ul id="product-list"></ul>
+  </div>
+
+  <script src="04-load-button.js"></script>
+</body>
+</html>

@@ -18,6 +18,30 @@ $films = [
 $eveningLimit = 6 * 60;
 
 $totalMinutes = 0;
+$filmRows = [];
+foreach ($films as $title => $minutes) {
+    // TU ZMIEŃ: pełne godziny filmu (intdiv przez 60)
+    $hours = 0;
+
+    // TU ZMIEŃ: minuty, które zostają po pełnych godzinach (%)
+    $restMinutes = 0;
+
+    // TU ZMIEŃ: dodaj długość filmu do $totalMinutes (+=)
+
+    $filmRows[] = ["title" => $title, "hours" => $hours, "restMinutes" => $restMinutes];
+}
+
+// TU ZMIEŃ: godziny i minuty całego maratonu, tak samo jak w pętli
+$totalHours = 0;
+$totalRest = 0;
+
+// TU ZMIEŃ: średnia: suma / count($films), round(..., 1)
+$average = 0;
+
+// TU ZMIEŃ: czy $totalMinutes jest mniejsze lub równe $eveningLimit (<=)
+$fitsEvening = false;
+
+// In the HTML below foreach (...): ... endforeach; is the same loop as with braces.
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -34,35 +58,11 @@ $totalMinutes = 0;
   </p>
 
   <ul>
-    <?php
-        // foreach (...): ... endforeach; is the same loop as with braces.
-        foreach ($films as $title => $minutes):
-            // TU ZMIEŃ: pełne godziny filmu (intdiv przez 60)
-            $hours = 0;
-
-            // TU ZMIEŃ: minuty, które zostają po pełnych godzinach (%)
-            $restMinutes = 0;
-
-            // TU ZMIEŃ: dodaj długość filmu do $totalMinutes (+=)
-    ?>
-      <li>
-        <?= htmlspecialchars($title) ?>:
-        <?= htmlspecialchars($hours) ?> h <?= htmlspecialchars($restMinutes) ?> min
-      </li>
+    <?php foreach ($filmRows as $row): ?>
+      <li><?= htmlspecialchars($row["title"]) ?>: <?= $row["hours"] ?> h <?= $row["restMinutes"] ?> min</li>
     <?php endforeach; ?>
   </ul>
 
-  <?php
-      // TU ZMIEŃ: godziny i minuty całego maratonu, tak samo jak w pętli
-      $totalHours = 0;
-      $totalRest = 0;
-
-      // TU ZMIEŃ: średnia: suma / count($films), round(..., 1)
-      $average = 0;
-
-      // TU ZMIEŃ: czy $totalMinutes jest mniejsze lub równe $eveningLimit (<=)
-      $fitsEvening = false;
-  ?>
   <p>Razem: <?= htmlspecialchars($totalHours) ?> h <?= htmlspecialchars($totalRest) ?> min</p>
   <p>Średnio: <?= htmlspecialchars($average) ?> min</p>
   <p>Mieści się w 6 godzinach: <?php var_dump($fitsEvening); ?></p>

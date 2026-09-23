@@ -1,5 +1,6 @@
 <?php
-// Worked example: one page from four files, plus try...catch.
+// Controller: takes data from functions.php (model) and shows it with templates/ (views).
+// Frameworks split a page the same way: controller, model, view.
 header("Content-Type: text/html; charset=UTF-8");
 
 require_once "functions.php";
@@ -8,7 +9,6 @@ require_once "functions.php";
 require_once "functions.php";
 
 // TU ZMIEŃ: własny tytuł strony i własne produkty
-// Set before the include: header.php reads $pageTitle.
 $pageTitle = "Sklep";
 $products = [
     ["name" => "Kubek", "price" => 19.90],
@@ -16,39 +16,23 @@ $products = [
     ["name" => "Zeszyt", "price" => 6.50],
 ];
 
-include "header.php";
-?>
-    <h2>Produkty</h2>
-    <ul>
-      <?php foreach ($products as $product): ?>
-        <li>
-          <?= htmlspecialchars($product["name"]) ?>: <?= htmlspecialchars(formatPrice($product["price"])) ?>
-        </li>
-      <?php endforeach; ?>
-    </ul>
-    <p>Razem: <strong><?= htmlspecialchars(formatPrice(sumPrices($products))) ?></strong></p>
+$productLines = [];
+foreach ($products as $product) {
+    $productLines[] = $product["name"] . ": " . formatPrice($product["price"]);
+}
+$total = formatPrice(sumPrices($products));
 
-    <h2>Błąd złapany w try...catch</h2>
-    <?php
-    try {
-        echo "<p>Wynik: " . htmlspecialchars(divide(10, 0)) . "</p>";
-    } catch (DivisionByZeroError $e) {
-        echo '<p class="error">Błąd: ' . htmlspecialchars($e->getMessage()) . "</p>";
-    }
-    ?>
-    <p>Strona działa dalej, bo błąd został złapany.</p>
+$divisionError = null;
+try {
+    $divisionResult = divide(10, 0);
+} catch (DivisionByZeroError $e) {
+    $divisionError = $e->getMessage();
+}
 
-    <h2>Jak czytać komunikat błędu</h2>
-    <p>Każdy komunikat ma cztery części: typ, treść, plik i linię. Przykład:</p>
-    <p><code>Warning: Undefined variable $total in C:\xampp\htdocs\sklep\index.php on line 12</code></p>
-    <ul>
-      <li>Warning: typ, strona działa dalej.</li>
-      <li>Undefined variable $total: co się nie udało.</li>
-      <li>index.php, linia 12: gdzie szukać w kodzie.</li>
-    </ul>
-    <?php
-    // Warning: Undefined variable $missingVariable
-    // echo $missingVariable;
-    ?>
-<?php
-include "footer.php";
+// Warning: Undefined variable $missingVariable
+// $message = $missingVariable;
+
+// The views see every variable set above.
+require "templates/header.php";
+require "templates/shop.php";
+require "templates/footer.php";

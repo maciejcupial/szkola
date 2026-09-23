@@ -48,12 +48,10 @@ $sentence = "";
     tablicę funkcją <code>print_r()</code>.
   </p>
 
-  <p><?php echo htmlspecialchars($sentence); ?></p>
+  <p><?= htmlspecialchars($sentence) ?></p>
 
   <ul>
-    <?php
-        // TU ZMIEŃ: foreach ($player as $key => $value), w każdym <li> „klucz: wartość”
-    ?>
+    <!-- TU ZMIEŃ: foreach ($player as $key => $value): ... endforeach; w każdym <li> „klucz: wartość” -->
   </ul>
 
   <pre><?php

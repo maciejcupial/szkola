@@ -21,7 +21,12 @@ if (empty($id) || empty($price)) {
     // Do $message: „Zmienionych wierszy: ” + mysqli_affected_rows($db) albo „Błąd zapytania: ”.
 }
 
+$products = [];
 $result = mysqli_query($db, "SELECT name, price FROM products");
+while ($row = mysqli_fetch_assoc($result)) {
+    $products[] = $row;
+}
+mysqli_close($db);
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -35,11 +40,9 @@ $result = mysqli_query($db, "SELECT name, price FROM products");
   <p>Zadanie: zmień cenę produktu o numerze z adresu strony i pokaż, ile wierszy się zmieniło.</p>
   <p><?= htmlspecialchars($message) ?></p>
   <ul>
-    <?php while ($row = mysqli_fetch_assoc($result)): ?>
-      <li><?= htmlspecialchars($row["name"]) ?> - <?= htmlspecialchars($row["price"]) ?> zł</li>
-    <?php endwhile; ?>
+    <?php foreach ($products as $product): ?>
+      <li><?= htmlspecialchars($product["name"]) ?> - <?= htmlspecialchars($product["price"]) ?> zł</li>
+    <?php endforeach; ?>
   </ul>
 </body>
 </html>
-<?php
-mysqli_close($db);

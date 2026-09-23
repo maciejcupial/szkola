@@ -1,5 +1,5 @@
 <?php
-// Task 2: cart functions, only definitions.
+// Task 2: model, cart functions, only definitions.
 
 // 39.8 -> "39,80 zł" (ready)
 function formatPrice($price) {

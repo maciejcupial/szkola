@@ -19,6 +19,12 @@ $classes = [
     "4C" => [],
     "3D" => [5, 5],
 ];
+
+$reportLines = [];
+foreach ($classes as $className => $grades) {
+    // TU ZMIEŃ: wywołaj average($grades) w try, błąd złap w catch
+    $reportLines[] = $className . ": średnia ?";
+}
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -31,12 +37,9 @@ $classes = [
   <h1>Raport średnich</h1>
   <p>Zadanie 4: policz średnią każdej klasy, a błąd dzielenia przez zero złap w try...catch.</p>
   <ul>
-    <?php
-    foreach ($classes as $className => $grades) {
-        // TU ZMIEŃ: wywołaj average($grades) w try, błąd złap w catch
-        echo "<li>" . htmlspecialchars($className . ": średnia ?") . "</li>";
-    }
-    ?>
+    <?php foreach ($reportLines as $line): ?>
+      <li><?= htmlspecialchars($line) ?></li>
+    <?php endforeach; ?>
   </ul>
   <p>Koniec raportu.</p>
 </body>

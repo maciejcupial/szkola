@@ -8,6 +8,10 @@ $goal = 200;
 $weekly = 35;
 $savings = 0;
 $weeks = 0;
+$weeklySavings = [];
+
+// TU ZMIEŃ: pętla while, która dopóki $savings < $goal dodaje tydzień i kwotę,
+// a stan skarbonki zapisuje pod numerem tygodnia: $weeklySavings[$weeks] = $savings;
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -22,9 +26,9 @@ $weeks = 0;
     oszczędności są mniejsze niż <?= $goal ?> zł, i dla każdego tygodnia wypisuje linię
     „Tydzień numer: kwota zł”.</p>
   <ul>
-<?php
-// TU ZMIEŃ: pętla while, która dodaje kolejne tygodnie, dopóki $savings < $goal
-?>
+    <?php foreach ($weeklySavings as $week => $amount): ?>
+      <li>Tydzień <?= $week ?>: <?= $amount ?> zł</li>
+    <?php endforeach; ?>
   </ul>
   <p>Cel <?= $goal ?> zł osiągnięty po <?= $weeks ?> tygodniach.</p>
 </body>

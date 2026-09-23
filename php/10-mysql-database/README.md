@@ -10,6 +10,11 @@ Używa tych samych funkcji co lekcje i egzamin INF.03: `mysqli_connect()`, `mysq
 W folderze `tasks` jest sześć zadań, od najłatwiejszego do najtrudniejszego. Ostatnie jest
 dla chętnych.
 
+Każdy plik ma ten sam układ. Na górze jest jeden blok PHP: łączy się z bazą, wykonuje zapytania,
+przepisuje wiersze do tablicy i zamyka połączenie. Pod nim jest już tylko HTML, który wypisuje
+gotowe zmienne przez `<?= ?>` i pętlę `foreach`. Na egzaminie INF.03 skrypt wstawiasz we wskazany
+blok strony i tam obowiązuje ta sama kolejność: najpierw logika, potem wypisywanie.
+
 Komentarze w kodzie są po angielsku i tylko tam, gdzie coś może być niejasne.
 
 ## Jak uruchomić
@@ -34,11 +39,13 @@ Komentarze w kodzie są po angielsku i tylko tam, gdzie coś może być niejasne
   i od tej chwili ma połączenie w zmiennej `$db`. O `require` więcej na lekcji 23.
 - `index.php`: lista produktów w tabeli, formularz nowego produktu, przycisk „Usuń” przy każdym
   wierszu i komunikat błędu, gdy zapytanie `SELECT` się nie uda.
-- `tasks/01-cheap-products.php`: produkty tańsze niż 10 zł, czyli `SELECT` z `WHERE` i pętla `while`.
+- `tasks/01-cheap-products.php`: produkty tańsze niż 10 zł, czyli `SELECT` z `WHERE`, pętla `while`
+  do tablicy i lista z `foreach`.
 - `tasks/02-products-table.php`: wszystkie produkty w tabeli, ich liczba i łączna wartość.
 - `tasks/03-add-product.php`: formularz, który dodaje produkt i pokazuje jego nowy numer.
 - `tasks/04-change-price.php`: zmiana ceny przez `UPDATE`, numer i cena przychodzą w adresie strony.
-- `tasks/05-query-error.php`: funkcja, która przy złym zapytaniu pokazuje komunikat z bazy.
+- `tasks/05-query-error.php`: funkcja, która przy złym zapytaniu zwraca komunikat z bazy, a przy dobrym
+  wiersze. Strona pokazuje jedno albo drugie.
 - `tasks/06-price-editor.php` (dla chętnych): edytor cen z listą rozwijaną zbudowaną z bazy.
 - `lesson/`: kod z lekcji, który pokazuję na rzutniku, i rozwiązania ćwiczeń ze slajdów. Każdy plik ma
   nagłówek z numerem lekcji i slajdu, a obok linii komentarz z tym, co wypisze.
@@ -47,7 +54,8 @@ Komentarze w kodzie są po angielsku i tylko tam, gdzie coś może być niejasne
 
 - `db.php`: w miejscu `TU ZMIEŃ` dane logowania, jeśli twój MySQL ma inne niż XAMPP
   (domyślnie serwer `localhost`, użytkownik `root`, puste hasło).
-- `index.php`: na końcu strony, w miejscu `TU ZMIEŃ`, dopisz własną sekcję z własnym zapytaniem.
+- `index.php`: w miejscu `TU ZMIEŃ` dopisz własną sekcję. Zapytanie idzie do bloku PHP na górze,
+  a na dole strony tylko wypisujesz jego wynik.
 - `tasks/01` do `tasks/06`: uzupełnij miejsca `TU ZMIEŃ`. W nagłówku każdego pliku jest opis
   zadania i dokładny wynik, który ma się pokazać w przeglądarce. Każdy plik da się otworzyć od razu,
   zanim cokolwiek dopiszesz: pokaże wtedy pustą listę albo zera.
@@ -78,7 +86,7 @@ obie wersje, więc warto znać obie. We własnych projektach używaj tej z `?`.
   ustawiono hasło. Wpisz je w `db.php` w miejsce pustego `""`.
 - `Fatal error: Uncaught TypeError: mysqli_fetch_assoc(): Argument #1 ($result) must be of type
   mysqli_result, false given`: zapytanie się nie udało, `mysqli_query()` zwróciło `false`, a kod
-  i tak próbuje czytać wiersze. Sprawdź wynik przez `if (!$result)` i wypisz `mysqli_error($db)`,
+  i tak próbuje czytać wiersze. Sprawdź wynik przez `if (!$result)` i pokaż `mysqli_error($db)`,
   jak w zadaniu 5. Najczęściej to literówka w nazwie kolumny albo tabeli.
 - `Warning: Undefined array key "nazwa"`: klucz w `$row["..."]` musi być dokładnie nazwą kolumny
   z tabeli, z tą samą wielkością liter. Tu kolumny nazywają się `name` i `price`.

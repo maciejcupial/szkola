@@ -1,5 +1,5 @@
 <?php
-// Lesson 25, slide 8: model solution of the exercise.
+// Lesson 25, slide 8: model solution of the exercise, the controller.
 // Needs the shop database from lesson 21.
 header("Content-Type: text/html; charset=UTF-8");
 
@@ -9,17 +9,19 @@ if (!$db) {
     die("Błąd połączenia z bazą danych.");
 }
 
-include "header.php";    // <header><h1>Sklep</h1></header>
-
 $result = mysqli_query($db, "SELECT * FROM products");
+$products = [];
 while ($row = mysqli_fetch_assoc($result)) {
-    echo htmlspecialchars($row["name"]) . " - " . htmlspecialchars($row["price"]) . " zł<br>";
+    $products[] = $row;
 }
+mysqli_close($db);
+
+require "templates/header.php";          // Sklep
+require "templates/product-list.php";
 // Kubek - 19.90 zł
 // Długopis - 3.50 zł
 // Zeszyt - 7.20 zł
+require "templates/footer.php";          // Kontakt: sklep@example.com
 
-include "footer.php";    // <footer>Kontakt: sklep@example.com</footer>
-
-// Step 5: Fatal error: Uncaught Error: Failed opening required 'fotter.php'
-// require "fotter.php";
+// Step 5: Fatal error: Uncaught Error: Failed opening required 'templates/fotter.php'
+// require "templates/fotter.php";

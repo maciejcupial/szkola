@@ -12,21 +12,7 @@
 //   Odmowa: kwota musi być większa od zera.
 //   Saldo: 120 zł
 header("Content-Type: text/html; charset=UTF-8");
-?>
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Zadanie 3: konto w banku</title>
-</head>
-<body>
-  <h1>Zadanie 3: konto w banku</h1>
-  <p>Saldo jest prywatne: nikt spoza klasy nie może go ustawić ręcznie. Napisz getBalance(),
-    deposit() i withdraw(). Kwota zero albo ujemna ma być odrzucona, a wypłata większa niż saldo
-    też.</p>
-  <h2>Wynik</h2>
-<?php
+
 class BankAccount {
     public $owner;
     private $balance = 0;
@@ -41,34 +27,54 @@ class BankAccount {
         return 0;
     }
 
+    // Returns the text to show: the deposit or the refusal.
     public function deposit($amount) {
-        // TU ZMIEŃ: gdy $amount jest mniejsze lub równe 0, wypisz
+        // TU ZMIEŃ: gdy $amount jest mniejsze lub równe 0, zwróć
         // „Odmowa: kwota musi być większa od zera.” i nic nie zmieniaj.
-        // W przeciwnym razie dodaj kwotę do salda i wypisz „Wpłata: 50 zł”. Napisy kończ <br>
+        // W przeciwnym razie dodaj kwotę do salda i zwróć „Wpłata: 50 zł”
+        return "";
     }
 
     public function withdraw($amount) {
         // TU ZMIEŃ: kwota zero albo ujemna: ta sama odmowa co w deposit().
-        // Kwota większa niż saldo: „Odmowa: brak środków na wypłatę 500 zł.”
-        // W pozostałych przypadkach odejmij kwotę od salda i wypisz „Wypłata: 30 zł”
+        // Kwota większa niż saldo: zwróć „Odmowa: brak środków na wypłatę 500 zł.”
+        // W pozostałych przypadkach odejmij kwotę od salda i zwróć „Wypłata: 30 zł”
+        return "";
     }
 }
 
 $account = new BankAccount("Ola", 100);
-echo "Konto: " . htmlspecialchars($account->owner) . "<br>";
-echo "Saldo: " . $account->getBalance() . " zł<br>";
+$lines = [];
+$lines[] = "Konto: " . $account->owner;
+$lines[] = "Saldo: " . $account->getBalance() . " zł";
 
-$account->deposit(50);
-echo "Saldo: " . $account->getBalance() . " zł<br>";
-$account->withdraw(30);
-echo "Saldo: " . $account->getBalance() . " zł<br>";
-$account->withdraw(500);
-echo "Saldo: " . $account->getBalance() . " zł<br>";
-$account->deposit(-20);
-echo "Saldo: " . $account->getBalance() . " zł<br>";
+$lines[] = $account->deposit(50);
+$lines[] = "Saldo: " . $account->getBalance() . " zł";
+$lines[] = $account->withdraw(30);
+$lines[] = "Saldo: " . $account->getBalance() . " zł";
+$lines[] = $account->withdraw(500);
+$lines[] = "Saldo: " . $account->getBalance() . " zł";
+$lines[] = $account->deposit(-20);
+$lines[] = "Saldo: " . $account->getBalance() . " zł";
 
 // Fatal error: Cannot access private property BankAccount::$balance
 // $account->balance = 1000000;
 ?>
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zadanie 3: konto w banku</title>
+</head>
+<body>
+  <h1>Zadanie 3: konto w banku</h1>
+  <p>Saldo jest prywatne: nikt spoza klasy nie może go ustawić ręcznie. Napisz getBalance(),
+    deposit() i withdraw(). Kwota zero albo ujemna ma być odrzucona, a wypłata większa niż saldo
+    też.</p>
+  <h2>Wynik</h2>
+  <?php foreach ($lines as $line): ?>
+    <p><?= htmlspecialchars($line) ?></p>
+  <?php endforeach; ?>
 </body>
 </html>

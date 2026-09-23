@@ -13,7 +13,6 @@ if (!$db) {
     die("Błąd połączenia z bazą danych.");
 }
 
-echo "<h2>Lekcja 20, slajd 6: zapytanie przygotowane</h2>";
 $name = $_POST["productName"];
 $price = $_POST["productPrice"];
 
@@ -27,7 +26,11 @@ mysqli_stmt_bind_param($stmt, "sd", $name, $price);
 $result = mysqli_stmt_execute($stmt);
 if (!$result) {
     // Name over 100 chars: Błąd zapytania: Data too long for column 'name' at row 1
-    echo "Błąd zapytania: " . htmlspecialchars(mysqli_error($db));
+    $message = "Błąd zapytania: " . mysqli_error($db);
 } else {
-    echo "Dodano produkt nr " . mysqli_insert_id($db);   // Dodano produkt nr 4
+    $message = "Dodano produkt nr " . mysqli_insert_id($db);   // Dodano produkt nr 4
 }
+mysqli_close($db);
+?>
+<h2>Lekcja 20, slajd 6: zapytanie przygotowane</h2>
+<p><?= htmlspecialchars($message) ?></p>

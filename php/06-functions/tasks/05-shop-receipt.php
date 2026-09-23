@@ -39,6 +39,21 @@ $cart = [
 $total = cartTotal($cart);
 $shipping = shippingCost($total);
 $promoShipping = shippingCost($total, 50);
+
+$lines = [];
+foreach ($cart as $item) {
+    $lines[] = [
+        "name" => $item["name"],
+        "quantity" => $item["quantity"],
+        "price" => formatMoney($item["price"]),
+        "lineTotal" => formatMoney(lineTotal($item["price"], $item["quantity"])),
+    ];
+}
+$totalText = formatMoney($total);
+$shippingText = formatMoney($shipping);
+$toPayText = formatMoney($total + $shipping);
+$promoShippingText = formatMoney($promoShipping);
+$promoToPayText = formatMoney($total + $promoShipping);
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -53,19 +68,18 @@ $promoShipping = shippingCost($total, 50);
     Dokończ trzy funkcje: <code>lineTotal</code>, <code>cartTotal</code> i <code>shippingCost</code>.
     Funkcja <code>cartTotal</code> ma korzystać z <code>lineTotal</code>, a nie liczyć wszystkiego od nowa.
   </p>
-<?php
-foreach ($cart as $item) {
-    $line = lineTotal($item["price"], $item["quantity"]);
-    echo "<p>" . htmlspecialchars($item["name"]) . ": " . $item["quantity"] . " x "
-        . formatMoney($item["price"]) . " = " . formatMoney($line) . "</p>";
-}
-?>
-  <p>Suma: <?= formatMoney($total) ?></p>
-  <p>Dostawa: <?= formatMoney($shipping) ?></p>
-  <p><strong>Do zapłaty: <?= formatMoney($total + $shipping) ?></strong></p>
+  <?php foreach ($lines as $line): ?>
+    <p>
+      <?= htmlspecialchars($line["name"]) ?>: <?= $line["quantity"] ?> x
+      <?= htmlspecialchars($line["price"]) ?> = <?= htmlspecialchars($line["lineTotal"]) ?>
+    </p>
+  <?php endforeach; ?>
+  <p>Suma: <?= htmlspecialchars($totalText) ?></p>
+  <p>Dostawa: <?= htmlspecialchars($shippingText) ?></p>
+  <p><strong>Do zapłaty: <?= htmlspecialchars($toPayText) ?></strong></p>
   <p>
-    Z kodem „DOSTAWA50” (darmowa dostawa od 50 zł): dostawa <?= formatMoney($promoShipping) ?>,
-    do zapłaty <?= formatMoney($total + $promoShipping) ?>
+    Z kodem „DOSTAWA50” (darmowa dostawa od 50 zł): dostawa <?= htmlspecialchars($promoShippingText) ?>,
+    do zapłaty <?= htmlspecialchars($promoToPayText) ?>
   </p>
 </body>
 </html>

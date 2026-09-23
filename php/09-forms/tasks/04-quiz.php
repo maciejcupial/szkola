@@ -7,19 +7,19 @@
 //   Wynik: 1 z 3
 // and options b (question 1) and c (question 3) stay selected.
 
-// Key = radio group name; "options": sent value => label.
+// Key = question number, the radio group is named question1, question2...; "options": value => label.
 $questions = [
-    "question1" => [
+    1 => [
         "text" => "Która tablica odbiera dane wysłane przez method=\"post\"?",
         "options" => ["a" => "\$_GET", "b" => "\$_POST", "c" => "\$_FORM"],
         "correct" => "b",
     ],
-    "question2" => [
+    2 => [
         "text" => "Co zwraca empty(\"\"), czyli empty dla pustego tekstu?",
         "options" => ["a" => "true", "b" => "false", "c" => "błąd"],
         "correct" => "a",
     ],
-    "question3" => [
+    3 => [
         "text" => "Który atrybut pola formularza staje się kluczem w \$_POST?",
         "options" => ["a" => "id", "b" => "name", "c" => "value"],
         "correct" => "b",
@@ -32,9 +32,9 @@ $score = 0;
 
 // An unchecked radio group sends nothing, so the button has its own name.
 if (isset($_POST["check"])) {
-    foreach ($questions as $key => $question) {
-        // TU ZMIEŃ: $answer = $_POST[$key] ?? ""; zapisz w $answers[$key].
-        // Do $results[$key]: pusta "brak odpowiedzi", równa $question["correct"] "dobrze"
+    foreach ($questions as $number => $question) {
+        // TU ZMIEŃ: $answer = $_POST["question" . $number] ?? ""; zapisz w $answers[$number].
+        // Do $results[$number]: pusta "brak odpowiedzi", równa $question["correct"] "dobrze"
         // (i $score + 1), inaczej "źle".
     }
 }
@@ -64,17 +64,16 @@ if (isset($_POST["check"])) {
   <p>Policz punkty i pokaż wynik. Po wysłaniu wybrane odpowiedzi mają zostać zaznaczone.</p>
 
   <form action="04-quiz.php" method="post">
-    <?php $number = 1; ?>
-    <?php foreach ($questions as $key => $question): ?>
+    <?php foreach ($questions as $number => $question): ?>
       <fieldset>
         <legend><?= $number ?>. <?= htmlspecialchars($question["text"]) ?></legend>
         <?php foreach ($question["options"] as $value => $label): ?>
-          <!-- TU ZMIEŃ: dopisz checked, gdy ($answers[$key] ?? "") jest równe $value (użyj ? :) -->
-          <input type="radio" id="<?= $key . "-" . $value ?>" name="<?= $key ?>" value="<?= $value ?>">
-          <label for="<?= $key . "-" . $value ?>"><?= htmlspecialchars($label) ?></label><br>
+          <!-- TU ZMIEŃ: dopisz checked, gdy ($answers[$number] ?? "") jest równe $value (użyj ? :) -->
+          <input type="radio" id="question<?= $number ?>-<?= $value ?>" name="question<?= $number ?>"
+                 value="<?= $value ?>">
+          <label for="question<?= $number ?>-<?= $value ?>"><?= htmlspecialchars($label) ?></label><br>
         <?php endforeach; ?>
       </fieldset>
-      <?php $number++; ?>
     <?php endforeach; ?>
     <button type="submit" name="check">Sprawdź</button>
   </form>
@@ -82,10 +81,8 @@ if (isset($_POST["check"])) {
   <?php if (isset($_POST["check"])): ?>
     <h2>Twoje wyniki</h2>
     <ul>
-      <?php $number = 1; ?>
-      <?php foreach ($results as $result): ?>
+      <?php foreach ($results as $number => $result): ?>
         <li>Pytanie <?= $number ?>: <?= htmlspecialchars($result) ?></li>
-        <?php $number++; ?>
       <?php endforeach; ?>
     </ul>
     <p>Wynik: <?= $score ?> z <?= count($questions) ?></p>

@@ -9,6 +9,17 @@ $passenger = "Zofia Kołodziej";
 $from = "Łódź";
 $to = "Wrocław";
 $flightNumber = 204;
+
+// mb_substr(text, start, length) counts letters, not bytes.
+
+// TU ZMIEŃ: dopisz imię i nazwisko wielkimi literami
+$passengerLine = "Pasażer: ";
+
+// TU ZMIEŃ: kod lotu: 3 litery $from, myślnik, 3 litery $to, myślnik, $flightNumber
+$codeLine = "Kod lotu: ";
+
+// TU ZMIEŃ: wstaw w zdanie wynik mb_strlen() i strlen() dla $passenger
+$lengthLine = "Imię i nazwisko ma 0 znaków, a strlen() liczy 0 bajtów.";
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -24,18 +35,9 @@ $flightNumber = 204;
     z przedrostkiem <code>mb_</code>.</p>
 
   <p>
-    <?php
-        // mb_substr(text, start, length) counts letters, not bytes.
-
-        // TU ZMIEŃ: wypisz „Pasażer: ” i imię z nazwiskiem wielkimi literami
-        echo "Pasażer: <br>";
-
-        // TU ZMIEŃ: kod lotu: 3 litery $from, myślnik, 3 litery $to, myślnik, $flightNumber
-        echo "Kod lotu: <br>";
-
-        // TU ZMIEŃ: wstaw w zdanie wynik mb_strlen() i strlen() dla $passenger
-        echo "Imię i nazwisko ma 0 znaków, a strlen() liczy 0 bajtów.";
-    ?>
+    <?= htmlspecialchars($passengerLine) ?><br>
+    <?= htmlspecialchars($codeLine) ?><br>
+    <?= htmlspecialchars($lengthLine) ?>
   </p>
 </body>
 </html>

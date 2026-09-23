@@ -9,21 +9,7 @@
 //   Wartość magazynu: 2 749,98 zł
 //   Najtańszy produkt: Kabel HDMI (15,00 zł)
 header("Content-Type: text/html; charset=UTF-8");
-?>
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Zadanie 5: magazyn</title>
-</head>
-<body>
-  <h1>Zadanie 5 (dla chętnych): magazyn</h1>
-  <p>Magazyn to obiekt, który trzyma w prywatnej tablicy inne obiekty: produkty. Dopisz setter ceny,
-    który odrzuca cenę ujemną, wartość produktu, porównanie dwóch produktów, wartość całego
-    magazynu i wyszukanie najtańszego produktu.</p>
-  <h2>Wynik</h2>
-<?php
+
 class Product {
     public $name;
     private $price = 0;
@@ -43,10 +29,11 @@ class Product {
         return $this->quantity;
     }
 
+    // Returns true when the price was saved, false when it was refused.
     public function setPrice($price) {
-        // TU ZMIEŃ: gdy cena jest ujemna, wypisz „Odmowa: cena produktu Kabel HDMI nie może być
-        // ujemna.” z nazwą tego produktu i <br>, a cenę zostaw bez zmian.
-        // W przeciwnym razie zapisz $price we właściwości $this->price
+        // TU ZMIEŃ: gdy cena jest ujemna, zwróć false i zostaw cenę bez zmian.
+        // W przeciwnym razie zapisz $price we właściwości $this->price i zwróć true
+        return true;
     }
 
     public function getValue() {
@@ -69,13 +56,14 @@ class Warehouse {
     }
 
     // number_format($x, 2, ",", " ") writes 1399.98 as „1 399,98”.
-    public function showAll() {
+    public function getLines() {
+        $lines = [];
         foreach ($this->products as $product) {
-            $line = $product->name . ": " . $product->getQuantity() . " szt. x "
+            $lines[] = $product->name . ": " . $product->getQuantity() . " szt. x "
                 . number_format($product->getPrice(), 2, ",", " ") . " zł = "
                 . number_format($product->getValue(), 2, ",", " ") . " zł";
-            echo htmlspecialchars($line) . "<br>";
         }
+        return $lines;
     }
 
     public function getTotalValue() {
@@ -96,20 +84,44 @@ $warehouse->addProduct(new Product("Klawiatura", 120, 5));
 $warehouse->addProduct(new Product("Mysz", 45, 10));
 $warehouse->addProduct(new Product("Monitor", 699.99, 2));
 
-$cable = new Product("Kabel HDMI", -5, 20);
+$message = "";
+$cable = new Product("Kabel HDMI", 0, 20);
+if (!$cable->setPrice(-5)) {
+    $message = "Odmowa: cena produktu " . $cable->name . " nie może być ujemna.";
+}
 $cable->setPrice(15);
 $warehouse->addProduct($cable);
 
-$warehouse->showAll();
-echo "Wartość magazynu: " . number_format($warehouse->getTotalValue(), 2, ",", " ") . " zł<br>";
+$productLines = $warehouse->getLines();
+$totalValue = number_format($warehouse->getTotalValue(), 2, ",", " ");
 
 $cheapest = $warehouse->getCheapest();
 if ($cheapest === null) {
-    echo "Najtańszy produkt: brak<br>";
+    $cheapestText = "brak";
 } else {
-    $price = number_format($cheapest->getPrice(), 2, ",", " ");
-    echo htmlspecialchars("Najtańszy produkt: " . $cheapest->name . " (" . $price . " zł)") . "<br>";
+    $cheapestText = $cheapest->name . " (" . number_format($cheapest->getPrice(), 2, ",", " ") . " zł)";
 }
 ?>
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zadanie 5: magazyn</title>
+</head>
+<body>
+  <h1>Zadanie 5 (dla chętnych): magazyn</h1>
+  <p>Magazyn to obiekt, który trzyma w prywatnej tablicy inne obiekty: produkty. Dopisz setter ceny,
+    który odrzuca cenę ujemną, wartość produktu, porównanie dwóch produktów, wartość całego
+    magazynu i wyszukanie najtańszego produktu.</p>
+  <h2>Wynik</h2>
+  <?php if ($message !== ""): ?>
+    <p><?= htmlspecialchars($message) ?></p>
+  <?php endif; ?>
+  <?php foreach ($productLines as $line): ?>
+    <p><?= htmlspecialchars($line) ?></p>
+  <?php endforeach; ?>
+  <p>Wartość magazynu: <?= $totalValue ?> zł</p>
+  <p>Najtańszy produkt: <?= htmlspecialchars($cheapestText) ?></p>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <?php
-// Task 1 of 6: split this page into three files with include.
+// Task 1 of 6: split this page into a controller (this file) and three views in templates/.
 // Expected (the same before and after the split):
 //   Sklep
 //   Nasze produkty
@@ -15,7 +15,8 @@ $products = [
     ["name" => "Zeszyt", "price" => 6.5],
 ];
 
-// TU ZMIEŃ: tu include "01-header.php"; kod od <!DOCTYPE html> do </header> do 01-header.php
+// TU ZMIEŃ: przenieś HTML spod tego bloku PHP do widoków w templates/ i dołącz je tu przez require:
+//   01-header.php (od <!DOCTYPE html> do </header>), 01-products.php (lista), 01-footer.php (reszta)
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -32,13 +33,10 @@ $products = [
   <h2>Nasze produkty</h2>
   <ul>
     <?php foreach ($products as $product): ?>
-      <li><?= htmlspecialchars($product["name"] . " - " . $product["price"] . " zł") ?></li>
+      <li><?= htmlspecialchars($product["name"]) ?> - <?= $product["price"] ?> zł</li>
     <?php endforeach; ?>
   </ul>
 
-  <?php
-  // TU ZMIEŃ: tu include "01-footer.php"; kod od <footer> do </html> do 01-footer.php
-  ?>
   <footer>
     <p>Kontakt: sklep@example.com</p>
   </footer>

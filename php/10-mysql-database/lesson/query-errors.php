@@ -10,30 +10,48 @@ if (!$db) {
     die("Błąd połączenia z bazą danych.");
 }
 
-echo "<h2>Lekcja 22, slajd 4: mysqli_error() mówi, co poszło nie tak</h2>";
+// Slide 4
+$errors = [];
 $query = "SET a=1";
 $result = mysqli_query($db, $query);
 if (!$result) {
-    echo htmlspecialchars(mysqli_error($db)) . "<br>";   // Unknown system variable 'a'
+    $errors[] = mysqli_error($db);   // Unknown system variable 'a'
 }
 $result = mysqli_query($db, "SELECT nam FROM products");
 if (!$result) {
-    echo htmlspecialchars(mysqli_error($db)) . "<br>";   // Unknown column 'nam' in 'field list'
+    $errors[] = mysqli_error($db);   // Unknown column 'nam' in 'field list'
 }
 // A success clears the previous error.
 $result = mysqli_query($db, "SELECT name FROM products");
-var_dump(mysqli_error($db));   // string(0) ""
-echo "<br>";
+$errorAfterSuccess = mysqli_error($db);   // printed like var_dump(): string(0) ""
 
-echo "<h2>Lekcja 22, slajd 5: mysqli_insert_id() tylko po udanym zapytaniu</h2>";
+// Slide 5
+$insertError = "";
+$idAfterError = 0;
+$newId = 0;
 $result = mysqli_query($db, "INSERT INTO products (nam, price) VALUES ('Gumka', '2.50')");
 if (!$result) {
-    echo "Błąd zapytania: " . htmlspecialchars(mysqli_error($db)) . "<br>";
-    // Błąd zapytania: Unknown column 'nam' in 'field list'
-    echo "mysqli_insert_id(): " . mysqli_insert_id($db) . "<br>";   // mysqli_insert_id(): 0
+    $insertError = mysqli_error($db);   // Unknown column 'nam' in 'field list'
+    $idAfterError = mysqli_insert_id($db);   // 0
 }
 $result = mysqli_query($db, "INSERT INTO products (name, price) VALUES ('Gumka', '2.50')");
 if ($result) {
     // The slide shows 5 because its table went through more lessons.
-    echo "Dodano produkt nr " . mysqli_insert_id($db);   // Dodano produkt nr 4
+    $newId = mysqli_insert_id($db);   // 4
 }
+mysqli_close($db);
+?>
+<h2>Lekcja 22, slajd 4: mysqli_error() mówi, co poszło nie tak</h2>
+<?php foreach ($errors as $error): ?>
+  <?= htmlspecialchars($error) ?><br>
+<?php endforeach; ?>
+string(<?= strlen($errorAfterSuccess) ?>) "<?= htmlspecialchars($errorAfterSuccess) ?>"<br>
+
+<h2>Lekcja 22, slajd 5: mysqli_insert_id() tylko po udanym zapytaniu</h2>
+<?php if ($insertError !== ""): ?>
+  Błąd zapytania: <?= htmlspecialchars($insertError) ?><br>
+  mysqli_insert_id(): <?= $idAfterError ?><br>
+<?php endif; ?>
+<?php if ($newId !== 0): ?>
+  Dodano produkt nr <?= $newId ?>
+<?php endif; ?>

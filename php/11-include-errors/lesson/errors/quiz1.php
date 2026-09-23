@@ -3,23 +3,28 @@
 // Question 1 needs MySQL running (no database needed).
 header("Content-Type: text/html; charset=UTF-8");
 
-echo "<h2>1. Numer błędu i jego opis: mysqli_errno i mysqli_error</h2>";
 // Since PHP 8.1 a failed query throws; this restores returning false.
 mysqli_report(MYSQLI_REPORT_OFF);
 $conn = mysqli_connect("localhost", "root", "");
 if (!$conn) {
-    echo "Brak połączenia: " . htmlspecialchars(mysqli_connect_error()) . "<br>";
-    exit;
+    die("Brak połączenia: " . htmlspecialchars(mysqli_connect_error()));
 }
 
+$errorNumber = 0;
+$errorText = "";
 $result = mysqli_query($conn, "SELECT * FROM products");   // fails: no database chosen
 if (!$result) {
-    echo "Numer błędu: " . mysqli_errno($conn) . "<br>";                     // 1046
-    // No database selected
-    echo "Opis błędu: " . htmlspecialchars(mysqli_error($conn)) . "<br>";
+    $errorNumber = mysqli_errno($conn);    // 1046
+    $errorText = mysqli_error($conn);      // No database selected
 }
-echo "Odpowiedź B: funkcje mysqli_error i mysqli_errno.<br>";
 mysqli_close($conn);
+?>
+<h2>1. Numer błędu i jego opis: mysqli_errno i mysqli_error</h2>
+<?php if ($errorNumber !== 0): ?>
+  <p>Numer błędu: <?= $errorNumber ?></p>
+  <p>Opis błędu: <?= htmlspecialchars($errorText) ?></p>
+<?php endif; ?>
+<p>Odpowiedź B: funkcje mysqli_error i mysqli_errno.</p>
 
-echo "<h2>2. Gdzie trafiają błędy interpretacji kodu PHP?</h2>";
-echo "Odpowiedź A: do logu, pod warunkiem ustawienia odpowiedniego parametru w php.ini.<br>";
+<h2>2. Gdzie trafiają błędy interpretacji kodu PHP?</h2>
+<p>Odpowiedź A: do logu, pod warunkiem ustawienia odpowiedniego parametru w php.ini.</p>

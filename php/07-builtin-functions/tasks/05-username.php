@@ -15,6 +15,11 @@ function checkUsername($username) {
     // TU ZMIEŃ: oczyść nazwę, sprawdź trzy zasady i zwróć jedną linię tekstu
     return "";
 }
+
+$results = [];
+foreach ($usernames as $username) {
+    $results[$username] = checkUsername($username);
+}
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -28,12 +33,9 @@ function checkUsername($username) {
   <p>Dokończ funkcję checkUsername(). Login bez spacji na brzegach i małymi literami musi mieć
     od 3 do 12 znaków i nie może mieć spacji w środku. Polska litera to jeden znak.</p>
   <ul>
-    <?php
-        foreach ($usernames as $username) {
-            $result = checkUsername($username);
-            echo "<li>[" . htmlspecialchars($username) . "] → " . htmlspecialchars($result) . "</li>";
-        }
-    ?>
+    <?php foreach ($results as $username => $result): ?>
+      <li>[<?= htmlspecialchars($username) ?>] → <?= htmlspecialchars($result) ?></li>
+    <?php endforeach; ?>
   </ul>
 </body>
 </html>

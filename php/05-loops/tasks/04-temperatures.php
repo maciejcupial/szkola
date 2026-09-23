@@ -8,6 +8,12 @@ header("Content-Type: text/html; charset=UTF-8");
 $temperatures = [12, 15, 9, 18, 21, 7, 14];
 $warmDays = 0;
 $average = 0;
+$dayLines = [];
+
+// TU ZMIEŃ: pętla foreach, która dopisuje do $dayLines tekst „Dzień 1: 12 °C”, z dopiskiem
+// „ (ciepło)” przy 15 °C lub więcej, i liczy $warmDays
+
+// TU ZMIEŃ: pod pętlą policz $average z array_sum(), count() i round()
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -22,11 +28,9 @@ $average = 0;
     Numeruj od 1, nie od 0. Przy dniach z temperaturą 15 °C lub wyższą dopisz „(ciepło)” i policz
     je w <code>$warmDays</code>. Pod listą pokaż średnią z tygodnia.</p>
   <ul>
-<?php
-// TU ZMIEŃ: pętla foreach z numerem dnia, dopiskiem „(ciepło)” i liczeniem $warmDays
-
-// TU ZMIEŃ: pod pętlą policz $average z array_sum(), count() i round()
-?>
+    <?php foreach ($dayLines as $line): ?>
+      <li><?= htmlspecialchars($line) ?></li>
+    <?php endforeach; ?>
   </ul>
   <p>Ciepłych dni: <?= $warmDays ?></p>
   <p>Średnia temperatura: <?= $average ?> °C</p>

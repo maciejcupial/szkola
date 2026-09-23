@@ -12,6 +12,13 @@ $prices = [
     "jabłka" => 5.8,
 ];
 $total = 0;
+$rows = [];
+
+// TU ZMIEŃ: pętla foreach, która dla każdego produktu dopisuje do $rows wiersz
+// ["product" => ..., "price" => ..., "class" => ...] i dodaje cenę do $total
+// "class" => $price > 10 ? "expensive" : ""
+
+$total = round($total, 2);
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -36,12 +43,12 @@ $total = 0;
     wszystkich cen.</p>
   <table>
     <tr><th>Produkt</th><th>Cena</th></tr>
-<?php
-// $rowClass = $price > 10 ? ' class="expensive"' : ''; goes inside <tr ...>.
-
-// TU ZMIEŃ: pętla foreach, która wypisuje wiersz <tr> dla każdego produktu i dodaje cenę do $total
-?>
+    <?php foreach ($rows as $row): ?>
+      <tr class="<?= htmlspecialchars($row["class"]) ?>">
+        <td><?= htmlspecialchars($row["product"]) ?></td><td><?= $row["price"] ?> zł</td>
+      </tr>
+    <?php endforeach; ?>
   </table>
-  <p>Razem: <?= round($total, 2) ?> zł</p>
+  <p>Razem: <?= $total ?> zł</p>
 </body>
 </html>

@@ -21,7 +21,9 @@ if (!empty($_POST)) {
 // A mysqli_result can be walked only once, and the page needs the rows twice.
 $products = [];
 $result = mysqli_query($db, "SELECT id, name, price FROM products");
-// TU ZMIEŃ: pętla while z mysqli_fetch_assoc(), każdy wiersz na koniec $products.
+// TU ZMIEŃ: pętla while z mysqli_fetch_assoc(); $row["selected"] = "selected", gdy id == $chosenId,
+// inaczej ""; każdy wiersz na koniec $products.
+mysqli_close($db);
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -45,9 +47,7 @@ $result = mysqli_query($db, "SELECT id, name, price FROM products");
   <form method="post">
     <label for="product-id">Produkt</label>
     <select id="product-id" name="productId">
-      <?php
-      // TU ZMIEŃ: foreach po $products, <option value="id">; gdy id == $chosenId, dodaj selected.
-      ?>
+      <!-- TU ZMIEŃ: foreach po $products, <option value="id" selected-albo-nic>nazwa (cena zł)</option>. -->
     </select>
     <label for="product-price">Nowa cena</label>
     <!-- type="text" on purpose: PHP validates the price. -->
@@ -60,11 +60,7 @@ $result = mysqli_query($db, "SELECT id, name, price FROM products");
       <th>Nazwa</th>
       <th>Cena</th>
     </tr>
-    <?php
-    // TU ZMIEŃ: foreach po $products, jeden wiersz <tr> tabeli na produkt.
-    ?>
+    <!-- TU ZMIEŃ: foreach po $products, jeden wiersz <tr> tabeli na produkt. -->
   </table>
 </body>
 </html>
-<?php
-mysqli_close($db);

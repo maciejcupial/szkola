@@ -7,10 +7,13 @@ header("Content-Type: text/html; charset=UTF-8");
 
 require __DIR__ . "/../db.php";
 
-// TU ZMIEŃ: zapytanie SELECT o nazwę i cenę wszystkich produktów, wynik do $result.
-
+$products = [];
 $count = 0;
 $total = 0;
+// TU ZMIEŃ: zapytanie SELECT o nazwę i cenę wszystkich produktów, wynik do $result.
+// TU ZMIEŃ: pętla while: $count++, cena do $total, $row["class"] = "expensive" albo "", wiersz do $products.
+
+mysqli_close($db);
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -37,13 +40,9 @@ $total = 0;
       <th>Nazwa</th>
       <th>Cena</th>
     </tr>
-    <?php
-    // TU ZMIEŃ: pętla while: $count++, cena do $total, <tr> z dwiema <td>, class="expensive" > 50 zł.
-    ?>
+    <!-- TU ZMIEŃ: foreach po $products, <tr class="..."> z dwiema <td>. -->
   </table>
   <p>Liczba produktów: <?= $count ?></p>
   <p>Wartość wszystkich produktów: <?= number_format($total, 2) ?> zł</p>
 </body>
 </html>
-<?php
-mysqli_close($db);

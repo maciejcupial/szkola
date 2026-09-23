@@ -8,6 +8,10 @@ warunku, `break` i `continue` wybierają numerki z kolejki, a `foreach` wypisuje
 z tablicy asocjacyjnej i tabelę zamówień z tablicy tablic. W folderze `tasks` jest sześć zadań, od
 najprostszej pętli `for` do szachownicy z pętlą w pętli dla chętnych.
 
+W każdym pliku pętle stoją na górze, w bloku `<?php`, i zapisują wyniki do tablic. HTML pod spodem
+tylko je pokazuje: `<?php foreach (...): ?>` … `<?php endforeach; ?>` i `<?= ... ?>`, bez `echo`
+z tagami.
+
 Komentarze w kodzie są po angielsku i tylko tam, gdzie coś może być niejasne.
 
 ## Jak uruchomić
@@ -38,7 +42,8 @@ Komentarze w kodzie są po angielsku i tylko tam, gdzie coś może być niejasne
 
 ## Co zmienić
 
-- `index.php`: na końcu pliku, w miejscu `TU ZMIEŃ`, dopisz własną pętlę.
+- `index.php`: na końcu bloku `<?php`, w miejscu `TU ZMIEŃ`, dopisz własną pętlę, która dodaje
+  elementy do `$myList`. Strona pokaże je w sekcji „Twoja pętla”.
 - `tasks/01-times-table.php`: napisz pętlę `for` od 1 do 10. Dla liczby 7 ma wyjść dziesięć linii,
   od „7 × 1 = 7” do „7 × 10 = 70”.
 - `tasks/02-piggy-bank.php`: napisz pętlę `while`, która dodaje kolejne tygodnie. Ma wyjść sześć
@@ -47,10 +52,10 @@ Komentarze w kodzie są po angielsku i tylko tam, gdzie coś może być niejasne
   Ma wyjść „Wolne miejsca: 1 2 5 6 7” i „Znaleziono 5 z 5 miejsc.”
 - `tasks/04-temperatures.php`: dwa miejsca `TU ZMIEŃ`, pętla i średnia pod nią. Ma wyjść
   „Ciepłych dni: 3” i „Średnia temperatura: 13.71 °C”.
-- `tasks/05-price-list.php`: pętla `foreach` z wierszami tabeli. Ser i kawa mają różowe tło,
-  a pod tabelą „Razem: 54.39 zł”.
-- `tasks/06-chessboard.php`: pętla w pętli pod gotowym wierszem z literami. Pole a8 w lewym górnym
-  rogu jest jasne, a1 w lewym dolnym ciemne.
+- `tasks/05-price-list.php`: pętla `foreach`, która zapisuje wiersze do `$rows`. Ser i kawa mają
+  różowe tło, a pod tabelą „Razem: 54.39 zł”.
+- `tasks/06-chessboard.php`: pętla w pętli, która wypełnia tablicę `$board`, bo HTML z tabelą jest
+  gotowy. Pole a8 w lewym górnym rogu jest jasne, a1 w lewym dolnym ciemne.
 
 ## Częste błędy
 
@@ -66,7 +71,7 @@ Komentarze w kodzie są po angielsku i tylko tam, gdzie coś może być niejasne
   pojedynczego elementu (`$order`).
 - Numeracja zaczyna się od 0: klucze tablicy zwykłej liczą się od zera, więc numer dnia to
   `$index + 1`, w nawiasie.
-- Wiersz tabeli rozjeżdża się albo cała tabela ląduje w jednej linii: `</tr>` stoi wewnątrz
-  wewnętrznej pętli. Wiersz zamykasz po niej, nie w niej.
+- Pętla działa, a lista na stronie jest pusta: pętla nie dopisuje wyników do tablicy, którą czyta
+  HTML niżej (na przykład `$results[$factor] = ...`), albo używa innej nazwy tablicy.
 - Średnia wychodzi na przykład 13.714285714286: brakuje `round(..., 2)`, drugi argument mówi,
   ile cyfr po kropce zostawić.

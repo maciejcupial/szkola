@@ -46,13 +46,14 @@ oznaczone `TU ZMIEŃ`, a wynik, który ma się pojawić, jest opisany na górze 
   ten wynik z powrotem do `$visits`. Mają wyjść kolejno 10, 11, 10 i 11.
 - `05-shop-receipt.php`: napisz `lineTotal`, `cartTotal` i `shippingCost`. Do zapłaty ma
   wyjść 100,96 zł, a z kodem na dostawę 85,97 zł.
-- `index.php`: zmień ceny w `$order` albo dopisz własną funkcję i wywołaj ją w nowej sekcji.
+- `index.php`: zmień ceny w `$order` albo dopisz własną funkcję, wywołaj ją na górze pliku,
+  a wynik pokaż w nowej sekcji strony przez `<?= ... ?>`.
 
 ## Częste błędy
 
 - Wynik widać na stronie, a mimo to w dalszej części wychodzi pusto albo 0: w funkcji jest
   `echo` zamiast `return`. Funkcja bez `return` zwraca `null`, więc wynik trzeba oddać
-  przez `return`, a `echo` zostawić przy wywołaniu.
+  przez `return`, zapisać do zmiennej i dopiero ją pokazać w HTML-u.
 - `Fatal error: Uncaught ArgumentCountError: Too few arguments to function ticketPrice()`:
   wywołanie ma mniej argumentów niż funkcja wymaganych parametrów. Brakujący parametr dostaje
   wartość domyślną tylko wtedy, gdy ma w definicji znak `=` i wartość, na przykład `= 0`.

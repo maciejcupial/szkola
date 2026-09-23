@@ -19,4 +19,7 @@ $stmt = mysqli_prepare($db, "UPDATE products SET price = ? WHERE id = ?");
 // Types in the order of the ? marks: d = price, i = id.
 mysqli_stmt_bind_param($stmt, "di", $price, $id);
 mysqli_stmt_execute($stmt);
-echo "Zmienionych: " . mysqli_affected_rows($db);   // Zmienionych: 1
+$changed = mysqli_affected_rows($db);   // 1
+mysqli_close($db);
+?>
+<p>Zmienionych: <?= $changed ?></p>

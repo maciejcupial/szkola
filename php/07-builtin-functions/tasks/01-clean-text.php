@@ -15,6 +15,9 @@ $trimmed = "";
 $upper = "";
 // TU ZMIEŃ: zapisz do $replaced wynik str_replace(), „mechaniczna” na „bezprzewodowa”
 $replaced = "";
+
+$textLength = strlen($text);
+$trimmedLength = strlen($trimmed);
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -26,14 +29,12 @@ $replaced = "";
 <body>
   <h1>Zadanie 1: porządki w napisie</h1>
   <p>Usuń spacje z brzegów nazwy, zamień ją na wielkie litery, a potem zamień słowo „mechaniczna”
-    na „bezprzewodowa”. Linii z echo nie ruszaj.</p>
+    na „bezprzewodowa”. Części z HTML nie ruszaj.</p>
   <p>
-    <?php
-        echo "Przed trim(): [" . htmlspecialchars($text) . "], długość " . strlen($text) . "<br>";
-        echo "Po trim(): [" . htmlspecialchars($trimmed) . "], długość " . strlen($trimmed) . "<br>";
-        echo "Wielkimi literami: " . htmlspecialchars($upper) . "<br>";
-        echo "Po zamianie: " . htmlspecialchars($replaced);
-    ?>
+    Przed trim(): [<?= htmlspecialchars($text) ?>], długość <?= $textLength ?><br>
+    Po trim(): [<?= htmlspecialchars($trimmed) ?>], długość <?= $trimmedLength ?><br>
+    Wielkimi literami: <?= htmlspecialchars($upper) ?><br>
+    Po zamianie: <?= htmlspecialchars($replaced) ?>
   </p>
 </body>
 </html>

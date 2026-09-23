@@ -90,7 +90,7 @@ $theme = "light";
       <label for="theme">Motyw</label>
       <select id="theme" name="theme">
         <?php foreach ($themes as $key => $label): ?>
-          <option value="<?= htmlspecialchars($key) ?>" <?= $key === $theme ? "selected" : "" ?>>
+          <option value="<?= htmlspecialchars($key) ?>"<?php if ($key === $theme): ?> selected<?php endif; ?>>
             <?= htmlspecialchars($label) ?>
           </option>
         <?php endforeach; ?>

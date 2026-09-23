@@ -9,16 +9,22 @@ if (!$db) {
     die("Błąd połączenia z bazą danych.");
 }
 
-echo "<h2>1. Jak pobrać liczbę zmienionych wierszy?</h2>";
+// Question 1
 $zapytanie = "UPDATE products SET price = '1.00' WHERE id < 10";
 mysqli_query($db, $zapytanie);
 // Answer D
-echo mysqli_affected_rows($db) . "<br>";   // 3
+$changed = mysqli_affected_rows($db);   // 3
 // Fatal error: Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result
-// echo mysqli_num_rows($db);
+// $changed = mysqli_num_rows($db);
 
-echo "<h2>2. Jaką wartość przyjmie zmienna \$x?</h2>";
+// Question 2
 mysqli_query($db, "DELETE FROM products WHERE price < 0");
-$x = mysqli_affected_rows($db);
 // Answer C
-echo $x;   // 0
+$x = mysqli_affected_rows($db);   // 0
+mysqli_close($db);
+?>
+<h2>1. Jak pobrać liczbę zmienionych wierszy?</h2>
+<?= $changed ?><br>
+
+<h2>2. Jaką wartość przyjmie zmienna $x?</h2>
+<?= $x ?>

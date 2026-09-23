@@ -13,11 +13,13 @@ function calculateTax($price) {
     return $price * 0.23;
 }
 
-echo "Cena po rabacie: " . ($price - $quantity) . " zł\n";   // Cena po rabacie: 16.9 zł
-echo calculateTax($price);                                    // 4.577
-// "\n" breaks the line only in a terminal, not in the browser.
+$priceAfterDiscount = $price - $quantity;   // 16.9
+$tax = calculateTax($price);                // 4.577
 
 // Step 5, the note students add:
 // błąd 1 (błąd składni): brakujący średnik po 19.90
 // błąd 2 (ostrzeżenie): brakująca zmienna $quantity - dopisana
 // błąd 3 (błąd krytyczny): brakująca funkcja calculateTax() - dopisana
+?>
+<p>Cena po rabacie: <?= $priceAfterDiscount ?> zł</p>
+<p><?= $tax ?></p>

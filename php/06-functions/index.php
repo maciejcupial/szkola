@@ -25,10 +25,26 @@ function describeTemperature($celsius) {
     return "$celsius °C to $fahrenheit °F";
 }
 
-$order = [9.5, 12, 7.5];
+// 1. Parameter and return
+$coldDrink = celsiusToFahrenheit(0);    // 32
+$roomDrink = celsiusToFahrenheit(20);   // 68
+$hotDrink = celsiusToFahrenheit(37);    // 98.6
 
-// Not the same variable as $sum inside orderTotal().
+// 2. Default value
+$coffeePrice = priceWithVat(10);        // 12.3
+$cookiePrice = priceWithVat(10, 8);     // 10.8
+$twoCoffees = $coffeePrice * 2;         // 24.6
+
+// 3. Array as an argument
+$order = [9.5, 12, 7.5];
+$orderList = implode(", ", $order);     // 9.5, 12, 7.5
+
+// 4. Not the same variable as $sum inside orderTotal().
 $sum = 1000;
+$total = orderTotal($order);            // 29
+
+// 5. A function that calls a function
+$description = describeTemperature(90); // 90 °C to 194 °F
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -50,36 +66,24 @@ $sum = 1000;
   <h1>Kawiarnia</h1>
 
   <h2>1. Parametr i return: temperatura napojów</h2>
-<?php
-echo "<p>" . celsiusToFahrenheit(0) . " °F</p>";     // 32 °F
-echo "<p>" . celsiusToFahrenheit(20) . " °F</p>";    // 68 °F
-echo "<p>" . celsiusToFahrenheit(37) . " °F</p>";    // 98.6 °F
-?>
+  <p><?= $coldDrink ?> °F</p>
+  <p><?= $roomDrink ?> °F</p>
+  <p><?= $hotDrink ?> °F</p>
 
   <h2>2. Wartość domyślna: cena z VAT</h2>
-<?php
-echo "<p>Kawa: " . priceWithVat(10) . " zł</p>";         // Kawa: 12.3 zł
-echo "<p>Ciastko: " . priceWithVat(10, 8) . " zł</p>";   // Ciastko: 10.8 zł
-$coffeePrice = priceWithVat(10);
-echo "<p>Dwie kawy: " . $coffeePrice * 2 . " zł</p>";    // Dwie kawy: 24.6 zł
-?>
+  <p>Kawa: <?= $coffeePrice ?> zł</p>
+  <p>Ciastko: <?= $cookiePrice ?> zł</p>
+  <p>Dwie kawy: <?= $twoCoffees ?> zł</p>
 
   <h2>3. Tablica jako argument: suma zamówienia</h2>
-<?php
-echo "<p>Ceny: " . htmlspecialchars(implode(", ", $order)) . "</p>";   // Ceny: 9.5, 12, 7.5
-echo "<p>Razem: " . orderTotal($order) . " zł</p>";                    // Razem: 29 zł
-?>
+  <p>Ceny: <?= htmlspecialchars($orderList) ?></p>
+  <p>Razem: <?= $total ?> zł</p>
 
   <h2>4. Ta sama nazwa, dwie różne zmienne</h2>
-<?php
-echo "<p>Zmienna \$sum poza funkcją: $sum</p>";   // Zmienna $sum poza funkcją: 1000
-$total = orderTotal($order);
-echo "<p>Wynik zapisany w \$total: $total</p>";   // Wynik zapisany w $total: 29
-?>
+  <p>Zmienna $sum poza funkcją: <?= $sum ?></p>
+  <p>Wynik zapisany w $total: <?= $total ?></p>
 
   <h2>5. Funkcja wywołuje funkcję</h2>
-<?php
-echo "<p>" . htmlspecialchars(describeTemperature(90)) . "</p>";   // 90 °C to 194 °F
-?>
+  <p><?= htmlspecialchars($description) ?></p>
 </body>
 </html>

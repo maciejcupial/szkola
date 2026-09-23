@@ -9,15 +9,21 @@ if (!$db) {
     die("Błąd połączenia z bazą danych.");
 }
 
-echo "<h2>1. Które polecenie przypisać do \$query?</h2>";
+// Question 1
 $a = "Ołówek";
 $b = "1.80";
 // Answer D: NULL in place of the auto-increment key.
 $query = "INSERT INTO products VALUES (NULL, '$a', '$b')";
 mysqli_query($db, $query);
-echo "Nowy wiersz ma id " . mysqli_insert_id($db);   // Nowy wiersz ma id 4
+$firstId = mysqli_insert_id($db);   // 4
 
-echo "<h2>2. Co się stanie po pominięciu pola klucza?</h2>";
-// Answer D
+// Question 2, answer D
 mysqli_query($db, "INSERT INTO products (name, price) VALUES ('Gumka', '2.50')");
-echo "Nowy wiersz ma id " . mysqli_insert_id($db);   // Nowy wiersz ma id 5
+$secondId = mysqli_insert_id($db);   // 5
+mysqli_close($db);
+?>
+<h2>1. Które polecenie przypisać do $query?</h2>
+Nowy wiersz ma id <?= $firstId ?>
+
+<h2>2. Co się stanie po pominięciu pola klucza?</h2>
+Nowy wiersz ma id <?= $secondId ?>

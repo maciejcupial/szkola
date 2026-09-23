@@ -17,6 +17,15 @@ $rectangles = [
     [5, 5],
     [10, 2],
 ];
+
+$results = [];
+foreach ($rectangles as $rectangle) {
+    $results[] = [
+        "width" => $rectangle[0],
+        "height" => $rectangle[1],
+        "area" => rectangleArea($rectangle[0], $rectangle[1]),
+    ];
+}
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -31,11 +40,8 @@ $rectangles = [
     Dokończ funkcję <code>rectangleArea($width, $height)</code>: ma zwracać przez <code>return</code>
     iloczyn szerokości i wysokości. Wywołań poniżej nie zmieniaj.
   </p>
-<?php
-foreach ($rectangles as $rectangle) {
-    $area = rectangleArea($rectangle[0], $rectangle[1]);
-    echo "<p>Prostokąt " . $rectangle[0] . " x " . $rectangle[1] . ": pole $area</p>";
-}
-?>
+  <?php foreach ($results as $result): ?>
+    <p>Prostokąt <?= $result["width"] ?> x <?= $result["height"] ?>: pole <?= $result["area"] ?></p>
+  <?php endforeach; ?>
 </body>
 </html>

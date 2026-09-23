@@ -6,17 +6,18 @@ function divide($a, $b) {
     return $a / $b;   // by 0: DivisionByZeroError since PHP 8
 }
 
-echo "<h2>Lekcja 26, slajd 7: łapiemy błąd</h2>";
-echo divide(10, 2) . "<br>";   // 5
+$firstResult = divide(10, 2);   // 5
 
 try {
-    echo divide(10, 0) . "<br>";   // throws, jumps into catch
-    echo "Ta linia się nie wykona.<br>";
+    $message = "Wynik: " . divide(10, 0);   // throws, jumps into catch
 } catch (DivisionByZeroError $e) {
-    echo "Błąd: " . htmlspecialchars($e->getMessage()) . "<br>";   // Błąd: Division by zero
+    $message = "Błąd: " . $e->getMessage();   // Błąd: Division by zero
 }
 
-echo "Reszta strony działa dalej.<br>";   // Reszta strony działa dalej.
-
 // Fatal error: Uncaught DivisionByZeroError: Division by zero
-// echo divide(10, 0);
+// $message = divide(10, 0);
+?>
+<h2>Lekcja 26, slajd 7: łapiemy błąd</h2>
+<p><?= $firstResult ?></p>
+<p><?= htmlspecialchars($message) ?></p>
+<p>Reszta strony działa dalej.</p>

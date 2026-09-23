@@ -41,11 +41,11 @@ $total = 0;
   <table>
     <tr>
       <th>Film</th>
-      <td><?php echo htmlspecialchars($movie); ?></td>
+      <td><?= htmlspecialchars($movie) ?></td>
     </tr>
     <tr>
       <th>Cena biletu</th>
-      <td><?php echo "$ticketPrice zł"; ?></td>
+      <td><?= $ticketPrice ?> zł</td>
     </tr>
     <!-- TU ZMIEŃ: dopisz trzy wiersze: Liczba biletów, Bilety razem, Razem z popcornem -->
   </table>

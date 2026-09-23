@@ -17,6 +17,7 @@ if (!empty($_POST)) {
     // Po udanym zapytaniu: "Dodano produkt nr " . mysqli_insert_id($db) . ": " . $name . "."
     // Po nieudanym: "Błąd zapytania: " . mysqli_error($db)
 }
+mysqli_close($db);
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -42,5 +43,3 @@ if (!empty($_POST)) {
   </form>
 </body>
 </html>
-<?php
-mysqli_close($db);

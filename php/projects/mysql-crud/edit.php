@@ -10,20 +10,11 @@ $stmt->execute([$id]);
 // false when nothing matched
 $post = $stmt->fetch();
 
-if (!$post) {
-    $pageTitle = "Nie ma takiego wpisu";
-    require "header.php";
-    echo "<p>Wpis o tym numerze nie istnieje. Mógł zostać wcześniej usunięty.</p>";
-    echo '<p><a class="button" href="list.php">Wróć do listy</a></p>';
-    require "footer.php";
-    exit;
-}
-
-$title = $post["title"];
-$body = $post["body"];
+$title = $post["title"] ?? "";
+$body = $post["body"] ?? "";
 $error = "";
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
+if ($post && $_SERVER["REQUEST_METHOD"] === "POST") {
     $title = trim($_POST["title"] ?? "");
     $body = trim($_POST["body"] ?? "");
 
@@ -38,9 +29,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 }
 
-$pageTitle = "Edycja wpisu";
+$pageTitle = $post ? "Edycja wpisu" : "Nie ma takiego wpisu";
 require "header.php";
 ?>
+<?php if (!$post): ?>
+  <p>Wpis o tym numerze nie istnieje. Mógł zostać wcześniej usunięty.</p>
+  <p><a class="button" href="list.php">Wróć do listy</a></p>
+<?php else: ?>
 <?php if ($error): ?>
   <p class="error"><?= htmlspecialchars($error) ?></p>
 <?php endif; ?>
@@ -60,5 +55,6 @@ require "header.php";
     <a class="button" href="list.php">Anuluj</a>
   </div>
 </form>
+<?php endif; ?>
 <?php
 require "footer.php";

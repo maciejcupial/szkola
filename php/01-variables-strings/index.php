@@ -13,6 +13,27 @@ $isAvailable = true;         // bool: no quotes
 // Calculate first: inside "..." PHP never calculates.
 $pagesPerDay = 43;
 $days = $pages / $pagesPerDay;
+
+// Build the text here. In the HTML below "<?=" prints it like echo,
+// and htmlspecialchars() makes < > & " harmless.
+$titleLine = "Tytuł: " . $title . ", stron: " . $pages;               // Tytuł: Pan Tadeusz, stron: 344
+$ratingLine = "Ocena czytelników: $rating na 5";                       // Ocena czytelników: 4.5 na 5
+$quotesLine = 'W apostrofach zmienna się nie zmienia: $pages';         // ... nie zmienia: $pages
+$availableLine = "Dostępna: " . $isAvailable;                          // Dostępna: 1
+$plusLine = "Plus: " . ($pages + 1) . ", kropka: " . $pages . 1;       // Plus: 345, kropka: 3441
+$daysLine = "Czytając $pagesPerDay strony dziennie, skończysz w $days dni.";
+// Czytając 43 strony dziennie, skończysz w 8 dni.
+
+$upperTitle = strtoupper($title);                                      // PAN TADEUSZ
+$changedTitle = str_replace("Pan", "Imć", $title);                     // Imć Tadeusz
+// substr() counts from 0.
+$shortTitle = substr($title, 0, 3);                                    // Pan
+
+// strlen() counts bytes (a Polish letter is 2), mb_strlen() counts letters.
+$word = "źdźbło";
+$lengthLine = "strlen: " . strlen($word) . ", mb_strlen: " . mb_strlen($word);   // strlen: 9, mb_strlen: 6
+// strtoupper() would leave ź and ł small.
+$upperWord = mb_strtoupper($word);                                     // ŹDŹBŁO
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -48,46 +69,23 @@ $days = $pages / $pagesPerDay;
 
   <h2>Łączenie tekstu</h2>
   <p>
-    <?php
-        // htmlspecialchars() makes < > & " harmless; numbers do not need it.
-        echo "Tytuł: " . htmlspecialchars($title) . ", stron: " . $pages . "<br>";
-        // Tytuł: Pan Tadeusz, stron: 344
-
-        echo "Ocena czytelników: $rating na 5<br>";
-        // Ocena czytelników: 4.5 na 5
-
-        echo 'W apostrofach zmienna się nie zmienia: $pages<br>';
-        // W apostrofach zmienna się nie zmienia: $pages
-
-        echo "Dostępna: " . $isAvailable . "<br>";
-        // Dostępna: 1
-
-        echo "Plus: " . ($pages + 1) . ", kropka: " . $pages . 1 . "<br>";
-        // Plus: 345, kropka: 3441
-
-        echo "Czytając $pagesPerDay strony dziennie, skończysz w $days dni.";
-        // Czytając 43 strony dziennie, skończysz w 8 dni.
-    ?>
+    <?= htmlspecialchars($titleLine) ?><br>
+    <?= htmlspecialchars($ratingLine) ?><br>
+    <?= htmlspecialchars($quotesLine) ?><br>
+    <?= htmlspecialchars($availableLine) ?><br>
+    <?= htmlspecialchars($plusLine) ?><br>
+    <?= htmlspecialchars($daysLine) ?>
   </p>
 
   <h2>Funkcje do ciągów</h2>
   <p>
-    <?php
-        // substr() counts from 0.
-        echo htmlspecialchars(strtoupper($title)) . "<br>";                     // PAN TADEUSZ
-        echo htmlspecialchars(str_replace("Pan", "Imć", $title)) . "<br>";      // Imć Tadeusz
-        echo htmlspecialchars(substr($title, 0, 3)) . "<br>";                   // Pan
-
-        // strlen() counts bytes (a Polish letter is 2), mb_strlen() counts letters.
-        $word = "źdźbło";
-        echo "strlen: " . strlen($word) . ", mb_strlen: " . mb_strlen($word) . "<br>";
-        // strlen: 9, mb_strlen: 6
-
-        // strtoupper() would leave ź and ł small.
-        echo htmlspecialchars(mb_strtoupper($word));                            // ŹDŹBŁO
-    ?>
+    <?= htmlspecialchars($upperTitle) ?><br>
+    <?= htmlspecialchars($changedTitle) ?><br>
+    <?= htmlspecialchars($shortTitle) ?><br>
+    <?= htmlspecialchars($lengthLine) ?><br>
+    <?= htmlspecialchars($upperWord) ?>
   </p>
 
-  <!-- TU ZMIEŃ: dopisz własną linię, na przykład skróć tytuł funkcją mb_substr() -->
+  <!-- TU ZMIEŃ: dopisz własną linię: policz ją na górze pliku, na przykład mb_substr(), i wypisz tutaj -->
 </body>
 </html>

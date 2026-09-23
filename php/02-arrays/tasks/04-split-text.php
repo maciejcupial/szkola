@@ -24,6 +24,12 @@ $cities = [];
 $cityCount = 0;
 $firstCity = "";
 $lastCity = "";
+
+$labels = [];
+foreach ($cities as $city) {
+    // TU ZMIEŃ: zrób „WARSZAWA (znaków: 8)” przez mb_strtoupper() i mb_strlen()
+    $labels[] = $city;
+}
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -40,19 +46,14 @@ $lastCity = "";
   </p>
 
   <p>
-    <?php
-        echo "Miast na liście: " . $cityCount . "<br>";
-        echo "Pierwsze: " . htmlspecialchars($firstCity) . ", ostatnie: " . htmlspecialchars($lastCity);
-    ?>
+    Miast na liście: <?= $cityCount ?><br>
+    Pierwsze: <?= htmlspecialchars($firstCity) ?>, ostatnie: <?= htmlspecialchars($lastCity) ?>
   </p>
 
   <ul>
-    <?php
-        foreach ($cities as $city) {
-            // TU ZMIEŃ: wypisz „WARSZAWA (znaków: 8)” przez mb_strtoupper() i mb_strlen()
-            echo "<li>" . htmlspecialchars($city) . "</li>";
-        }
-    ?>
+    <?php foreach ($labels as $label): ?>
+      <li><?= htmlspecialchars($label) ?></li>
+    <?php endforeach; ?>
   </ul>
 </body>
 </html>

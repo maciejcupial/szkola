@@ -18,6 +18,6 @@ class Product {
 
 $product1 = new Product("Keyboard", 120);
 $product2 = new Product("Mouse", 45);
-
-echo $product1->name . " - " . $product1->getPrice() . "<br>";   // Keyboard - 120
-echo $product2->name . " - " . $product2->getPrice() . "<br>";   // Mouse - 45
+?>
+<p><?= htmlspecialchars($product1->name) ?> - <?= $product1->getPrice() ?></p>  <!-- Keyboard - 120 -->
+<p><?= htmlspecialchars($product2->name) ?> - <?= $product2->getPrice() ?></p>  <!-- Mouse - 45 -->

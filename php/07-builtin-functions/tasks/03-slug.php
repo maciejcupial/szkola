@@ -14,6 +14,11 @@ function makeSlug($title) {
     // TU ZMIEŃ: użyj trim(), strtolower() i str_replace() i zwróć gotowy adres
     return "";
 }
+
+$slugs = [];
+foreach ($titles as $title) {
+    $slugs[$title] = makeSlug($title);
+}
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -27,12 +32,9 @@ function makeSlug($title) {
   <p>Dokończ funkcję makeSlug(), która z tytułu wpisu robi adres: bez spacji na brzegach,
     małymi literami, z myślnikami zamiast spacji.</p>
   <ul>
-    <?php
-        foreach ($titles as $title) {
-            $slug = makeSlug($title);
-            echo "<li>[" . htmlspecialchars($title) . "] → " . htmlspecialchars($slug) . "</li>";
-        }
-    ?>
+    <?php foreach ($slugs as $title => $slug): ?>
+      <li>[<?= htmlspecialchars($title) ?>] → <?= htmlspecialchars($slug) ?></li>
+    <?php endforeach; ?>
   </ul>
 </body>
 </html>

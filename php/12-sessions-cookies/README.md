@@ -27,17 +27,24 @@ Komentarze w kodzie są po angielsku i tylko tam, gdzie coś może być niejasne
 
 ## Co jest w plikach
 
-- `index.php`: imię w sesji z przyciskiem „Wyloguj”, licznik wejść w ciasteczku na 30 dni, licznik
-  wszystkich wyświetleń w pliku `views.txt`.
+- `index.php`: kontroler. Odbiera formularz, trzyma imię w sesji (z przyciskiem „Wyloguj”), zapisuje
+  licznik wejść w ciasteczku na 30 dni i na końcu dołącza widoki.
+- `functions.php`: model, czyli funkcje liczące. `nextVisitCount()` zwiększa licznik z ciasteczka,
+  a `countView()` liczy wszystkie wyświetlenia w pliku `views.txt`.
+- `templates/`: widoki. `header.php` i `footer.php` to początek i koniec strony, `home.php` to jej
+  treść. W widokach nie ma obliczeń, tylko zmienne przygotowane przez kontroler. Taki sam podział
+  (kontroler, model, widok) mają frameworki, na przykład Laravel.
 - `tasks/01-session-counter.php`: licznik wejść w sesji i przycisk, który go zeruje.
 - `tasks/02-name-form.php` i `tasks/02-name-greeting.php`: imię zapisane na jednej podstronie
   i powitanie na drugiej, z wylogowaniem.
 - `tasks/03-theme-cookie.php`: jasny albo ciemny motyw zapamiętany w ciasteczku na rok.
-- `tasks/04-cart.php`: koszyk w sesji i funkcja `cartTotal()`, która liczy wartość zakupów.
+- `tasks/04-cart.php`: koszyk w sesji. Podzielony jak `index.php`: funkcje, w tym `cartTotal()`,
+  która liczy wartość zakupów, są w `tasks/04-cart-functions.php`, a strona w `tasks/templates/04-cart.php`.
 - `tasks/05-shared-counter.php`: licznik wspólny dla wszystkich w pliku `counter.txt` obok prywatnego
   licznika w sesji.
 - `tasks/06-quiz.php`: dla chętnych. Quiz z trzema pytaniami, który pamięta w sesji, na którym
-  pytaniu jesteś i ile masz punktów.
+  pytaniu jesteś i ile masz punktów. Funkcje są w `tasks/06-quiz-functions.php`, strona
+  w `tasks/templates/06-quiz.php`.
 - `lesson/`: kod z lekcji, który pokazuję na rzutniku, i rozwiązania ćwiczeń ze slajdów. Każdy plik ma
   nagłówek z numerem lekcji i slajdu, a obok linii komentarz z tym, co wypisze.
 
@@ -51,11 +58,11 @@ Komentarze w kodzie są po angielsku i tylko tam, gdzie coś może być niejasne
 - `tasks/02-...`: `session_start()` w obu plikach, zapis imienia i wylogowanie przez `session_destroy()`.
 - `tasks/03-theme-cookie.php`: odczyt `$_COOKIE["theme"]`, sprawdzenie, czy to dozwolony motyw,
   i zapis przez `setcookie()`.
-- `tasks/04-cart.php`: dodawanie produktu do `$_SESSION["cart"]` i pętla w `cartTotal()`.
-  Chleb dwa razy i mleko raz to razem 12,20 zł.
+- `tasks/04-cart.php`: dodawanie produktu do `$_SESSION["cart"]`, a w `tasks/04-cart-functions.php`
+  pętla w `cartTotal()`. Chleb dwa razy i mleko raz to razem 12,20 zł.
 - `tasks/05-shared-counter.php`: odczyt, zwiększenie i zapis liczby w pliku oraz licznik w sesji.
-- `tasks/06-quiz.php`: obie funkcje i cała logika quizu. Odpowiedzi `session_start`, `cookie`, `60`
-  dają wynik 2 z 3.
+- `tasks/06-quiz.php` i `tasks/06-quiz-functions.php`: cała logika quizu i obie funkcje. Odpowiedzi
+  `session_start`, `cookie`, `60` dają wynik 2 z 3.
 
 ## Częste błędy
 
@@ -72,7 +79,7 @@ Komentarze w kodzie są po angielsku i tylko tam, gdzie coś może być niejasne
 - Po wylogowaniu imię wciąż jest na stronie: `session_destroy()` usuwa dane z serwera, ale tablica
   `$_SESSION` w tym jednym żądaniu dalej je ma. Wyczyść ją przez `$_SESSION = [];`.
 - `Warning: file_get_contents(counter.txt): Failed to open stream`: pliku jeszcze nie ma. Sprawdź go
-  najpierw przez `file_exists()`, tak jak w `index.php`.
+  najpierw przez `file_exists()`, tak jak w `functions.php`.
 - Nie możesz znaleźć pliku z licznikiem: nazwa bez ścieżki oznacza folder pliku PHP, który go zapisuje.
   `views.txt` leży obok `index.php`, a `counter.txt` w folderze `tasks`.
 - W ciasteczku nie trzymamy hasła ani innych ważnych danych: leży na komputerze użytkownika, który

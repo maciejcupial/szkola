@@ -14,6 +14,6 @@ $product1->price = 120;
 $product2 = new Product();
 $product2->name = "Mouse";
 $product2->price = 45;
-
-echo $product1->name . " - " . $product1->price . "<br>";   // Keyboard - 120
-echo $product2->name . " - " . $product2->price . "<br>";   // Mouse - 45
+?>
+<p><?= htmlspecialchars($product1->name) ?> - <?= $product1->price ?></p>  <!-- Keyboard - 120 -->
+<p><?= htmlspecialchars($product2->name) ?> - <?= $product2->price ?></p>  <!-- Mouse - 45 -->

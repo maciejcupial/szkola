@@ -11,6 +11,9 @@ $name = "Ola";
 $age = 17;
 $height = 1.65;
 $isAdult = false;
+
+// TU ZMIEŃ: sklej kropką imię, wiek i wzrost w zdanie
+$sentence = "";
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -28,10 +31,6 @@ $isAdult = false;
       // TU ZMIEŃ: cztery linie var_dump(), po jednej dla każdej zmiennej
   ?></pre>
 
-  <p>
-    <?php
-        // TU ZMIEŃ: jedno echo, które skleja kropką imię, wiek i wzrost w zdanie
-    ?>
-  </p>
+  <p><?= htmlspecialchars($sentence) ?></p>
 </body>
 </html>

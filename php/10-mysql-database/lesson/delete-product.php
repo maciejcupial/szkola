@@ -13,12 +13,14 @@ $db = mysqli_connect(
 if (!$db) {
     die("Błąd połączenia.");
 }
+
 $id = $_GET["id"];
 $query = "DELETE FROM products
     WHERE id = $id";
 mysqli_query($db, $query);
-echo "Usuniętych: "
-    . mysqli_affected_rows($db);   // Usuniętych: 1
-// Second run: Usuniętych: 0 (not an error).
-
+// Second run: 0 (not an error).
+$deleted = mysqli_affected_rows($db);   // 1
+mysqli_close($db);
 // Risky: ?id=0 OR 1=1 empties the table (Usuniętych: 3).
+?>
+<p>Usuniętych: <?= $deleted ?></p>

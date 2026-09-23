@@ -15,6 +15,13 @@ $total = 47.456;
 $totalCents = 0;
 // TU ZMIEŃ: zapisz do $totalWhole kwotę zaokrągloną do pełnej złotówki
 $totalWhole = 0;
+// TU ZMIEŃ: w miejsce dwóch zer wpisz round(2.5) i round(2.49)
+$roundHalf = 0;
+$roundBelowHalf = 0;
+
+// d day, m month, Y year, H hour, i minutes
+// TU ZMIEŃ: w miejsce kresek wpisz date() z formatem dzień.miesiąc.rok godzina:minuty
+$receiptDate = "--.--.---- --:--";
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -28,21 +35,13 @@ $totalWhole = 0;
   <p>Zaokrąglij kwotę do groszy i do pełnej złotówki, sprawdź typ wyniku przez var_dump()
     i dopisz datę paragonu.</p>
   <p>
-    <?php
-        echo "Do zapłaty dokładnie: " . $total . " zł<br>";
-        echo "Do zapłaty: " . $totalCents . " zł<br>";
-        echo "Do pełnej złotówki: " . $totalWhole . " zł<br>";
-
-        // TU ZMIEŃ: w miejsce dwóch zer wpisz round(2.5) i round(2.49)
-        echo "round(2.5) = " . 0 . ", round(2.49) = " . 0 . "<br>";
-
-        // TU ZMIEŃ: wywołaj var_dump() dla $totalWhole
-        echo "<br>";
-
-        // d day, m month, Y year, H hour, i minutes
-        // TU ZMIEŃ: w miejsce kresek wpisz date() z formatem dzień.miesiąc.rok godzina:minuty
-        echo "Data paragonu: " . "--.--.---- --:--";
-    ?>
+    Do zapłaty dokładnie: <?= $total ?> zł<br>
+    Do zapłaty: <?= $totalCents ?> zł<br>
+    Do pełnej złotówki: <?= $totalWhole ?> zł<br>
+    round(2.5) = <?= $roundHalf ?>, round(2.49) = <?= $roundBelowHalf ?><br>
+    <!-- TU ZMIEŃ: przed <br> w następnej linii wstaw blok PHP z var_dump() dla $totalWhole -->
+    <br>
+    Data paragonu: <?= $receiptDate ?>
   </p>
 </body>
 </html>
